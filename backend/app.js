@@ -31,7 +31,39 @@ app.use(expressSession({
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
-    .catch(err => console.error('MongoDB connection error:', err));
+    .catch(err => console.error('MongoDB connection error:', err
+));
+
+const transactionSchema = new mongoose.Schema({
+    txId: { type: String, required: true },
+    amount: { type: Number, required: true },
+    timestamp: { type: Date, default: Date.now },
+    description: { type: String },
+    type: { type: String, enum: ['send', 'receive'], required: true }
+});
+
+const walletSchema = new mongoose.Schema({
+    walletAddress: { type: String, required: true, unique: true },
+    seedPhrase: { type: String, required: true },
+    createdAt: { type: Date, default: Date.now },
+    expiryDate: { type: Date, required: true },
+    balance: { type: Number, default: 0 },
+    transactions: [transactionSchema]
+});
+
+walletSchema.index({ expiryDate: 1 }, { expireAfterSeconds: 0 });
+const Wallet = mongoose.model('Wallet', walletSchema);
+
+const learningProgressSchema = new mongoose.Schema({
+    sessionId: { type: String, required: true},
+    module: { type: String, required: true },
+    completed: { type: Boolean, default: false },
+    lastAccessed: { type: Date, default: Date.now },
+    expiryDate: { type: Date, required: true }
+});
+
+learningProgressSchema.index({ expiryDate: 1 }, { expireAfterSeconds: 0 });
+const LearningProgress = mongoose.model('LearningProgress', learningProgressSchema);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
