@@ -65,6 +65,14 @@ const learningProgressSchema = new mongoose.Schema({
 learningProgressSchema.index({ expiryDate: 1 }, { expireAfterSeconds: 0 });
 const LearningProgress = mongoose.model('LearningProgress', learningProgressSchema);
 
+app.post('/api/wallet/create', async (req, res) => {
+    try {
+        
+    } catch (err) {
+
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
