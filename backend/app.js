@@ -6,7 +6,6 @@ dotenv.config();
 const helmet = require('helmet');
 const morgan = require('morgan');
 const bcrypt = require('bcrypt');
-const expressSession = require('express-session');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const uuid = require('uuid').v4;
@@ -22,15 +21,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(helmet());
 app.use(morgan('dev'));
 app.use(cookieParser());
-
-app.use(
-  expressSession({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false, maxAge: 60000 },
-  })
-);
 
 mongoose
   .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -111,7 +101,11 @@ app.post('/api/wallet/create', async (req, res) => {
 
     await newWallet.save();
 
-    const token = jwt.sign({ walletId: newWallet._id, walletAddress }, process.env.JWT_SECRET, { expiresIn: '72h' });
+    const token = jwt.sign(
+        { walletId: newWallet._id, walletAddress },
+        process.env.JWT_SECRET,
+        { expiresIn: '72h' }
+    );
 
     res.cookie('auth_token', token, {
       httpOnly: true,
@@ -129,8 +123,7 @@ app.post('/api/wallet/create', async (req, res) => {
         expiryDate: newWallet.expiryDate,
         balance: newWallet.balance,
         transactions: newWallet.transactions,
-      },
-      token,
+      }
     });
   } catch (err) {
     res.status(500).json({
@@ -140,9 +133,13 @@ app.post('/api/wallet/create', async (req, res) => {
   }
 });
 
-app.get('/api/wallet/login', async (req, res) => {
+app.post('/api/wallet/login', async (req, res) => {
   try {
-    const { seedPhrase } = req.query;
+    const { seedPhrase } = req.body;
+
+    if (!seedPhrase) {
+      return res.status(400).json({ message: 'Seed phrase is required' });
+    }
 
     const wallets = await Wallet.find({});
 
@@ -173,9 +170,7 @@ app.get('/api/wallet/login', async (req, res) => {
     });
 
     const walletResponse = {
-      _id: matchedWallet._id,
       walletAddress: matchedWallet.walletAddress,
-      createdAt: matchedWallet.createdAt,
       expiryDate: matchedWallet.expiryDate,
       balance: matchedWallet.balance,
       transactions: matchedWallet.transactions,
@@ -184,7 +179,6 @@ app.get('/api/wallet/login', async (req, res) => {
     res.status(200).json({
       message: 'Wallet logged in successfully',
       wallet: walletResponse,
-      token,
     });
   } catch (error) {
     res.status(500).json({
@@ -205,7 +199,6 @@ app.get('/api/wallet/', authenticateToken, async (req, res) => {
     const walletResponse = {
       _id: wallet._id,
       walletAddress: wallet.walletAddress,
-      createdAt: wallet.createdAt,
       expiryDate: wallet.expiryDate,
       balance: wallet.balance,
       transactions: wallet.transactions,
@@ -222,7 +215,8 @@ app.get('/api/wallet/', authenticateToken, async (req, res) => {
 
 app.post('/api/learning/progress', async (req, res) => {
   try {
-    const { sessionId, module } = req.body;
+    const module = req.body;
+    const sessionId = req.cookies.sessionId;
 
     if (!sessionId) {
       const sessionId = uuid();
