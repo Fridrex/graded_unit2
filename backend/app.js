@@ -274,6 +274,96 @@ app.get('/api/learning/progress/:sessionId', async (req, res) => {
   }
 });
 
+app.post('/api/wallet/transaction', authenticateToken, async (req, res) => {
+  const { recipientAddress, amount, description } = req.body;
+  const senderId = req.user.walletId;
+  const senderAddress = req.user.walletAddress;
+
+  if (!recipientAddress || !amount) {
+    return res.status(400).json({ message: 'Recipient address and amount are required' });
+  }
+
+  if (typeof amount !== 'number' || amount <= 0) {
+    return res.status(400).json({ message: 'Invalid amount'});
+  }
+
+  if (recipientAddress === senderAddress) {
+    return res.status(400).json({ message: 'Cannot send funds to yourself' });
+  }
+
+  if (recipientAddress.length !== 42) {
+    return res.status(400).json({ message: 'Invalid recipient address format' });
+  }
+
+  const session = await mongoose.startSession();
+  session.startTransaction();
+
+  try {
+    const senderWallet = await Wallet.findById(senderId).session(session);
+
+    if (!senderWallet) {
+      throw new Error('Sender wallet not found');
+    }
+
+    if (senderWallet.balance < amount) {
+      throw new Error('Insufficient balance');
+    }
+
+    const recipientWallet = await Wallet.findOne({ walletAddress: recipientAddress }).session(session);
+
+    const txId = uuid();
+    const timestamp = new Date();
+
+    senderWallet.balance -= amount;
+    const senderTx = {
+      txId,
+      amount,
+      timestamp,
+      description: description || '',
+      type: 'send',
+      recipientAddress: recipientAddress,
+      status: recipientWallet ? 'completed' : 'failed'
+    };
+    senderWallet.transactions.push(senderTx);
+
+    if (recipientWallet) {
+      recipientWallet.balance += amount;
+      const recipientTx = {
+        txId,
+        amount,
+        timestamp,
+        description: description || '',
+        type: 'receive',
+        senderAddress: senderAddress,
+        status: 'completed'
+      };
+      recipientWallet.transactions.push(recipientTx);
+      await recipientWallet.save({ session });
+    } else {
+      console.log(`Transaction ${txId}: failed to find recipient wallet`);
+    }
+
+    await senderWallet.save({ session });
+
+    await session.commitTransaction();
+
+    res.status(200).json({
+      message: recipientWallet ? 'Transaction completed successfully' : 'Transaction sent but recipient wallet not found',
+      transaction: senderTx,
+      newBalance: senderWallet.balance
+    });
+  } catch (error) {
+    await session.abortTransaction();
+    console.error('Transaction failed:', error);
+    res.status(500).json({
+      message: 'Transaction failed',
+      error: error.message
+    })
+  } finally {
+    session.endSession();
+  }
+})
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
