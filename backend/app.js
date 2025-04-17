@@ -101,11 +101,7 @@ app.post('/api/wallet/create', async (req, res) => {
 
     await newWallet.save();
 
-    const token = jwt.sign(
-        { walletId: newWallet._id, walletAddress },
-        process.env.JWT_SECRET,
-        { expiresIn: '72h' }
-    );
+    const token = jwt.sign({ walletId: newWallet._id, walletAddress }, process.env.JWT_SECRET, { expiresIn: '72h' });
 
     res.cookie('auth_token', token, {
       httpOnly: true,
@@ -123,7 +119,7 @@ app.post('/api/wallet/create', async (req, res) => {
         expiryDate: newWallet.expiryDate,
         balance: newWallet.balance,
         transactions: newWallet.transactions,
-      }
+      },
     });
   } catch (err) {
     res.status(500).json({
@@ -284,7 +280,7 @@ app.post('/api/wallet/transaction', authenticateToken, async (req, res) => {
   }
 
   if (typeof amount !== 'number' || amount <= 0) {
-    return res.status(400).json({ message: 'Invalid amount'});
+    return res.status(400).json({ message: 'Invalid amount' });
   }
 
   if (recipientAddress === senderAddress) {
@@ -322,7 +318,7 @@ app.post('/api/wallet/transaction', authenticateToken, async (req, res) => {
       description: description || '',
       type: 'send',
       recipientAddress: recipientAddress,
-      status: recipientWallet ? 'completed' : 'failed'
+      status: recipientWallet ? 'completed' : 'failed',
     };
     senderWallet.transactions.push(senderTx);
 
@@ -335,7 +331,7 @@ app.post('/api/wallet/transaction', authenticateToken, async (req, res) => {
         description: description || '',
         type: 'receive',
         senderAddress: senderAddress,
-        status: 'completed'
+        status: 'completed',
       };
       recipientWallet.transactions.push(recipientTx);
       await recipientWallet.save({ session });
@@ -348,21 +344,23 @@ app.post('/api/wallet/transaction', authenticateToken, async (req, res) => {
     await session.commitTransaction();
 
     res.status(200).json({
-      message: recipientWallet ? 'Transaction completed successfully' : 'Transaction sent but recipient wallet not found',
+      message: recipientWallet
+        ? 'Transaction completed successfully'
+        : 'Transaction sent but recipient wallet not found',
       transaction: senderTx,
-      newBalance: senderWallet.balance
+      newBalance: senderWallet.balance,
     });
   } catch (error) {
     await session.abortTransaction();
     console.error('Transaction failed:', error);
     res.status(500).json({
       message: 'Transaction failed',
-      error: error.message
-    })
+      error: error.message,
+    });
   } finally {
     session.endSession();
   }
-})
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
