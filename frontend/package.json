@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "chart.js": "^4.4.8",
+    "modern-normalize": "^3.0.1",
     "motion": "^12.7.3",
     "prettier": "^3.5.3",
     "react": "^19.0.0",
