@@ -16,8 +16,8 @@ const Navigation = () => {
                 <Link to="/"><img src="src/assets/images/logo.png" alt="Logo" className="logo__img"/></Link>
                 <p>Blockchain Education</p>
             </div>
-            <nav className={`navigation__menu ${isMenuOpen ? "open" : ""}`}>
-                <ul className={`navigation__menu__links ${isMenuOpen ? "open" : ""}`}>
+            <nav className={`navigation__menu ${isMenuOpen ? "navigation__menu--open" : ""}`}>
+                <ul className={`navigation__menu__links ${isMenuOpen ? "navigation__menu__links--open" : ""}`}>
                     <li>
                         <NavLink
                         to="/"

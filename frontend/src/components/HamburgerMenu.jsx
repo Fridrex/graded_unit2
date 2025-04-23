@@ -1,17 +1,9 @@
-import { useState } from 'react';
-
-const HamburgerMenu = ({ isOpen }) => {
-    const [isMenuOpen, setIsMenuOpen] = useState(isOpen);
-
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-
+const HamburgerMenu = ({ isOpen, onClick }) => {
     return (
-        <div className={`hamburger-menu ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
+        <div className={`hamburger-menu ${isOpen ? 'hamburger-menu--open' : ''}`} onClick={onClick}>
+            <span className="hamburger-menu__bar"></span>
+            <span className="hamburger-menu__bar"></span>
+            <span className="hamburger-menu__bar"></span>
         </div>
     );
 };
