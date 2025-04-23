@@ -10,17 +10,22 @@ const Navigation = () => {
     };
 
     return (
-        <nav className={`navigation ${isMenuOpen ? "open" : ""}`}>
-            <div className="logo">Blockchain Education</div>
-            <ul className={`nav-links ${isMenuOpen ? "open" : ""}`}>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/learn">Learn</Link></li>
-                <li><Link to="/wallet">Wallet</Link></li>
-                <li><Link to="/resources">Resources</Link></li>
-                <li><Link to="/about">About</Link></li>
-            </ul>
-            <HamburgerMenu isOpen={isMenuOpen} onClick={toggleMenu} />
-        </nav>
+        <>
+            <div className="logo">
+                <Link to="/"><img src="src/assets/images/logo.png" alt="Logo" className="logo__img"/></Link>
+                <p>Blockchain Education</p>
+            </div>
+            <nav className={`navigation ${isMenuOpen ? "open" : ""}`}>
+                <ul className={`navigation__links ${isMenuOpen ? "open" : ""}`}>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/learn">Learn</Link></li>
+                    <li><Link to="/wallet">Wallet</Link></li>
+                    <li><Link to="/resources">Resources</Link></li>
+                    <li><Link to="/about">About</Link></li>
+                </ul>
+                <HamburgerMenu isOpen={isMenuOpen} onClick={toggleMenu} />
+            </nav>
+        </>
     )
 };
 

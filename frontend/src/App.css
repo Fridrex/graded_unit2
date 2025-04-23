@@ -1,0 +1,21 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* CSS Variables */
+:root {
+    --primary-colour: #0B0E3F;
+    --secondary-colour: #141852;
+    --primary-accent: #5D3FD3;
+    --secondary-accent: #2E96FF;
+    --success-colour: #00D37F;
+    --warrning-colour: #FFD700;
+    --error-colour: #DC143C;
+    --text: #FFFFFF;
+    --text-secondary: #E5E5E5;
+    --subtle-elements: #2A2A3A;
+
+    --headers-font: 'Inter', sans-serif;
+    --body-font: 'IBM Plex Sans', sans-serif;
+    --interactive-font: 'IBM Plex Mono', monospace;
+    --form-field-font: 'Open Sans', sans-serif;
+}
