@@ -19,3 +19,62 @@
     --interactive-font: 'IBM Plex Mono', monospace;
     --form-field-font: 'Open Sans', sans-serif;
 }
+
+/* Global Styles */
+
+/* Navigation */
+
+.logo {
+    font-family: var(--headers-font);
+    font-size: 1.25rem;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0.5rem;
+    background-color: var(--primary-colour);
+    display: flex;
+    flex-direction: row;
+}
+
+.logo__img {
+    width: 55px;
+    height: 55px;
+    margin: 0 0.5rem;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-colour);
+    color: var(--text);
+}
+
+.navigation__menu__links {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0.5rem;
+}
+
+.navigation__menu__links li {
+    margin: 0 1.719rem;
+}
+
+.navigation__menu__links a {
+    text-decoration: none;
+    color: var(--text);
+    font-family: var(--headers-font);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.navigation__menu__links a:hover {
+    color: var(--secondary-accent);
+}
+
+.navigation__menu__links__link--active {
+    color: var(--secondary-accent);
+}
+
