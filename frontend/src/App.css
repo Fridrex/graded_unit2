@@ -46,12 +46,17 @@
     background-color: var(--primary-colour);
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
 }
 
 .logo__img {
     width: 55px;
     height: 55px;
     margin: 0 0.5rem;
+}
+
+.logo p {
+    text-wrap: nowrap;
 }
 
 .navigation {
@@ -90,3 +95,14 @@
     color: var(--secondary-accent);
 }
 
+/* Media Queries */
+
+@media only screen and (max-width: 950px) {
+    .navigation__menu__links li {
+        margin: 0 1rem;
+    }
+
+    .navigation__menu__links a {
+        font-size: 1rem;
+    }
+}
