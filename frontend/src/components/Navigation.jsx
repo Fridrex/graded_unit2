@@ -25,14 +25,24 @@ const Navigation = () => {
                         // className={({ isActive }) => {
                         //     console.log("Home isActive:", isActive);
                         //     isActive ? 'navigation__menu__links__link--active' : ''}}
-                        style={({ isActive }) => isActive ? { color: 'var(--secondary-accent)' } : {}}>
+                        style={({ isActive }) => isActive ? { color: 'var(--secondary-accent)' } : {}} onClick={() => {
+                            isMenuOpen ? toggleMenu() : null;
+                        }}>
                             Home
                         </NavLink>
                     </li>
-                    <li><NavLink to="/learn" style={({ isActive }) => isActive ? { color: 'var(--secondary-accent)' } : {}}>Learn</NavLink></li>
-                    <li><NavLink to="/wallet" style={({ isActive }) => isActive ? { color: 'var(--secondary-accent)' } : {}}>Wallet</NavLink></li>
-                    <li><NavLink to="/resources" style={({ isActive }) => isActive ? { color: 'var(--secondary-accent)' } : {}}>Resources</NavLink></li>
-                    <li><NavLink to="/about" style={({ isActive }) => isActive ? { color: 'var(--secondary-accent)' } : {}}>About</NavLink></li>
+                    <li><NavLink to="/learn" style={({ isActive }) => isActive ? { color: 'var(--secondary-accent)' } : {}} onClick={() => {
+                            isMenuOpen ? toggleMenu() : null;
+                        }}>Learn</NavLink></li>
+                    <li><NavLink to="/wallet" style={({ isActive }) => isActive ? { color: 'var(--secondary-accent)' } : {}} onClick={() => {
+                            isMenuOpen ? toggleMenu() : null;
+                        }}>Wallet</NavLink></li>
+                    <li><NavLink to="/resources" style={({ isActive }) => isActive ? { color: 'var(--secondary-accent)' } : {}} onClick={() => {
+                            isMenuOpen ? toggleMenu() : null;
+                        }}>Resources</NavLink></li>
+                    <li><NavLink to="/about" style={({ isActive }) => isActive ? { color: 'var(--secondary-accent)' } : {}} onClick={() => {
+                            isMenuOpen ? toggleMenu() : null;
+                        }}>About</NavLink></li>
                 </ul>
                 <HamburgerMenu isOpen={isMenuOpen} onClick={toggleMenu} />
             </nav>
