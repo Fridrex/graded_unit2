@@ -36,6 +36,10 @@
 
 /* Global Styles */
 
+main {
+    min-height: 80vh;
+}
+
 /* Navigation */
 
 .logo {
@@ -52,8 +56,8 @@
 }
 
 .logo__img {
-    width: 55px;
-    height: 55px;
+    width: 3.438rem;
+    height: 3.438rem;
     margin: 0 0.5rem;
 }
 
@@ -160,6 +164,98 @@
     transition: all 0.3s ease-in-out;
 }
 
+/* Footer */
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, var(--primary-colour), var(--secondary-colour));
+    color: var(--text);
+}
+
+.footer__cta h2 {
+    font-size: var(--24px);
+    font-family: var(--headers-font);
+    font-weight: 700;
+    margin-top: 2.5rem;
+}
+
+.footer__cta__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 9rem;
+}
+
+.footer__cta__buttons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15.625rem;
+    height: 4.063rem;
+    text-decoration: none;
+    color: var(--text);
+    font-family: var(--interactive-font);
+    font-size: var(--24px);
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: var(--10px);
+    background-color: var(--error-colour);
+    margin: 2rem 0;
+}
+
+.footer__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.footer__content__links {
+    margin-bottom: 1rem;
+}
+
+.footer__content__links ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 4.25rem;
+}
+
+.footer__content__links ul li a {
+    text-decoration: none;
+    color: var(--text);
+    font-family: var(--headers-font);
+    font-size: var(--16px);
+    font-weight: 400;
+}
+
+.footer__content__logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.footer__content__logo__image {
+    width: 3.438rem;
+    height: 3.438rem;;
+}
+
+.footer__content__copyright, .footer__content__copyright p {
+    margin-top: 0;
+}
+
+.footer__content__copyright p, .footer__content__logo p {
+    font-size: var(--12px);
+}
 /* Media Queries */
 
 @media only screen and (max-width: 950px) {
