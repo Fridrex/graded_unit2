@@ -11,7 +11,10 @@ const Footer = () => {
             {!isLearnOrWallet ? (
                 <footer className="footer-container">
                     <div className="footer__cta">
-                        <h2>Ready to understand the future of money? Start with blockchain basics or jump straight into creating your first wallet.</h2>
+                        <div className="footer__cta__text">
+                        <p>Ready to understand the future of money?</p>
+                        <p>Start with blockchain basics or jump straight into creating your first wallet.</p>
+                        </div>
                         <div className="footer__cta__buttons">
                             <Link to='/learn'>Learn</Link>
                             <Link to='/wallet'>Create a wallet</Link>
