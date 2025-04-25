@@ -263,6 +263,18 @@ main {
 .footer__content__copyright p, .footer__content__logo p {
     font-size: var(--12px);
 }
+
+/* Home */
+
+.home h1, .home p, .home h2, .home h3 {
+    margin: 0;
+}
+
+.home__header {
+    opacity: 0.5;
+background: url('src/assets/images/home-header.webp') lightgray 50% / cover no-repeat;
+}
+
 /* Media Queries */
 
 @media only screen and (max-width: 1333px) {
