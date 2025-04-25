@@ -1,38 +1,20 @@
-const formatDate = (dateString) => {
+const formatDate = (dateString) => {};
 
-};
+const formatCurrency = (amount) => {};
 
-const formatCurrency = (amount) => {
+const calculateRemainingTime = (endDate) => {};
 
-};
+const copyToClipboard = (text) => {};
 
-const calculateRemainingTime = (endDate) => {
+const checkModulesComplete = (sessionId) => {};
 
-};
+const getSessionId = () => {};
 
-const copyToClipboard = (text) => {
+const getAuthToken = () => {};
 
-};
+const validateWalletAddress = (address) => {};
 
-const checkModulesComplete = (sessionId) => {
-
-};
-
-const getSessionId = () => {
-
-};
-
-const getAuthToken = () => {
-
-};
-
-const validateWalletAddress = (address) => {
-
-};
-
-const validateTransactionAmount = (amount) => {
-
-};
+const validateTransactionAmount = (amount) => {};
 
 module.exports = {
   formatDate,
@@ -43,5 +25,5 @@ module.exports = {
   getSessionId,
   getAuthToken,
   validateWalletAddress,
-  validateTransactionAmount
+  validateTransactionAmount,
 };

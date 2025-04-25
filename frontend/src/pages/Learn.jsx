@@ -1,5 +1,3 @@
-const Learn = () => {
-
-};
+const Learn = () => {};
 
 export default Learn;

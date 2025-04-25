@@ -1,5 +1,3 @@
-const Wallet = () => {
-
-};
+const Wallet = () => {};
 
 export default Wallet;

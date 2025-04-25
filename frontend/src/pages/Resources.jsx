@@ -1,5 +1,3 @@
-const Resources = () => {
-
-};
+const Resources = () => {};
 
 export default Resources;
