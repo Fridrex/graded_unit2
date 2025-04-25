@@ -214,7 +214,7 @@ p {
   gap: 9rem;
 }
 
-.footer__cta__buttons a {
+.footer__cta__buttons a, .home__buttons a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -388,18 +388,6 @@ p {
 }
 
 .home__buttons a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 15.625rem;
-    height: 4.063rem;
-    text-decoration: none;
-    color: var(--text);
-    font-family: var(--interactive-font);
-    font-size: var(--24px);
-    font-weight: 700;
-    padding: 0.5rem 1rem;
-    border-radius: var(--10px);
     background-color: var(--secondary-accent);
 }
 
