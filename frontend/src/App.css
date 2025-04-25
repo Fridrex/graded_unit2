@@ -342,7 +342,7 @@ p {
   width: 90%;
   margin: 0 auto;
   margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .home__info-cards h2 {
@@ -377,6 +377,30 @@ p {
   font-weight: 400;
   text-align: left;
   width: 90%;
+}
+
+.home__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 9.1rem;
+}
+
+.home__buttons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15.625rem;
+    height: 4.063rem;
+    text-decoration: none;
+    color: var(--text);
+    font-family: var(--interactive-font);
+    font-size: var(--24px);
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: var(--10px);
+    background-color: var(--secondary-accent);
 }
 
 /* Media Queries */
@@ -499,5 +523,11 @@ p {
 
   .home__info-cards__card p {
     font-size: var(--14px);
+  }
+
+  .home__buttons {
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
   }
 }
