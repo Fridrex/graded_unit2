@@ -497,6 +497,7 @@ p {
 
   .navigation__menu--open {
     display: flex;
+    z-index: 2;
   }
 
   .navigation__menu__links--open {
