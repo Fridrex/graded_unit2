@@ -6,7 +6,7 @@ const Home = () => {
       <div className="home">
         <div className="home__header">
           <h1>Demystifying Digital Currency: Your Journey into Blockchain Begins Here</h1>
-          <p>From blockchain basics to crypto wallets - learn the future of money through hands-on experience</p>
+          <p>From blockchain basics to crypto wallets — learn the future of money through hands-on experience</p>
         </div>
         <div className="home__info-cards">
           <h2>Why Learn?</h2>
