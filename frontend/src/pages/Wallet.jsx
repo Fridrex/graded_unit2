@@ -21,6 +21,10 @@ const Wallet = () => {
                         </div>
                     </div>
                 </div>
+                <div className="wallet__reminder">
+                    <p>Security Reminder</p>
+                    <p>While this is a simulation, we encourage you to treat it as if it were real - it's good practice for understanding the security measures needed when dealing with actual digital currencies.</p>
+                </div>
             </div>
         </>
     )

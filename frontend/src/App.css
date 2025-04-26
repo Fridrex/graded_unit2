@@ -515,7 +515,7 @@ p {
 
 /* Wallet */
 
-.wallet__note {
+.wallet__note, .wallet__reminder {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -525,7 +525,7 @@ p {
   padding: 1rem;
 }
 
-.wallet__note p {
+.wallet__note p, .wallet__reminder p {
   font-size: var(--16px);
   font-family: var(--headers-font);
   color: var(--error-colour);
@@ -586,6 +586,14 @@ p {
   height: 15.625rem;
 }
 
+.wallet__reminder {
+  background-color: var(--primary-accent);
+}
+
+.wallet__reminder p {
+  color: var(--text);
+}
+
 /* Media Queries */
 
 @media only screen and (max-width: 1333px) {
@@ -641,16 +649,16 @@ p {
     font-size: var(--24px);
   }
 
-  .wallet__note {
+  .wallet__note, .wallet__reminder {
     width: 100%;
     margin: 0 auto;
   }
 
-  .wallet__note p {
+  .wallet__note p, .wallet__reminder p {
     width: 90%;
   }
 
-  .wallet__note p:nth-child(2) {
+  .wallet__note p:nth-child(2), .wallet__reminder p:nth-child(2) {
     font-size: var(--14px);
   }
 
@@ -784,7 +792,7 @@ p {
     font-size: var(--16px);
   }
 
-  .wallet__note p:nth-child(2) {
+  .wallet__note p:nth-child(2), .wallet__reminder p:nth-child(2) {
     font-size: var(--12px);
   }
 
