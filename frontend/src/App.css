@@ -750,3 +750,10 @@ p {
     margin-top: 1.625rem;
   }
 }
+
+@media only screen and (max-width: 350px) {
+  .logo p {
+    font-size: 0.625rem;
+    align-self: center;
+  }
+}
