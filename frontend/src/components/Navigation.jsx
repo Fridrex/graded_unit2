@@ -16,7 +16,7 @@ const Navigation = () => {
       } else {
         document.body.style.overflow = 'auto';
       }
-    }
+    };
 
     disableScroll();
   }, [isMenuOpen]);
