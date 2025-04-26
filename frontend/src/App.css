@@ -216,7 +216,8 @@ p {
 
 .footer__cta__buttons a,
 .home__buttons a,
-.create-wallet__button {
+.create-wallet__button,
+.access-wallet__button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -515,7 +516,8 @@ p {
 
 /* Wallet */
 
-.wallet__note, .wallet__reminder {
+.wallet__note,
+.wallet__reminder {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -525,7 +527,8 @@ p {
   padding: 1rem;
 }
 
-.wallet__note p, .wallet__reminder p {
+.wallet__note p,
+.wallet__reminder p {
   font-size: var(--16px);
   font-family: var(--headers-font);
   color: var(--error-colour);
@@ -539,16 +542,24 @@ p {
 }
 
 .wallet__create-wallet {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+.wallet__create-wallet,
+.wallet__access-wallet {
   width: 100%;
 }
 
-.wallet__create-wallet h2 {
+.wallet__create-wallet h2,
+.wallet__access-wallet h2 {
   font-size: var(--24px);
   font-weight: 700;
   text-align: center;
 }
 
-.wallet__create-wallet__content {
+.wallet__create-wallet__content,
+.wallet__access-wallet__content {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -558,7 +569,8 @@ p {
   width: 80%;
 }
 
-.wallet__create-wallet__content__text-and-button {
+.wallet__create-wallet__content__text-and-button,
+.wallet__access-wallet__content__text-and-button {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -567,13 +579,15 @@ p {
   width: 60%;
 }
 
-.wallet__create-wallet__content__text-and-button p {
+.wallet__create-wallet__content__text-and-button p,
+.wallet__access-wallet__content__text-and-button p {
   font-family: var(--body-font);
   font-size: var(--20px);
   font-weight: 400;
 }
 
-.create-wallet__button {
+.create-wallet__button,
+.access-wallet__button {
   border: none;
   width: 18.75rem;
   font-size: var(--16px);
@@ -582,7 +596,8 @@ p {
   margin: 1rem;
 }
 
-.wallet__create-wallet__content__image img {
+.wallet__create-wallet__content__image img,
+.wallet__access-wallet__content__image img {
   height: 15.625rem;
 }
 
@@ -592,6 +607,15 @@ p {
 
 .wallet__reminder p {
   color: var(--text);
+}
+
+.wallet__access-wallet {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.access-wallet__button {
+  background-color: var(--success-colour);
 }
 
 /* Media Queries */
@@ -649,16 +673,19 @@ p {
     font-size: var(--24px);
   }
 
-  .wallet__note, .wallet__reminder {
+  .wallet__note,
+  .wallet__reminder {
     width: 100%;
     margin: 0 auto;
   }
 
-  .wallet__note p, .wallet__reminder p {
+  .wallet__note p,
+  .wallet__reminder p {
     width: 90%;
   }
 
-  .wallet__note p:nth-child(2), .wallet__reminder p:nth-child(2) {
+  .wallet__note p:nth-child(2),
+  .wallet__reminder p:nth-child(2) {
     font-size: var(--14px);
   }
 
@@ -792,7 +819,8 @@ p {
     font-size: var(--16px);
   }
 
-  .wallet__note p:nth-child(2), .wallet__reminder p:nth-child(2) {
+  .wallet__note p:nth-child(2),
+  .wallet__reminder p:nth-child(2) {
     font-size: var(--12px);
   }
 
@@ -807,17 +835,20 @@ p {
     margin-top: 1.625rem;
   }
 
-  .wallet__create-wallet h2 {
+  .wallet__create-wallet h2,
+  .wallet__access-wallet h2 {
     font-size: var(--20px);
   }
 
-  .wallet__create-wallet__content {
+  .wallet__create-wallet__content,
+  .wallet__access-wallet__content {
     flex-direction: column;
     gap: 2rem;
     width: 90%;
   }
 
-  .wallet__create-wallet__content__text-and-button {
+  .wallet__create-wallet__content__text-and-button,
+  .wallet__access-wallet__content__text-and-button {
     order: 2;
     text-align: center;
     width: 80%;
@@ -832,5 +863,16 @@ p {
   .logo p {
     font-size: 0.625rem;
     align-self: center;
+  }
+
+  .create-wallet__button,
+  .access-wallet__button {
+    width: 100%;
+    font-size: var(--14px);
+  }
+
+  .wallet__access-wallet__content__image img,
+  .wallet__create-wallet__content__image img {
+    height: 10.3125rem;
   }
 }
