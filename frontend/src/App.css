@@ -532,6 +532,11 @@ p {
   margin: 0;
 }
 
+.wallet__header h1 {
+  font-size: var(--32px);
+  text-align: center;
+}
+
 /* Media Queries */
 
 @media only screen and (max-width: 1333px) {
@@ -598,6 +603,17 @@ p {
 
   .wallet__note p:nth-child(2) {
     font-size: var(--14px);
+  }
+
+  .wallet__header {
+    width: 100%;
+  }
+
+  .wallet__header h1 {
+    font-size: var(--24px);
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 1.625rem;
   }
 }
 
@@ -721,5 +737,16 @@ p {
 
   .wallet__note p:nth-child(2) {
     font-size: var(--12px);
+  }
+
+  .wallet__header {
+    width: 100%;
+  }
+
+  .wallet__header h1 {
+    font-size: var(--20px);
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 1.625rem;
   }
 }
