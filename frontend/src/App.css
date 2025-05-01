@@ -44,6 +44,7 @@ html {
 main {
   min-height: 80vh;
   background: linear-gradient(180deg, var(--primary-colour), var(--secondary-colour));
+  padding-bottom: 2rem;
 }
 
 h1,
@@ -669,9 +670,12 @@ p {
   padding: 2rem 0;
   border-radius: var(--10px);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  gap: var(--32px);
 }
 
-.resources__info-blocks__glossary--preview {
+.resources__info-blocks__glossary--preview,
+.resources__info-blocks__faq--preview,
+.resources__info-blocks__faq {
   position: relative;
   width: 100%;
   margin: 0 auto;
@@ -681,7 +685,9 @@ p {
   align-items: center;
 }
 
-.resources__info-blocks__glossary--preview button {
+.resources__info-blocks__glossary--preview button,
+.resources__info-blocks__faq--preview button,
+.resources__info-blocks__faq button {
   position: absolute;
   bottom: 0;
   background: none;
@@ -699,12 +705,15 @@ p {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.resources__info-blocks__glossary--preview button:hover {
+.resources__info-blocks__glossary--preview button:hover,
+.resources__info-blocks__faq--preview button:hover,
+.resources__info-blocks__faq button:hover {
   background-color: var(--text);
   color: var(--primary-colour);
 }
 
-.resources__info-blocks__glossary {
+.resources__info-blocks__glossary,
+.resources__info-blocks__faq {
   background-color: rgba(93, 63, 211, 0.3);
   border-radius: var(--10px);
   padding: 2rem;
@@ -717,15 +726,18 @@ p {
   justify-content: center;
 }
 
-.resources__info-blocks__glossary__header h2 {
+.resources__info-blocks__glossary__header h2,
+.resources__info-blocks__faq__header h2 {
   text-align: center;
 }
 
-.resources__info-blocks__glossary__main h3 {
+.resources__info-blocks__glossary__main h3,
+.resources__info-blocks__faq__main h3 {
   text-align: center;
 }
 
-.resources__info-blocks__glossary__main__hr {
+.resources__info-blocks__glossary__main__hr,
+.resources__info-blocks__faq__main__hr {
   width: 90%;
   margin: 0 auto;
   border: 1px solid var(--text);
@@ -734,12 +746,16 @@ p {
   border-radius: var(--10px);
 }
 
-.resources__info-blocks__glossary__main--preview h4 {
+.resources__info-blocks__glossary__main--preview h4,
+.resources__info-blocks__faq__main--preview h4,
+.resources__info-blocks__faq__main h4 {
   font-family: var(--body-font);
 }
 
 .resources__info-blocks__glossary__main--preview,
-.resources__info-blocks__glossary__main--preview--expanded {
+.resources__info-blocks__glossary__main--preview--expanded,
+.resources__info-blocks__faq__main--preview,
+.resources__info-blocks__faq__main {
   list-style: upper-roman;
   color: var(--text);
   font-family: var(--body-font);
@@ -754,7 +770,8 @@ p {
   font-weight: 700;
 }
 
-.resources__info-blocks__glossary--shadowed {
+.resources__info-blocks__glossary--shadowed,
+.resources__info-blocks__faq--shadowed {
   content: '';
   position: absolute;
   bottom: 0;
@@ -765,14 +782,16 @@ p {
   border-radius: var(--10px);
 }
 
-.resources__info-blocks__glossary__footer {
+.resources__info-blocks__glossary__footer,
+.resources__info-blocks__faq__footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.resources__info-blocks__glossary__footer p {
+.resources__info-blocks__glossary__footer p,
+.resources__info-blocks__faq__footer p {
   text-align: center;
   font-family: var(--body-font);
   font-size: var(--16px);
@@ -780,7 +799,8 @@ p {
   margin: 1rem;
 }
 
-.resources__info-blocks__glossary__main__navigation {
+.resources__info-blocks__glossary__main__navigation,
+.resources__info-blocks__faq__main__navigation {
   list-style-type: none;
   display: flex;
   flex-direction: row;
@@ -792,14 +812,16 @@ p {
   padding: 0;
 }
 
-.resources__info-blocks__glossary__main__navigation li {
+.resources__info-blocks__glossary__main__navigation li,
+.resources__info-blocks__faq__main__navigation li {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-.resources__info-blocks__glossary__main__navigation li a {
+.resources__info-blocks__glossary__main__navigation li a,
+.resources__info-blocks__faq__main__navigation li a {
   font-family: var(--interactive-font);
   font-size: var(--16px);
   color: var(--text);
@@ -811,13 +833,19 @@ p {
   padding: var(--4px) var(--8px);
 }
 
-.resources__info-blocks__glossary__main__navigation li a {
+.resources__info-blocks__glossary__main__navigation li a,
+.resources__info-blocks__faq__main__navigation li a {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.resources__info-blocks__glossary__main__navigation li a:hover {
+.resources__info-blocks__glossary__main__navigation li a:hover,
+.resources__info-blocks__faq__main__navigation li a:hover {
   background-color: var(--text);
   color: var(--primary-colour);
+}
+
+.resources__info-blocks__faq__main__question {
+  font-weight: 700;
 }
 
 /* Media Queries */

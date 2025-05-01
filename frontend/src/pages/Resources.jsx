@@ -27,12 +27,16 @@ const Resources = () => {
             </button>
           </div>
           <div className="resources__info-blocks__faq--preview">
-            <Faq isOpen={isOpen} />
-            <button className={isOpen ? 'hide' : ''} onClick={handleIsOpen}></button>
+            <Faq isOpen={isOpen} handleIsOpen={handleIsOpen} />
+            <button className={isOpen ? 'hide' : ''} onClick={handleIsOpen}>
+              Open Full FAQ
+            </button>
           </div>
           <div className="resources__info-blocks__further-reading--preview">
-            <FurtherReading isOpen={isOpen} />
-            <button className={isOpen ? 'hide' : ''} onClick={handleIsOpen}></button>
+            <FurtherReading isOpen={isOpen} handleIsOpen={handleIsOpen} />
+            <button className={isOpen ? 'hide' : ''} onClick={handleIsOpen}>
+              Open All Further Readings
+            </button>
           </div>
         </div>
       </div>

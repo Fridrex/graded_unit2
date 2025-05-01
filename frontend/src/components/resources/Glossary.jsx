@@ -12,23 +12,23 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
             <h3>Find the Definitions You Need</h3>
             <ul className="resources__info-blocks__glossary__main__navigation">
               <li>
-                <Link to="#core_jargon">Core Jargon</Link>
+                <Link to="#core_jargon_glossary">Core Jargon</Link>
               </li>
               <li>
-                <Link to="#blockchain_specific">Blockchain Specific terms</Link>
+                <Link to="#blockchain_specific_glossary">Blockchain Specific terms</Link>
               </li>
               <li>
-                <Link to="#cryptocurrency_specific">Cryptocurrency Specific terms</Link>
+                <Link to="#cryptocurrency_specific_glossary">Cryptocurrency Specific terms</Link>
               </li>
               <li>
-                <Link to="#cbdc_specific">CBDC Specific terms</Link>
+                <Link to="#cbdc_specific_glossary">CBDC Specific terms</Link>
               </li>
               <li>
-                <Link to="#important_terms">Important terms</Link>
+                <Link to="#important_terms_glossary">Important terms</Link>
               </li>
             </ul>
             <ul className="resources__info-blocks__glossary__main--preview">
-              <h4 id="core_jargon">Core Jargon from Educational Texts</h4>
+              <h4 id="core_jargon_glossary">Core Jargon from Educational Texts</h4>
               <li>
                 <p>
                   <span>Blockchain</span> — A digital ledger duplicated across many computers, making it difficult to
@@ -104,7 +104,10 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
             <hr className="resources__info-blocks__glossary__main__hr" />
             <ul className="resources__info-blocks__glossary__main--preview--expanded">
               <h4>Expanded Glossary with Descriptions</h4>
-              <p className="resources__info-blocks__glossary__main--preview--expanded__group" id="blockchain_specific">
+              <p
+                className="resources__info-blocks__glossary__main--preview--expanded__group"
+                id="blockchain_specific_glossary"
+              >
                 A. Blockchain Specific
               </p>
               <li>
@@ -149,7 +152,7 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
               </li>
               <p
                 className="resources__info-blocks__glossary__main--preview--expanded__group"
-                id="cryptocurrency_specific"
+                id="cryptocurrency_specific_glossary"
               >
                 B. Cryptocurrency Specific
               </p>
@@ -195,7 +198,10 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
                   <span>Token</span> — A digital asset that can represent various things on a blockchain
                 </p>
               </li>
-              <p className="resources__info-blocks__glossary__main--preview--expanded__group" id="cbdc_specific">
+              <p
+                className="resources__info-blocks__glossary__main--preview--expanded__group"
+                id="cbdc_specific_glossary"
+              >
                 C. CBDC Specific
               </p>
               <li>
@@ -221,7 +227,10 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
                   rates
                 </p>
               </li>
-              <p className="resources__info-blocks__glossary__main--preview--expanded__group" id="important_terms">
+              <p
+                className="resources__info-blocks__glossary__main--preview--expanded__group"
+                id="important_terms_glossary"
+              >
                 D. Important Terms
               </p>
               <li>
