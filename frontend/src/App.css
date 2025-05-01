@@ -769,12 +769,14 @@ p {
   gap: 0.5rem;
   margin: 0;
   flex-wrap: wrap;
+  padding: 0;
 }
 
 .resources__info-blocks__glossary__main__navigation li {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .resources__info-blocks__glossary__main__navigation li a {
