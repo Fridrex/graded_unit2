@@ -37,6 +37,10 @@
 
 /* Global Styles */
 
+html {
+  scroll-behavior: smooth;
+}
+
 main {
   min-height: 80vh;
   background: linear-gradient(180deg, var(--primary-colour), var(--secondary-colour));
@@ -996,6 +1000,10 @@ p {
 
   .resources__header h1 {
     font-size: var(--18px);
+  }
+
+  .resources__info-blocks {
+    width: 90%;
   }
 }
 
