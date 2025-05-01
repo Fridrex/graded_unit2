@@ -672,10 +672,16 @@ p {
   color: var(--text);
   font-family: var(--interactive-font);
   font-size: var(--16px);
+  font-weight: 700;
   border-radius: var(--8px) var(--8px) 0 0;
   padding: var(--4px) var(--8px);
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+.resources__info-blocks__glossary--preview button:hover {
+  background-color: var(--text);
+  color: var(--primary-colour);
 }
 
 .resources__info-blocks__glossary {
@@ -752,6 +758,44 @@ p {
   font-size: var(--16px);
   color: var(--text);
   margin: 1rem;
+}
+
+.resources__info-blocks__glossary__main__navigation {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.resources__info-blocks__glossary__main__navigation li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resources__info-blocks__glossary__main__navigation li a {
+  font-family: var(--interactive-font);
+  font-size: var(--16px);
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid var(--text);
+  border-radius: var(--8px);
+  padding: var(--4px) var(--8px);
+}
+
+.resources__info-blocks__glossary__main__navigation li a {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.resources__info-blocks__glossary__main__navigation li a:hover {
+  background-color: var(--text);
+  color: var(--primary-colour);
 }
 
 /* Media Queries */

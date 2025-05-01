@@ -1,3 +1,5 @@
+import { HashLink as Link } from 'react-router-hash-link';
+
 const Glossary = ({ isOpen, handleIsOpen }) => {
   return (
     <>
@@ -8,8 +10,25 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
           </div>
           <div className="resources__info-blocks__glossary__main">
             <h3>Find the Definitions You Need</h3>
+            <ul className="resources__info-blocks__glossary__main__navigation">
+              <li>
+                <Link to="#core_jargon">Core Jargons</Link>
+              </li>
+              <li>
+                <Link to="#blockchain_specific">Blockchain Specific terms</Link>
+              </li>
+              <li>
+                <Link to="#cryptocurrency_specific">Cryptocurrency Specific terms</Link>
+              </li>
+              <li>
+                <Link to="#cbdc_specific">CBDC Specific terms</Link>
+              </li>
+              <li>
+                <Link to="#important_terms">Important terms</Link>
+              </li>
+            </ul>
             <ul className="resources__info-blocks__glossary__main--preview">
-              <h4>Core Jargon from Educational Texts</h4>
+              <h4 id="core_jargon">Core Jargon from Educational Texts</h4>
               <li>
                 <p>
                   <span>Blockchain</span> — A digital ledger duplicated across many computers, making it difficult to
@@ -85,7 +104,9 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
             <hr className="resources__info-blocks__glossary__main__hr" />
             <ul className="resources__info-blocks__glossary__main--preview--expanded">
               <h4>Expanded Glossary with Descriptions</h4>
-              <p className="resources__info-blocks__glossary__main--preview--expanded__group">A. Blockchain Specific</p>
+              <p className="resources__info-blocks__glossary__main--preview--expanded__group" id="blockchain_specific">
+                A. Blockchain Specific
+              </p>
               <li>
                 <p>
                   <span>Block</span> — A collection of data records grouped together
@@ -126,7 +147,10 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
                   written into code
                 </p>
               </li>
-              <p className="resources__info-blocks__glossary__main--preview--expanded__group">
+              <p
+                className="resources__info-blocks__glossary__main--preview--expanded__group"
+                id="cryptocurrency_specific"
+              >
                 B. Cryptocurrency Specific
               </p>
               <li>
@@ -171,7 +195,9 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
                   <span>Token</span> — A digital asset that can represent various things on a blockchain
                 </p>
               </li>
-              <p className="resources__info-blocks__glossary__main--preview--expanded__group">C. CBDC Specific</p>
+              <p className="resources__info-blocks__glossary__main--preview--expanded__group" id="cbdc_specific">
+                C. CBDC Specific
+              </p>
               <li>
                 <p>
                   <span>Central Bank</span> — The institution that manages a country's currency and monetary policy
@@ -195,7 +221,9 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
                   rates
                 </p>
               </li>
-              <p className="resources__info-blocks__glossary__main--preview--expanded__group">D. Important Terms</p>
+              <p className="resources__info-blocks__glossary__main--preview--expanded__group" id="important_terms">
+                D. Important Terms
+              </p>
               <li>
                 <p>
                   <span>Adoption</span> — The rate at which a technology or currency becomes accepted and used
