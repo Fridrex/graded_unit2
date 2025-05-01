@@ -8,6 +8,7 @@ import About from './pages/About';
 import Learn from './pages/Learn';
 import Resources from './pages/Resources';
 import Wallet from './pages/Wallet';
+import BackToTop from './components/BackToTop';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/wallet" element={<Wallet />} />
           </Routes>
         </main>
+        <BackToTop />
         <footer>
           <Footer />
         </footer>

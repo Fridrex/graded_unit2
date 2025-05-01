@@ -12,7 +12,7 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
             <h3>Find the Definitions You Need</h3>
             <ul className="resources__info-blocks__glossary__main__navigation">
               <li>
-                <Link to="#core_jargon">Core Jargons</Link>
+                <Link to="#core_jargon">Core Jargon</Link>
               </li>
               <li>
                 <Link to="#blockchain_specific">Blockchain Specific terms</Link>

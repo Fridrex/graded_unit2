@@ -66,6 +66,26 @@ p {
   display: none;
 }
 
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  border-radius: var(--10px);
+  padding: var(--8px) var(--16px);
+  font-family: var(--headers-font);
+  font-size: var(--24px);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.back-to-top:hover {
+  background-color: var(--text);
+  color: var(--primary-colour);
+}
+
 /* Navigation */
 
 .logo {
