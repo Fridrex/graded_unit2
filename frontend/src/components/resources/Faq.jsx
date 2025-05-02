@@ -9,7 +9,7 @@ const Faq = ({ isOpen, handleIsOpen }) => {
             <h2>Frequently Asked Questions: Your Blockchain Learning Journey</h2>
           </div>
           <div className="resources__info-blocks__faq__main">
-            <h3>Find answers to common questions about our blockchain education resources.</h3>
+            <h3>Find answers to common questions about our blockchain education resources</h3>
             <ul className="resources__info-blocks__faq__main__navigation">
               <li>
                 <Link to="#learning_faq">Learning</Link>
@@ -153,7 +153,7 @@ const Faq = ({ isOpen, handleIsOpen }) => {
             <h2>Frequently Asked Questions: Your Blockchain Learning Journey</h2>
           </div>
           <div className="resources__info-blocks__faq__main">
-            <h3>Find answers to common questions about our blockchain education resources.</h3>
+            <h3>Find answers to common questions about our blockchain education resources</h3>
             <ul className="resources__info-blocks__faq__main--preview">
               <h4 id="learning_faq">Learning</h4>
               <li>

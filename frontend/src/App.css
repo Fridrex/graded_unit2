@@ -675,7 +675,9 @@ p {
 
 .resources__info-blocks__glossary--preview,
 .resources__info-blocks__faq--preview,
-.resources__info-blocks__faq {
+.resources__info-blocks__faq,
+.resources__info-blocks__further-reading,
+.resources__info-blocks__further-reading--preview {
   position: relative;
   width: 100%;
   margin: 0 auto;
@@ -687,7 +689,9 @@ p {
 
 .resources__info-blocks__glossary--preview button,
 .resources__info-blocks__faq--preview button,
-.resources__info-blocks__faq button {
+.resources__info-blocks__faq button,
+.resources__info-blocks__further-reading--preview button,
+.resources__info-blocks__further-reading button {
   position: absolute;
   bottom: 0;
   background: none;
@@ -707,13 +711,16 @@ p {
 
 .resources__info-blocks__glossary--preview button:hover,
 .resources__info-blocks__faq--preview button:hover,
-.resources__info-blocks__faq button:hover {
+.resources__info-blocks__faq button:hover,
+.resources__info-blocks__further-reading--preview button:hover,
+.resources__info-blocks__further-reading button:hover {
   background-color: var(--text);
   color: var(--primary-colour);
 }
 
 .resources__info-blocks__glossary,
-.resources__info-blocks__faq {
+.resources__info-blocks__faq,
+.resources__info-blocks__further-reading {
   background-color: rgba(93, 63, 211, 0.3);
   border-radius: var(--10px);
   padding: 2rem;
@@ -726,18 +733,40 @@ p {
   justify-content: center;
 }
 
+.resources__info-blocks__further-reading__main li a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-family: var(--interactive-font);
+  font-size: var(--16px);
+  font-weight: 400;
+  cursor: pointer;
+  border: 1px solid var(--text);
+  border-radius: var(--8px);
+  padding: var(--4px) var(--8px);
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 0.5rem 0;
+}
+
+.resources__info-blocks__further-reading__main li a:hover {
+  background-color: var(--text);
+  color: var(--primary-colour);
+}
+
 .resources__info-blocks__glossary__header h2,
-.resources__info-blocks__faq__header h2 {
+.resources__info-blocks__faq__header h2,
+.resources__info-blocks__further-reading__header h2 {
   text-align: center;
 }
 
 .resources__info-blocks__glossary__main h3,
-.resources__info-blocks__faq__main h3 {
+.resources__info-blocks__faq__main h3,
+.resources__info-blocks__further-reading__header h3 {
   text-align: center;
 }
 
 .resources__info-blocks__glossary__main__hr,
-.resources__info-blocks__faq__main__hr {
+.resources__info-blocks__faq__main__hr,
+.resources__info-blocks__further-reading__main__hr {
   width: 90%;
   margin: 0 auto;
   border: 1px solid var(--text);
@@ -748,14 +777,23 @@ p {
 
 .resources__info-blocks__glossary__main--preview h4,
 .resources__info-blocks__faq__main--preview h4,
-.resources__info-blocks__faq__main h4 {
+.resources__info-blocks__faq__main h4,
+.resources__info-blocks__further-reading__main h4,
+.resources__info-blocks__further-reading__main--preview h4 {
   font-family: var(--body-font);
+}
+
+.resources__info-blocks__further-reading__main--preview h4,
+.resources__info-blocks__further-reading__main h4 {
+  text-align: center;
 }
 
 .resources__info-blocks__glossary__main--preview,
 .resources__info-blocks__glossary__main--preview--expanded,
 .resources__info-blocks__faq__main--preview,
-.resources__info-blocks__faq__main {
+.resources__info-blocks__faq__main,
+.resources__info-blocks__further-reading__main--preview,
+.resources__info-blocks__further-reading__main {
   list-style: upper-roman;
   color: var(--text);
   font-family: var(--body-font);
@@ -771,7 +809,8 @@ p {
 }
 
 .resources__info-blocks__glossary--shadowed,
-.resources__info-blocks__faq--shadowed {
+.resources__info-blocks__faq--shadowed,
+.resources__info-blocks__further-reading--shadowed {
   content: '';
   position: absolute;
   bottom: 0;
@@ -783,7 +822,8 @@ p {
 }
 
 .resources__info-blocks__glossary__footer,
-.resources__info-blocks__faq__footer {
+.resources__info-blocks__faq__footer,
+.resources__info-blocks__further-reading__footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -791,7 +831,8 @@ p {
 }
 
 .resources__info-blocks__glossary__footer p,
-.resources__info-blocks__faq__footer p {
+.resources__info-blocks__faq__footer p,
+.resources__info-blocks__further-reading__footer p {
   text-align: center;
   font-family: var(--body-font);
   font-size: var(--16px);
@@ -800,7 +841,8 @@ p {
 }
 
 .resources__info-blocks__glossary__main__navigation,
-.resources__info-blocks__faq__main__navigation {
+.resources__info-blocks__faq__main__navigation,
+.resources__info-blocks__further-reading__main__navigation {
   list-style-type: none;
   display: flex;
   flex-direction: row;
@@ -813,7 +855,8 @@ p {
 }
 
 .resources__info-blocks__glossary__main__navigation li,
-.resources__info-blocks__faq__main__navigation li {
+.resources__info-blocks__faq__main__navigation li,
+.resources__info-blocks__further-reading__main__navigation li {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -821,7 +864,8 @@ p {
 }
 
 .resources__info-blocks__glossary__main__navigation li a,
-.resources__info-blocks__faq__main__navigation li a {
+.resources__info-blocks__faq__main__navigation li a,
+.resources__info-blocks__further-reading__main__navigation li a {
   font-family: var(--interactive-font);
   font-size: var(--16px);
   color: var(--text);
@@ -834,17 +878,20 @@ p {
 }
 
 .resources__info-blocks__glossary__main__navigation li a,
-.resources__info-blocks__faq__main__navigation li a {
+.resources__info-blocks__faq__main__navigation li a,
+.resources__info-blocks__further-reading__main__navigation li a {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
 .resources__info-blocks__glossary__main__navigation li a:hover,
-.resources__info-blocks__faq__main__navigation li a:hover {
+.resources__info-blocks__faq__main__navigation li a:hover,
+.resources__info-blocks__further-reading__main__navigation li a:hover {
   background-color: var(--text);
   color: var(--primary-colour);
 }
 
-.resources__info-blocks__faq__main__question {
+.resources__info-blocks__faq__main__question,
+.resources__info-blocks__further-reading__main__header {
   font-weight: 700;
 }
 
@@ -1098,6 +1145,19 @@ p {
 
   .resources__info-blocks {
     width: 90%;
+  }
+
+  .resources__info-blocks__further-reading__main {
+    width: 100%;
+  }
+
+  .resources__info-blocks__further-reading__main h3 {
+    text-align: center;
+  }
+
+  .resources__info-blocks__further-reading__main iframe {
+    width: 100%;
+    height: 100%;
   }
 }
 

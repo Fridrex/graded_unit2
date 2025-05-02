@@ -35,7 +35,7 @@ const Resources = () => {
           <div className="resources__info-blocks__further-reading--preview">
             <FurtherReading isOpen={isOpen} handleIsOpen={handleIsOpen} />
             <button className={isOpen ? 'hide' : ''} onClick={handleIsOpen}>
-              Open All Further Readings
+              Open Further Reading
             </button>
           </div>
         </div>
