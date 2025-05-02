@@ -917,6 +917,16 @@ p {
   font-family: var(--body-font);
 }
 
+.learn__header__video {
+  display: flex;
+  width: 30%;
+  margin: 1rem auto;
+  background-color: var(--secondary-colour);
+  opacity: 0.8;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: var(--10px);
+}
+
 .learn__main,
 .learn__footer {
   display: flex;
@@ -929,6 +939,10 @@ p {
   background-color: var(--secondary-colour);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   border-radius: var(--10px);
+}
+
+.learn__footer {
+  margin-top: 2rem;
 }
 
 .learn__main__blockchain,
@@ -981,6 +995,19 @@ p {
 
 .learn__main__blockchain {
   margin-top: 2rem;
+}
+
+.learn__main__cbdc {
+  margin-bottom: 2rem;
+}
+
+.learn__main__hr {
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid var(--text);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: var(--10px);
 }
 
 .learn__footer__certification {

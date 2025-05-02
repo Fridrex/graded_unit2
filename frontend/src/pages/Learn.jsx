@@ -7,14 +7,38 @@ import Certification from '../components/learn/Certification';
 const Learn = () => {
   const [isPassed, setIsPassed] = useState(true);
   const [sessionId, setSessionId] = useState(null);
+  const [isOpenBlockchain, setIsOpenBlockchain] = useState(false);
+  const [isOpenCrypto, setIsOpenCrypto] = useState(false);
+  const [isOpenCbdc, setIsOpenCbdc] = useState(false);
+  const [isOpenCertification, setIsOpenCertification] = useState(false);
 
   useEffect(() => {}, []);
+
+  const handleOpen = (module) => {
+    switch (module) {
+      case 'blockchain':
+        setIsOpenBlockchain(!isOpenBlockchain);
+        break;
+      case 'crypto':
+        setIsOpenCrypto(!isOpenCrypto);
+        break;
+      case 'cbdc':
+        setIsOpenCbdc(!isOpenCbdc);
+        break;
+      case 'certification':
+        setIsOpenCertification(!isOpenCertification);
+        break;
+      default:
+        break;
+    }
+  };
 
   return (
     <>
       <div className="learn">
         <div className="learn__header">
           <h1>Welcome to Your Blockchain Learning Hub</h1>
+          <video src="src/assets/videos/learn_video.mp4" autoPlay muted loop className="learn__header__video"></video>
           <p>
             Embark on a journey to understand the fundamentals of Blockchain, Cryptocurrencies, and Central Bank Digital
             Currencies (CBDCs) through clear, unbiased explanations.
@@ -28,8 +52,9 @@ const Learn = () => {
               components like blocks, chains, and cryptography, and understand concepts like decentralisation and
               immutability.
             </p>
-            <button onClick={<Blockchain />}>Learn about Blockchain</button>
+            <button onClick={() => handleOpen('blockchain')}>Learn about Blockchain</button>
           </div>
+          <hr className="learn__main__hr" />
           <div className="learn__main__crypto">
             <h2>Cryptocurrencies</h2>
             <p>
@@ -37,8 +62,9 @@ const Learn = () => {
               utilise blockchain technology, the distinction between different types (like Bitcoin and altcoins), and
               their basic transaction mechanisms.
             </p>
-            <button onClick={<Crypto />}>Learn about Crypto</button>
+            <button onClick={() => handleOpen('crypto')}>Learn about Crypto</button>
           </div>
+          <hr className="learn__main__hr" />
           <div className="learn__main__cbdc">
             <h2>Central Bank Digital Currencies (CBDCs)</h2>
             <p>
@@ -46,7 +72,7 @@ const Learn = () => {
               governments are exploring them, potential designs, and how they compare and contrast with existing
               cryptocurrencies and traditional electronic money.
             </p>
-            <button onClick={<Cbdc />}>Learn about CBDCs</button>
+            <button onClick={() => handleOpen('cbdc')}>Learn about CBDCs</button>
           </div>
         </div>
         {isPassed && (
@@ -57,7 +83,7 @@ const Learn = () => {
                 Congratulations on successfully completing all the learning modules and quizzes! You can now generate
                 your personalised certificate of completion by clicking the button below.
               </p>
-              <button onClick={<Certification />}>Generate Certificate</button>
+              <button onClick={() => handleOpen('certification')}>Generate Certificate</button>
             </div>
           </div>
         )}
