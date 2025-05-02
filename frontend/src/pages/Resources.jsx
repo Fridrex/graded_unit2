@@ -4,10 +4,20 @@ import Faq from '../components/resources/Faq';
 import FurtherReading from '../components/resources/FurtherReading';
 
 const Resources = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenGlossary, setIsOpenGlossary] = useState(false);
+  const [isOpenFaq, setIsOpenFaq] = useState(false);
+  const [isOpenFurtherReading, setIsOpenFurtherReading] = useState(false);
 
-  const handleIsOpen = () => {
-    return setIsOpen(!isOpen);
+  const handleIsOpen = (section) => {
+    if (section === 'glossary') {
+      setIsOpenGlossary(!isOpenGlossary);
+    }
+    if (section === 'faq') {
+      setIsOpenFaq(!isOpenFaq);
+    }
+    if (section === 'further-reading') {
+      setIsOpenFurtherReading(!isOpenFurtherReading);
+    }
   };
 
   return (
@@ -21,20 +31,20 @@ const Resources = () => {
         </div>
         <div className="resources__info-blocks">
           <div className="resources__info-blocks__glossary--preview">
-            <Glossary isOpen={isOpen} handleIsOpen={handleIsOpen} />
-            <button className={isOpen ? 'hide' : ''} onClick={handleIsOpen}>
+            <Glossary isOpen={isOpenGlossary} handleIsOpen={() => handleIsOpen('glossary')} />
+            <button className={isOpenGlossary ? 'hide' : ''} onClick={() => handleIsOpen('glossary')}>
               Open Full Glossary
             </button>
           </div>
           <div className="resources__info-blocks__faq--preview">
-            <Faq isOpen={isOpen} handleIsOpen={handleIsOpen} />
-            <button className={isOpen ? 'hide' : ''} onClick={handleIsOpen}>
+            <Faq isOpen={isOpenFaq} handleIsOpen={() => handleIsOpen('faq')} />
+            <button className={isOpenFaq ? 'hide' : ''} onClick={() => handleIsOpen('faq')}>
               Open Full FAQ
             </button>
           </div>
           <div className="resources__info-blocks__further-reading--preview">
-            <FurtherReading isOpen={isOpen} handleIsOpen={handleIsOpen} />
-            <button className={isOpen ? 'hide' : ''} onClick={handleIsOpen}>
+            <FurtherReading isOpen={isOpenFurtherReading} handleIsOpen={() => handleIsOpen('further-reading')} />
+            <button className={isOpenFurtherReading ? 'hide' : ''} onClick={() => handleIsOpen('further-reading')}>
               Open Further Reading
             </button>
           </div>
