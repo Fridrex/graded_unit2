@@ -895,6 +895,98 @@ p {
   font-weight: 700;
 }
 
+/* Learn */
+
+.learn__header,
+.learn__footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.learn__header h1 {
+  margin: 0;
+}
+
+.learn__header p {
+  font-size: var(--16px);
+  font-family: var(--body-font);
+}
+
+.learn__main,
+.learn__footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--32px);
+  width: 80%;
+  margin: 0 auto;
+  background-color: var(--secondary-colour);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: var(--10px);
+}
+
+.learn__main__blockchain,
+.learn__main__crypto,
+.learn__main__cbdc,
+.learn__footer__certification {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  background-color: rgba(93, 63, 211, 0.3);
+  border-radius: var(--10px);
+  padding: 1rem;
+}
+
+.learn__main h2,
+.learn__footer h3 {
+  margin: 0;
+  text-align: center;
+}
+
+.learn__main p,
+.learn__footer p {
+  font-size: var(--16px);
+  font-family: var(--body-font);
+  text-align: center;
+  width: 80%;
+}
+
+.learn__main button,
+.learn__footer button {
+  background: none;
+  border: 1px solid var(--text);
+  color: var(--text);
+  font-family: var(--interactive-font);
+  font-size: var(--16px);
+  font-weight: 700;
+  border-radius: var(--8px);
+  padding: var(--4px) var(--8px);
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.learn__main button:hover,
+.learn__footer button:hover {
+  background-color: var(--text);
+  color: var(--primary-colour);
+}
+
+.learn__main__blockchain {
+  margin-top: 2rem;
+}
+
+.learn__footer__certification {
+  background-color: rgba(0, 211, 127, 0.5);
+}
+
 /* Media Queries */
 
 @media only screen and (max-width: 1333px) {
