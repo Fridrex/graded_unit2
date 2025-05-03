@@ -36,46 +36,79 @@ const Learn = () => {
   return (
     <>
       <div className="learn">
-        <div className="learn__header">
-          <h1>Welcome to Your Blockchain Learning Hub</h1>
-          <video src="src/assets/videos/learn_video.mp4" autoPlay muted loop className="learn__header__video"></video>
-          <p>
-            Embark on a journey to understand the fundamentals of Blockchain, Cryptocurrencies, and Central Bank Digital
-            Currencies (CBDCs) through clear, unbiased explanations.
-          </p>
-        </div>
-        <div className="learn__main">
-          <div className="learn__main__blockchain">
-            <h2>Blockchain Technology</h2>
-            <p>
-              Dive into the foundational technology. Here, you'll explore what a blockchain is, how it works, its key
-              components like blocks, chains, and cryptography, and understand concepts like decentralisation and
-              immutability.
-            </p>
-            <button onClick={() => handleOpen('blockchain')}>Learn about Blockchain</button>
-          </div>
-          <hr className="learn__main__hr" />
-          <div className="learn__main__crypto">
-            <h2>Cryptocurrencies</h2>
-            <p>
-              Discover the world of digital currencies. This section explains what cryptocurrencies are, how they
-              utilise blockchain technology, the distinction between different types (like Bitcoin and altcoins), and
-              their basic transaction mechanisms.
-            </p>
-            <button onClick={() => handleOpen('crypto')}>Learn about Crypto</button>
-          </div>
-          <hr className="learn__main__hr" />
-          <div className="learn__main__cbdc">
-            <h2>Central Bank Digital Currencies (CBDCs)</h2>
-            <p>
-              Explore the concept of digital currencies issued by nations' central banks. Learn what CBDCs are, why
-              governments are exploring them, potential designs, and how they compare and contrast with existing
-              cryptocurrencies and traditional electronic money.
-            </p>
-            <button onClick={() => handleOpen('cbdc')}>Learn about CBDCs</button>
-          </div>
-        </div>
-        {isPassed && (
+        {!isOpenBlockchain && !isOpenCrypto && !isOpenCbdc && !isOpenCertification && (
+          <>
+            <div className="learn__header">
+              <h1>Welcome to Your Blockchain Learning Hub</h1>
+              <video
+                src="src/assets/videos/learn_video.mp4"
+                autoPlay
+                muted
+                loop
+                className="learn__header__video"
+              ></video>
+              <p>
+                Embark on a journey to understand the fundamentals of Blockchain, Cryptocurrencies, and Central Bank
+                Digital Currencies (CBDCs) through clear, unbiased explanations.
+              </p>
+            </div>
+            <div className="learn__main">
+              <div className="learn__main__blockchain">
+                <h2>Blockchain Technology</h2>
+                <p>
+                  Dive into the foundational technology. Here, you'll explore what a blockchain is, how it works, its
+                  key components like blocks, chains, and cryptography, and understand concepts like decentralisation
+                  and immutability.
+                </p>
+                <button onClick={() => handleOpen('blockchain')}>Learn about Blockchain</button>
+              </div>
+              <hr className="learn__main__hr" />
+              <div className="learn__main__crypto">
+                <h2>Cryptocurrencies</h2>
+                <p>
+                  Discover the world of digital currencies. This section explains what cryptocurrencies are, how they
+                  utilise blockchain technology, the distinction between different types (like Bitcoin and altcoins),
+                  and their basic transaction mechanisms.
+                </p>
+                <button onClick={() => handleOpen('crypto')}>Learn about Crypto</button>
+              </div>
+              <hr className="learn__main__hr" />
+              <div className="learn__main__cbdc">
+                <h2>Central Bank Digital Currencies (CBDCs)</h2>
+                <p>
+                  Explore the concept of digital currencies issued by nations' central banks. Learn what CBDCs are, why
+                  governments are exploring them, potential designs, and how they compare and contrast with existing
+                  cryptocurrencies and traditional electronic money.
+                </p>
+                <button onClick={() => handleOpen('cbdc')}>Learn about CBDCs</button>
+              </div>
+            </div>
+          </>
+        )}
+        {isOpenBlockchain && (
+          <Blockchain
+            isOpen={isOpenBlockchain}
+            setIsOpen={setIsOpenBlockchain}
+            handleOpen={() => handleOpen('blockchain')}
+            setSessionId={setSessionId}
+            setIsPassed={setIsPassed}
+          />
+        )}
+        {isOpenCrypto && (
+          <Crypto isOpen={isOpenCrypto} handleOpen={handleOpen} setSessionId={setSessionId} setIsPassed={setIsPassed} />
+        )}
+        {isOpenCbdc && (
+          <Cbdc isOpen={isOpenCbdc} handleOpen={handleOpen} setSessionId={setSessionId} setIsPassed={setIsPassed} />
+        )}
+        {isOpenCertification && (
+          <Certification
+            isOpen={isOpenCertification}
+            handleOpen={handleOpen}
+            sessionId={sessionId}
+            setIsPassed={setIsPassed}
+          />
+        )}
+        {isPassed && !isOpenBlockchain && !isOpenCrypto && !isOpenCbdc && (
           <div className="learn__footer">
             <div className="learn__footer__certification">
               <h3>Completion & Certification</h3>
