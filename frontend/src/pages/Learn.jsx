@@ -87,23 +87,26 @@ const Learn = () => {
         )}
         {isOpenBlockchain && (
           <Blockchain
-            isOpen={isOpenBlockchain}
-            setIsOpen={setIsOpenBlockchain}
             handleOpen={() => handleOpen('blockchain')}
             setSessionId={setSessionId}
             setIsPassed={setIsPassed}
           />
         )}
         {isOpenCrypto && (
-          <Crypto isOpen={isOpenCrypto} handleOpen={handleOpen} setSessionId={setSessionId} setIsPassed={setIsPassed} />
+          <Crypto
+          handleOpen={() => handleOpen('crypto')}
+          setSessionId={setSessionId}
+          setIsPassed={setIsPassed} />
         )}
         {isOpenCbdc && (
-          <Cbdc isOpen={isOpenCbdc} handleOpen={handleOpen} setSessionId={setSessionId} setIsPassed={setIsPassed} />
+          <Cbdc
+          handleOpen={() => handleOpen('cbdc')}
+          setSessionId={setSessionId}
+          setIsPassed={setIsPassed} />
         )}
         {isOpenCertification && (
           <Certification
-            isOpen={isOpenCertification}
-            handleOpen={handleOpen}
+            handleOpen={() => handleOpen('certification')}
             sessionId={sessionId}
             setIsPassed={setIsPassed}
           />
