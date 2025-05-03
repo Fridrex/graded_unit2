@@ -1096,7 +1096,6 @@ p {
   padding: 1rem;
   opacity: 0.9;
   border: 1px solid var(--text);
-  cursor: zoom-in;
 }
 
 .learn__blockchain__content__cta {
@@ -1169,6 +1168,10 @@ p {
 .learn__blockchain__footer__button:hover {
   background-color: var(--text);
   color: var(--primary-colour);
+}
+
+.learn__blockchain__content__zoom {
+  text-align: center;
 }
 
 /* Media Queries */

@@ -1,11 +1,13 @@
 import { Link } from 'react-router';
+import Zoom from 'react-medium-image-zoom';
 import BlockchainQuiz from './BlockchainQuiz';
+import 'react-medium-image-zoom/dist/styles.css';
 
-const Blockchain = (setIsOpen, isOpen, handleOpen, setSessionId, setIsPassed) => {
+const Blockchain = ({ handleOpen, setSessionId, setIsPassed }) => {
   return (
     <>
       <div className="learn__blockchain">
-        <button className="learn__back-button" onClick={() => setIsOpen(!isOpen)}>
+        <button className="learn__back-button" onClick={() => handleOpen('blockchain')}>
           Back to Learn page
         </button>
         <article className="learn__blockchain__content">
@@ -43,7 +45,11 @@ const Blockchain = (setIsOpen, isOpen, handleOpen, setSessionId, setIsPassed) =>
             This section will break down these concepts further, using visuals and simple language, so you can
             confidently grasp how blockchain works and its potential.
           </p>
-          <img src="src/assets/images/blockchain-info.jpeg" alt="Blockchain infographics" />
+          <div className="learn__blockchain__content__zoom">
+            <Zoom>
+              <img src="src/assets/images/blockchain-info.jpeg" alt="Blockchain infographics" />
+            </Zoom>
+          </div>
           <p>
             The world of digital currencies can seem complex, filled with unfamiliar terms. Our goal is to simplify this
             for you. Here, we'll break down the essential vocabulary and fundamental ideas without the confusing jargon.
@@ -79,7 +85,11 @@ const Blockchain = (setIsOpen, isOpen, handleOpen, setSessionId, setIsPassed) =>
             These are some of the basic building blocks. We'll explore these and other concepts in more detail, always
             keeping the explanations clear and straightforward.
           </p>
-          <img src="src/assets/images/crypto-info.jpg" alt="Blockchain infographics" />
+          <div className="learn__blockchain__content__zoom">
+            <Zoom>
+              <img src="src/assets/images/crypto-info.jpg" alt="Blockchain infographics" />
+            </Zoom>
+          </div>
           <p>
             Our infographic provides a visual guide to the fascinating world of blockchain technology. Let's dive deeper
             into the different aspects highlighted:
