@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "chart.js": "^4.4.8",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^3.0.1",
     "modern-normalize": "^3.0.1",
     "motion": "^12.7.3",
     "prettier": "^3.5.3",

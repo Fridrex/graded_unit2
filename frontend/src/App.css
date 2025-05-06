@@ -1285,6 +1285,93 @@ p {
   margin-bottom: var(--5px);
 }
 
+.learn__certification__content__form__disclaimer {
+  font-size: var(--10px) !important;
+  font-family: var(--body-font);
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.learn__certificate {
+  width: 800px;
+  height: 600px;
+  padding: var(--32px);
+  text-align: center;
+  border: 10px solid var(--primary-accent);
+  border-radius: 10px;
+  background-color: var(--primary-colour);
+  box-sizing: border-box;
+  position: relative;
+  color: var(--text);
+}
+
+.learn__certificate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 5px solid var(--secondary-accent);
+  margin: var(--20px);
+  z-index: 1;
+}
+
+.learn__certificate__content {
+  padding: var(--20px);
+  position: relative;
+  z-index: 2;
+}
+
+.learn__certificate h1 {
+  font-family: var(--headers-font);
+  font-size: var(--32px);
+  font-weight: bold;
+  color: var(--secondary-accent);
+  margin: var(--20px) 0;
+}
+
+.learn__certificate h2 {
+  font-family: var(--headers-font);
+  font-size: var(--24px);
+  margin: var(--20px) 0;
+  color: var(--text);
+}
+
+.learn__certificate p {
+  font-family: var(--body-font);
+  font-size: var(--18px);
+  margin: var(--10px) 0;
+  color: var(--text-secondary);
+}
+
+.learn__certificate h3 {
+  font-family: var(--interactive-font);
+  font-size: var(--30px);
+  margin: var(--20px) 0;
+  color: var(--secondary-accent);
+}
+
+.learn__certificate__footer {
+  margin-top: var(--30px);
+  font-style: italic;
+  font-family: var(--body-font);
+  font-size: var(--16px);
+  color: var(--text-secondary);
+}
+
+.learn__certificate__content img {
+  width: 70px;
+  margin: var(--20px) 0;
+}
+
+.certificate-container {
+  position: fixed;
+  top: -9999px;
+  left: 0;
+}
+
 /* Media Queries */
 
 @media only screen and (max-width: 1333px) {
