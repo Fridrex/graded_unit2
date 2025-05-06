@@ -104,17 +104,11 @@ const Crypto = ({ handleOpen, setSessionId, setIsPassed }) => {
           </p>
         </article>
         <div className="learn__crypto__footer">
-          <h3>Blockchain Quiz</h3>
-          <video
-            src="src/assets/videos/blockchain_quiz.mp4"
-            autoPlay
-            muted
-            loop
-            className="learn__header__video"
-          ></video>
+          <h3>Cryptocurrency Quiz</h3>
+          <video src="src/assets/videos/crypto_quiz.mp4" autoPlay muted loop className="learn__header__video"></video>
           <p>
-            Now that you've learned about blockchain technology, it's time to test your knowledge! Click the button
-            below to take the quiz and see how well you understand the concepts we've covered.
+            Now that you've learned about cryptocurrencies, it's time to test your knowledge! Click the button below to
+            take the quiz and see how well you understand the concepts we've covered.
           </p>
           <button className="learn__crypto__footer__button">Start Quiz</button>
         </div>
