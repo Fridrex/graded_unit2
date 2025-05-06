@@ -1014,7 +1014,9 @@ p {
   background-color: rgba(0, 211, 127, 0.5);
 }
 
-.learn__blockchain {
+.learn__blockchain,
+.learn__crypto,
+.learn__cbdc {
   position: relative;
 }
 
@@ -1039,7 +1041,9 @@ p {
   color: var(--primary-colour);
 }
 
-.learn__blockchain__content {
+.learn__blockchain__content,
+.learn__crypto__content,
+.learn__cbdc__content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1050,7 +1054,9 @@ p {
   padding-bottom: 2rem;
 }
 
-.learn__blockchain__content p {
+.learn__blockchain__content p,
+.learn__crypto__content p,
+.learn__cbdc__content p {
   font-size: var(--16px);
   font-family: var(--body-font);
   text-align: left;
@@ -1060,33 +1066,43 @@ p {
   margin-bottom: var(--5px);
 }
 
-.learn__blockchain__content ul {
+.learn__blockchain__content ul,
+.learn__crypto__content ul,
+.learn__cbdc__content ul {
   list-style: circle;
   padding: 0;
   margin: 1rem auto;
   width: 80%;
 }
 
-.learn__blockchain__content ul li {
+.learn__blockchain__content ul li,
+.learn__crypto__content ul li,
+.learn__cbdc__content ul li {
   font-size: var(--16px);
   font-family: var(--body-font);
   color: var(--text);
 }
 
-.learn__blockchain__content ol {
+.learn__blockchain__content ol,
+.learn__crypto__content ol,
+.learn__cbdc__content ol {
   list-style: decimal;
   padding: 0;
   margin: 1rem auto;
   width: 80%;
 }
 
-.learn__blockchain__content ol li {
+.learn__blockchain__content ol li,
+.learn__crypto__content ol li,
+.learn__cbdc__content ol li {
   font-size: var(--16px);
   font-family: var(--body-font);
   color: var(--text);
 }
 
-.learn__blockchain__content img {
+.learn__blockchain__content img,
+.learn__crypto__content img,
+.learn__cbdc__content img {
   width: 50%;
   height: auto;
   margin: 1rem auto;
@@ -1098,7 +1114,13 @@ p {
   border: 1px solid var(--text);
 }
 
-.learn__blockchain__content__cta {
+.learn__cbdc__content__zoom img {
+  width: 100%;
+}
+
+.learn__blockchain__content__cta,
+.learn__crypto__content__cta,
+.learn__cbdc__content__cta {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1109,7 +1131,9 @@ p {
   padding-top: 1rem;
 }
 
-.learn__blockchain__content__cta a {
+.learn__blockchain__content__cta a,
+.learn__crypto__content__cta a,
+.learn__cbdc__content__cta a {
   text-decoration: none;
   border: 1px solid var(--text);
   color: var(--text);
@@ -1122,12 +1146,16 @@ p {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.learn__blockchain__content__cta a:hover {
+.learn__blockchain__content__cta a:hover,
+.learn__crypto__content__cta a:hover,
+.learn__cbdc__content__cta a:hover {
   background-color: var(--text);
   color: var(--primary-colour);
 }
 
-.learn__blockchain__footer {
+.learn__blockchain__footer,
+.learn__crypto__footer,
+.learn__cbdc__footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1137,13 +1165,17 @@ p {
   padding-bottom: 2rem;
 }
 
-.learn__blockchain__footer h3 {
+.learn__blockchain__footer h3,
+.learn__crypto__footer h3,
+.learn__cbdc__footer h3 {
   font-size: var(--24px);
   font-weight: 700;
   text-align: center;
 }
 
-.learn__blockchain__footer p {
+.learn__blockchain__footer p,
+.learn__crypto__footer p,
+.learn__cbdc__footer p {
   font-size: var(--16px);
   font-family: var(--body-font);
   text-align: center;
@@ -1152,7 +1184,9 @@ p {
   margin-bottom: var(--16px);
 }
 
-.learn__blockchain__footer__button {
+.learn__blockchain__footer__button,
+.learn__crypto__footer__button,
+.learn__cbdc__footer__button {
   background: none;
   border: 1px solid var(--text);
   color: var(--text);
@@ -1165,12 +1199,16 @@ p {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.learn__blockchain__footer__button:hover {
+.learn__blockchain__footer__button:hover,
+.learn__crypto__footer__button:hover,
+.learn__cbdc__footer__button:hover {
   background-color: var(--text);
   color: var(--primary-colour);
 }
 
-.learn__blockchain__content__zoom {
+.learn__blockchain__content__zoom,
+.learn__crypto__content__zoom,
+.learn__cbdc__content__zoom {
   text-align: center;
 }
 

@@ -95,11 +95,11 @@ const Crypto = ({ handleOpen, setSessionId, setIsPassed }) => {
             This section provides a foundation for understanding the complex world of cryptocurrencies. By grasping
             these core concepts, you'll be better equipped to navigate this rapidly evolving landscape.
           </p>
-          <p className="learn__blockchain__content__cta">
+          <p className="learn__crypto__content__cta">
             You can dive into cryptocurrency experience with out wallet creation simulation.
             <Link to="/wallet">Create your own crypto wallet right now!</Link>
           </p>
-          <p className="learn__blockchain__content__cta">
+          <p className="learn__crypto__content__cta">
             Check out our <Link to="/resources">Resources page</Link> for more information
           </p>
         </article>

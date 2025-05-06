@@ -1,4 +1,6 @@
 import { Link } from 'react-router';
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
 import CbdcQuiz from './CbdcQuiz';
 
 const Cdbc = ({ handleOpen, setSessionId, setIsPassed }) => {
@@ -17,7 +19,7 @@ const Cdbc = ({ handleOpen, setSessionId, setIsPassed }) => {
             directly by the central bank. In the UK, this would be a digital form of the pound sterling.
           </p>
           <h3>Understanding CBDCs</h3>
-          <div className="learn__blockchain__content__zoom">
+          <div className="learn__cbdc__content__zoom">
             <Zoom>
               <img src="src/assets/images/digital-money-venn-diagram.svg" alt="CBDC infographics" />
             </Zoom>
@@ -84,7 +86,7 @@ const Cdbc = ({ handleOpen, setSessionId, setIsPassed }) => {
             This section provides a clear understanding of what CBDCs are, how they differ from cryptocurrencies, and
             their potential role in the future of finance.
           </p>
-          <p className="learn__blockchain__content__cta">
+          <p className="learn__cbdc__content__cta">
             Check out our <Link to="/resources">Resources page</Link> for more information
           </p>
         </article>
