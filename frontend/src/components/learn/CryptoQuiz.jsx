@@ -1,5 +1,3 @@
-const CryptoQuiz = () => {
-
-}
+const CryptoQuiz = () => {};
 
 export default CryptoQuiz;

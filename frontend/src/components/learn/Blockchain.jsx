@@ -214,12 +214,12 @@ const Blockchain = ({ handleOpen, setSessionId, setIsPassed }) => {
         <div className="learn__blockchain__footer">
           <h3>Blockchain Quiz</h3>
           <video
-                src="src/assets/videos/blockchain_quiz.mp4"
-                autoPlay
-                muted
-                loop
-                className="learn__header__video"
-              ></video>
+            src="src/assets/videos/blockchain_quiz.mp4"
+            autoPlay
+            muted
+            loop
+            className="learn__header__video"
+          ></video>
           <p>
             Now that you've learned about blockchain technology, it's time to test your knowledge! Click the button
             below to take the quiz and see how well you understand the concepts we've covered.
