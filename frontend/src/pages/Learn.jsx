@@ -105,7 +105,7 @@ const Learn = () => {
             setIsPassed={setIsPassed}
           />
         )}
-        {isPassed && !isOpenBlockchain && !isOpenCrypto && !isOpenCbdc && (
+        {isPassed && !isOpenBlockchain && !isOpenCrypto && !isOpenCbdc && !isOpenCertification && (
           <div className="learn__footer">
             <div className="learn__footer__certification">
               <h3>Completion & Certification</h3>

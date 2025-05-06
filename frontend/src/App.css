@@ -1016,7 +1016,8 @@ p {
 
 .learn__blockchain,
 .learn__crypto,
-.learn__cbdc {
+.learn__cbdc,
+.learn__certification {
   position: relative;
 }
 
@@ -1043,7 +1044,8 @@ p {
 
 .learn__blockchain__content,
 .learn__crypto__content,
-.learn__cbdc__content {
+.learn__cbdc__content,
+.learn__certification__content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1056,7 +1058,8 @@ p {
 
 .learn__blockchain__content p,
 .learn__crypto__content p,
-.learn__cbdc__content p {
+.learn__cbdc__content p,
+.learn__certification__content p {
   font-size: var(--16px);
   font-family: var(--body-font);
   text-align: left;
@@ -1102,7 +1105,8 @@ p {
 
 .learn__blockchain__content img,
 .learn__crypto__content img,
-.learn__cbdc__content img {
+.learn__cbdc__content img,
+.learn__certification__content img {
   width: 50%;
   height: auto;
   margin: 1rem auto;
@@ -1210,6 +1214,75 @@ p {
 .learn__crypto__content__zoom,
 .learn__cbdc__content__zoom {
   text-align: center;
+}
+
+.learn__certification__content__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--16px);
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+
+.learn__certification__content__form input {
+  width: 30%;
+  height: 2.125rem;
+  border-radius: var(--10px);
+  border: 1px solid var(--text);
+  padding: var(--4px) var(--8px);
+  font-size: var(--16px);
+  font-family: var(--interactive-font);
+}
+
+.learn__certification__content__form input::placeholder {
+  color: var(--primary-accent);
+}
+
+.learn__certification__content__form input:focus {
+  outline: none;
+  border: 1px solid var(--secondary-colour);
+}
+
+.learn__certification__content__form input:focus::placeholder {
+  color: var(--text);
+}
+
+.learn__certification__content__form label {
+  font-size: var(--16px);
+  font-family: var(--body-font);
+  color: var(--text);
+  font-weight: 700;
+}
+
+.learn__certification__content__form button {
+  background: none;
+  border: 1px solid var(--text);
+  color: var(--text);
+  font-family: var(--interactive-font);
+  font-size: var(--16px);
+  font-weight: 700;
+  border-radius: var(--8px);
+  padding: var(--4px) var(--8px);
+  cursor: pointer;
+  background-color: rgba(0, 211, 127, 0.4);
+}
+
+.learn__certification__content__form button:hover {
+  background-color: var(--text);
+  color: var(--primary-colour);
+}
+
+.learn__certification__content p {
+  font-size: var(--18px);
+  font-family: var(--body-font);
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: var(--5px);
+  margin-bottom: var(--5px);
 }
 
 /* Media Queries */
@@ -1477,12 +1550,25 @@ p {
     height: 100%;
   }
 
-  .learn__blockchain__content img {
+  .learn__blockchain__content img,
+  .learn__crypto__content img,
+  .learn__cbdc__content img,
+  .learn__certification__content img {
     width: 100%;
   }
 
-  .learn__blockchain__content__cta {
+  .learn__blockchain__content__cta,
+  .learn__crypto__content__cta,
+  .learn__cbdc__content__cta {
     flex-direction: column;
+  }
+
+  .learn__certification__content h1 {
+    text-align: center;
+  }
+
+  .learn__certification__content__form input {
+    width: 100%;
   }
 
   .learn__back-button {
