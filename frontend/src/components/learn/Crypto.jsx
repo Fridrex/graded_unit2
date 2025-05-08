@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { HashLink as Link } from 'react-router-hash-link';
 import CryptoQuiz from './CryptoQuiz';
 
 const Crypto = ({ handleOpen, setSessionId, setIsPassed }) => {
@@ -100,7 +100,7 @@ const Crypto = ({ handleOpen, setSessionId, setIsPassed }) => {
             <Link to="/wallet">Create your own crypto wallet right now!</Link>
           </p>
           <p className="learn__crypto__content__cta">
-            Check out our <Link to="/resources">Resources page</Link> for more information
+            Check out our <Link to="/resources#resources-header">Resources page</Link> for more information
           </p>
         </article>
         <div className="learn__crypto__footer">

@@ -23,7 +23,7 @@ const Resources = () => {
   return (
     <>
       <div className="resources">
-        <div className="resources__header">
+        <div className="resources__header" id='resources-header'>
           <h1>
             Quickly find definitions in our glossary, get answers to common questions about the app, wallets, and more,
             and explore helpful articles and videos in our further reading section

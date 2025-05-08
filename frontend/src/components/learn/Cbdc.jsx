@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { HashLink as Link } from 'react-router-hash-link';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 import CbdcQuiz from './CbdcQuiz';
@@ -87,7 +87,7 @@ const Cdbc = ({ handleOpen, setSessionId, setIsPassed }) => {
             their potential role in the future of finance.
           </p>
           <p className="learn__cbdc__content__cta">
-            Check out our <Link to="/resources">Resources page</Link> for more information
+            Check out our <Link to="/resources#resources-header">Resources page</Link> for more information
           </p>
         </article>
         <div className="learn__cbdc__footer">

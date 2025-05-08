@@ -29,7 +29,6 @@ const Certification = ({ handleOpen, setSessionId, setIsPassed }) => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 100));
 
-      console.log('Generating canvas...');
       const canvas = await html2canvas(certificateRef.current, {
         scale: 2,
         logging: true,
@@ -37,7 +36,6 @@ const Certification = ({ handleOpen, setSessionId, setIsPassed }) => {
         backgroundColor: '#ffffff',
       });
 
-      console.log('Canvas generated, creating PDF...');
       const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF({
         orientation: 'landscape',
@@ -50,7 +48,6 @@ const Certification = ({ handleOpen, setSessionId, setIsPassed }) => {
 
       pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
       pdf.save(`${fullName}_Certificate.pdf`);
-      console.log('PDF saved successfully!');
     } catch (error) {
       console.error('Error generating PDF:', error);
     }
