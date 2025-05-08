@@ -5,7 +5,7 @@ import Cbdc from '../components/learn/Cbdc';
 import Certification from '../components/learn/Certification';
 
 const Learn = () => {
-  const [isPassed, setIsPassed] = useState(true);
+  const [isPassed, setIsPassed] = useState(false);
   const [sessionId, setSessionId] = useState(null);
   const [isOpenBlockchain, setIsOpenBlockchain] = useState(false);
   const [isOpenCrypto, setIsOpenCrypto] = useState(false);

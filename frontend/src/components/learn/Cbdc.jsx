@@ -1,9 +1,16 @@
+import { useState } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 import CbdcQuiz from './CbdcQuiz';
 
 const Cdbc = ({ handleOpen, setSessionId, setIsPassed }) => {
+  const [isQuizOpen, setIsQuizOpen] = useState(false);
+
+  const handleQuizOpen = () => {
+    setIsQuizOpen(!isQuizOpen);
+  };
+
   return (
     <>
       <div className="learn__cbdc">
@@ -92,12 +99,19 @@ const Cdbc = ({ handleOpen, setSessionId, setIsPassed }) => {
         </article>
         <div className="learn__cbdc__footer">
           <h3>CBDC Quiz</h3>
-          <video src="src/assets/videos/crypto_quiz.mp4" autoPlay muted loop className="learn__header__video"></video>
+          <video src="src/assets/videos/cbdc_quiz.mp4" autoPlay muted loop className="learn__header__video"></video>
           <p>
             Now that you've learned about Central Bank Digital Currencies (CBDCs), it's time to test your knowledge!
             Click the button below to take the quiz and see how well you understand the concepts we've covered.
           </p>
-          <button className="learn__cbdc__footer__button">Start Quiz</button>
+          <button className="learn__cbdc__footer__button" onClick={handleQuizOpen}>
+            Start Quiz
+          </button>
+        </div>
+        <div className="learn__cbdc__quiz">
+          {isQuizOpen && (
+            <CbdcQuiz handleQuizOpen={handleQuizOpen} setSessionId={setSessionId} setIsPassed={setIsPassed} />
+          )}
         </div>
       </div>
     </>

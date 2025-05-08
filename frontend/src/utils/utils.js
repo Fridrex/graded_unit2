@@ -10,8 +10,6 @@ const checkModulesComplete = (sessionId) => {};
 
 const getSessionId = () => {};
 
-const getAuthToken = () => {};
-
 const validateWalletAddress = (address) => {};
 
 const validateTransactionAmount = (amount) => {};
