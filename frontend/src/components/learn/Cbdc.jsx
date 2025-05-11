@@ -108,11 +108,7 @@ const Cdbc = ({ handleOpen }) => {
             Start Quiz
           </button>
         </div>
-        <div className="learn__cbdc__quiz">
-          {isQuizOpen && (
-            <CbdcQuiz handleQuizOpen={handleQuizOpen} />
-          )}
-        </div>
+        <div className="learn__cbdc__quiz">{isQuizOpen && <CbdcQuiz handleQuizOpen={handleQuizOpen} />}</div>
       </div>
     </>
   );

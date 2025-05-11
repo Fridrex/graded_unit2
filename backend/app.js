@@ -258,7 +258,7 @@ app.post('/api/learning/progress', async (req, res) => {
   }
 });
 
-app.get('/api/learning/progress', async (req, res) => {
+app.get('/api/learning/getProgress', async (req, res) => {
   try {
     let sessionId = req.cookies.sessionId;
 

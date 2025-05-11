@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import Blockchain from '../components/learn/Blockchain';
 import Crypto from '../components/learn/Crypto';
 import Cbdc from '../components/learn/Cbdc';
@@ -11,7 +12,31 @@ const Learn = () => {
   const [isOpenCbdc, setIsOpenCbdc] = useState(false);
   const [isOpenCertification, setIsOpenCertification] = useState(false);
 
-  useEffect(() => {}, []);
+  const getResults = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/api/learning/getProgress', { withCredentials: true });
+
+      if (response.status === 200) {
+        const { progress } = response.data;
+
+        const extractedProgress = progress.map((item) => ({
+          module: item.module,
+          completed: item.completed,
+        }));
+
+        if (extractedProgress.length === 3) {
+          const allModulesCompleted = extractedProgress.every((item) => item.completed);
+          setIsPassed(allModulesCompleted);
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching results:', error);
+    }
+  };
+
+  useEffect(() => {
+    getResults();
+  }, []);
 
   const handleOpen = (module) => {
     switch (module) {
@@ -84,23 +109,11 @@ const Learn = () => {
             </div>
           </>
         )}
-        {isOpenBlockchain && (
-          <Blockchain
-            handleOpen={() => handleOpen('blockchain')}
-            setIsPassed={setIsPassed}
-          />
-        )}
-        {isOpenCrypto && (
-          <Crypto handleOpen={() => handleOpen('crypto')} setIsPassed={setIsPassed} />
-        )}
-        {isOpenCbdc && (
-          <Cbdc handleOpen={() => handleOpen('cbdc')} setIsPassed={setIsPassed} />
-        )}
+        {isOpenBlockchain && <Blockchain handleOpen={() => handleOpen('blockchain')} setIsPassed={setIsPassed} />}
+        {isOpenCrypto && <Crypto handleOpen={() => handleOpen('crypto')} setIsPassed={setIsPassed} />}
+        {isOpenCbdc && <Cbdc handleOpen={() => handleOpen('cbdc')} setIsPassed={setIsPassed} />}
         {isOpenCertification && (
-          <Certification
-            handleOpen={() => handleOpen('certification')}
-            setIsPassed={setIsPassed}
-          />
+          <Certification handleOpen={() => handleOpen('certification')} setIsPassed={setIsPassed} />
         )}
         {isPassed && !isOpenBlockchain && !isOpenCrypto && !isOpenCbdc && !isOpenCertification && (
           <div className="learn__footer">

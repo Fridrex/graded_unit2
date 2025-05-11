@@ -121,11 +121,7 @@ const Crypto = ({ handleOpen }) => {
             Start Quiz
           </button>
         </div>
-        <div className="learn__crypto__quiz">
-          {isQuizOpen && (
-            <CryptoQuiz handleQuizOpen={handleQuizOpen} />
-          )}
-        </div>
+        <div className="learn__crypto__quiz">{isQuizOpen && <CryptoQuiz handleQuizOpen={handleQuizOpen} />}</div>
       </div>
     </>
   );

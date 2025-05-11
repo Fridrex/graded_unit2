@@ -236,9 +236,7 @@ const Blockchain = ({ handleOpen }) => {
           </button>
         </div>
         <div className="learn__blockchain__quiz">
-          {isQuizOpen && (
-            <BlockchainQuiz handleQuizOpen={handleQuizOpen} />
-          )}
+          {isQuizOpen && <BlockchainQuiz handleQuizOpen={handleQuizOpen} />}
         </div>
       </div>
     </>
