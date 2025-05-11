@@ -4,7 +4,7 @@ import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 import CbdcQuiz from './CbdcQuiz';
 
-const Cdbc = ({ handleOpen, setSessionId, setIsPassed }) => {
+const Cdbc = ({ handleOpen }) => {
   const [isQuizOpen, setIsQuizOpen] = useState(false);
 
   const handleQuizOpen = () => {
@@ -110,7 +110,7 @@ const Cdbc = ({ handleOpen, setSessionId, setIsPassed }) => {
         </div>
         <div className="learn__cbdc__quiz">
           {isQuizOpen && (
-            <CbdcQuiz handleQuizOpen={handleQuizOpen} setSessionId={setSessionId} setIsPassed={setIsPassed} />
+            <CbdcQuiz handleQuizOpen={handleQuizOpen} />
           )}
         </div>
       </div>

@@ -4,7 +4,7 @@ import Zoom from 'react-medium-image-zoom';
 import BlockchainQuiz from './BlockchainQuiz';
 import 'react-medium-image-zoom/dist/styles.css';
 
-const Blockchain = ({ handleOpen, setSessionId, setIsPassed }) => {
+const Blockchain = ({ handleOpen }) => {
   const [isQuizOpen, setIsQuizOpen] = useState(false);
 
   const handleQuizOpen = () => {
@@ -237,7 +237,7 @@ const Blockchain = ({ handleOpen, setSessionId, setIsPassed }) => {
         </div>
         <div className="learn__blockchain__quiz">
           {isQuizOpen && (
-            <BlockchainQuiz handleQuizOpen={handleQuizOpen} setSessionId={setSessionId} setIsPassed={setIsPassed} />
+            <BlockchainQuiz handleQuizOpen={handleQuizOpen} />
           )}
         </div>
       </div>

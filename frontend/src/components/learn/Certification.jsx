@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
@@ -19,7 +19,7 @@ const Certificate = ({ fullName }) => (
   </div>
 );
 
-const Certification = ({ handleOpen, setSessionId, setIsPassed }) => {
+const Certification = ({ handleOpen }) => {
   const [fullName, setFullName] = useState('');
   const certificateRef = useRef(null);
 

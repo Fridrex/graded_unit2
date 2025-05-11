@@ -6,7 +6,6 @@ import Certification from '../components/learn/Certification';
 
 const Learn = () => {
   const [isPassed, setIsPassed] = useState(false);
-  const [sessionId, setSessionId] = useState(null);
   const [isOpenBlockchain, setIsOpenBlockchain] = useState(false);
   const [isOpenCrypto, setIsOpenCrypto] = useState(false);
   const [isOpenCbdc, setIsOpenCbdc] = useState(false);
@@ -88,20 +87,18 @@ const Learn = () => {
         {isOpenBlockchain && (
           <Blockchain
             handleOpen={() => handleOpen('blockchain')}
-            setSessionId={setSessionId}
             setIsPassed={setIsPassed}
           />
         )}
         {isOpenCrypto && (
-          <Crypto handleOpen={() => handleOpen('crypto')} setSessionId={setSessionId} setIsPassed={setIsPassed} />
+          <Crypto handleOpen={() => handleOpen('crypto')} setIsPassed={setIsPassed} />
         )}
         {isOpenCbdc && (
-          <Cbdc handleOpen={() => handleOpen('cbdc')} setSessionId={setSessionId} setIsPassed={setIsPassed} />
+          <Cbdc handleOpen={() => handleOpen('cbdc')} setIsPassed={setIsPassed} />
         )}
         {isOpenCertification && (
           <Certification
             handleOpen={() => handleOpen('certification')}
-            sessionId={sessionId}
             setIsPassed={setIsPassed}
           />
         )}

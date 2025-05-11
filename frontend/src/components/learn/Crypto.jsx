@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
 import CryptoQuiz from './CryptoQuiz';
 
-const Crypto = ({ handleOpen, setSessionId, setIsPassed }) => {
+const Crypto = ({ handleOpen }) => {
   const [isQuizOpen, setIsQuizOpen] = useState(false);
 
   const handleQuizOpen = () => {
@@ -123,7 +123,7 @@ const Crypto = ({ handleOpen, setSessionId, setIsPassed }) => {
         </div>
         <div className="learn__crypto__quiz">
           {isQuizOpen && (
-            <CryptoQuiz handleQuizOpen={handleQuizOpen} setSessionId={setSessionId} setIsPassed={setIsPassed} />
+            <CryptoQuiz handleQuizOpen={handleQuizOpen} />
           )}
         </div>
       </div>
