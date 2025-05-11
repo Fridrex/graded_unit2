@@ -41,15 +41,19 @@ const Learn = () => {
   const handleOpen = (module) => {
     switch (module) {
       case 'blockchain':
+        window.scrollTo(0, 0);
         setIsOpenBlockchain(!isOpenBlockchain);
         break;
       case 'crypto':
+        window.scrollTo(0, 0);
         setIsOpenCrypto(!isOpenCrypto);
         break;
       case 'cbdc':
+        window.scrollTo(0, 0);
         setIsOpenCbdc(!isOpenCbdc);
         break;
       case 'certification':
+        window.scrollTo(0, 0);
         setIsOpenCertification(!isOpenCertification);
         break;
       default:
@@ -109,11 +113,11 @@ const Learn = () => {
             </div>
           </>
         )}
-        {isOpenBlockchain && <Blockchain handleOpen={() => handleOpen('blockchain')} setIsPassed={setIsPassed} />}
-        {isOpenCrypto && <Crypto handleOpen={() => handleOpen('crypto')} setIsPassed={setIsPassed} />}
-        {isOpenCbdc && <Cbdc handleOpen={() => handleOpen('cbdc')} setIsPassed={setIsPassed} />}
+        {isOpenBlockchain && <Blockchain handleOpen={() => handleOpen('blockchain')} />}
+        {isOpenCrypto && <Crypto handleOpen={() => handleOpen('crypto')} />}
+        {isOpenCbdc && <Cbdc handleOpen={() => handleOpen('cbdc')} />}
         {isOpenCertification && (
-          <Certification handleOpen={() => handleOpen('certification')} setIsPassed={setIsPassed} />
+          <Certification handleOpen={() => handleOpen('certification')} />
         )}
         {isPassed && !isOpenBlockchain && !isOpenCrypto && !isOpenCbdc && !isOpenCertification && (
           <div className="learn__footer">
