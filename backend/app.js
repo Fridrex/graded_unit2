@@ -15,15 +15,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const uri = process.env.MONGODB_URI;
 
-app.use(cors({ origin: 'http://localhost:3001', credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(cors({ origin: 'http://localhost:3001', credentials: true }));
 app.use(helmet());
 app.use(morgan('dev'));
-app.use(cookieParser());
 
 mongoose
-  .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(uri)
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
 
@@ -211,12 +211,17 @@ app.get('/api/wallet/', authenticateToken, async (req, res) => {
 
 app.post('/api/learning/progress', async (req, res) => {
   try {
-    const module = req.body;
-    const sessionId = req.cookies.sessionId;
+    const { module } = req.body;
+    let sessionId = req.cookies.sessionId;
+
+    if (!module) {
+      return res.status(400).json({ message: 'Module is required' });
+    }
 
     if (!sessionId) {
-      const sessionId = uuid();
-      res.cookie('sessionId', sessionId, { httpOnly: true, secure: false, maxAge: 168 * 60 * 60 * 1000 });
+      const newSessionId = uuid();
+      res.cookie('sessionId', newSessionId, { httpOnly: true, secure: false, maxAge: 168 * 60 * 60 * 1000 });
+      sessionId = newSessionId;
     }
 
     let learningProgress = await LearningProgress.findOne({ sessionId, module });
@@ -245,6 +250,7 @@ app.post('/api/learning/progress', async (req, res) => {
       progress: learningProgress,
     });
   } catch (err) {
+    console.error('Error updating learning progress:', err);
     res.status(500).json({
       message: 'Error updating learning progress',
       error: err.message,
