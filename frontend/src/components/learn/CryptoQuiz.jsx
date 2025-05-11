@@ -29,12 +29,7 @@ const quiz = {
     {
       id: '3',
       question: 'Which of the following is a crucial aspect of cryptocurrency security?',
-      options: [
-        'Physical storage',
-        'Centralised control',
-        'Cryptography',
-        'Government regulation',
-      ],
+      options: ['Physical storage', 'Centralised control', 'Cryptography', 'Government regulation'],
       answer: 'Cryptography',
     },
     {
@@ -81,7 +76,7 @@ const CryptoQuiz = ({ handleQuizOpen }) => {
     correctAnswers: 0,
     wrongAnswers: 0,
     userCorrectAnswers: [],
-    userWrongAnswers: []
+    userWrongAnswers: [],
   });
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
@@ -97,15 +92,17 @@ const CryptoQuiz = ({ handleQuizOpen }) => {
 
   const sendQuizResult = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/api/learning/progress',{
-        module: 'Crypto Quiz',
-      }, { withCredentials: true });
+      const response = await axios.post(
+        'http://localhost:3000/api/learning/progress',
+        {
+          module: 'Crypto Quiz',
+        },
+        { withCredentials: true }
+      );
       console.log('Quiz result sent successfully:', response.data);
     } catch (error) {
       console.error('Error sending quiz result:', error);
     }
-
-
   };
 
   const onClickNext = () => {
@@ -116,12 +113,12 @@ const CryptoQuiz = ({ handleQuizOpen }) => {
             ...prev,
             score: prev.score + 1,
             correctAnswers: prev.correctAnswers + 1,
-            userCorrectAnswers: [...prev.userCorrectAnswers, answer]
+            userCorrectAnswers: [...prev.userCorrectAnswers, answer],
           }
         : {
             ...prev,
             wrongAnswers: prev.wrongAnswers + 1,
-            userWrongAnswers: [...prev.userWrongAnswers, answer]
+            userWrongAnswers: [...prev.userWrongAnswers, answer],
           }
     );
     if (activeQuestion !== questions.length - 1) {
@@ -208,19 +205,23 @@ const CryptoQuiz = ({ handleQuizOpen }) => {
             <div className="quiz__button">
               {result.score !== questions.length ? (
                 <React.Fragment>
-                      <button onClick={() => {
-                    setActiveQuestion(0);
-                    setSelectedAnswer(null);
-                    setResult({
-                      score: 0,
-                      correctAnswers: 0,
-                      wrongAnswers: 0,
-                      userCorrectAnswers: [],
-                      userWrongAnswers: []
-                    });
-                    setIsQuizCompleted(false);
-                    setSelectedAnswerIndex(null);
-                  }}>Retry Quiz</button>
+                  <button
+                    onClick={() => {
+                      setActiveQuestion(0);
+                      setSelectedAnswer(null);
+                      setResult({
+                        score: 0,
+                        correctAnswers: 0,
+                        wrongAnswers: 0,
+                        userCorrectAnswers: [],
+                        userWrongAnswers: [],
+                      });
+                      setIsQuizCompleted(false);
+                      setSelectedAnswerIndex(null);
+                    }}
+                  >
+                    Retry Quiz
+                  </button>
 
                   <button
                     onClick={() => {
@@ -231,13 +232,13 @@ const CryptoQuiz = ({ handleQuizOpen }) => {
                   </button>
                 </React.Fragment>
               ) : (
-              <button
-                onClick={() => {
-                  handleQuizOpen();
-                }}
-              >
-                Close Quiz
-              </button>
+                <button
+                  onClick={() => {
+                    handleQuizOpen();
+                  }}
+                >
+                  Close Quiz
+                </button>
               )}
             </div>
           </div>

@@ -4,11 +4,11 @@ import CryptoQuiz from './CryptoQuiz';
 
 const Crypto = ({ handleOpen, setSessionId, setIsPassed }) => {
   const [isQuizOpen, setIsQuizOpen] = useState(false);
-  
-    const handleQuizOpen = () => {
-      setIsQuizOpen(!isQuizOpen);
-    };
-  
+
+  const handleQuizOpen = () => {
+    setIsQuizOpen(!isQuizOpen);
+  };
+
   return (
     <>
       <div className="learn__crypto">
@@ -117,7 +117,9 @@ const Crypto = ({ handleOpen, setSessionId, setIsPassed }) => {
             Now that you've learned about cryptocurrencies, it's time to test your knowledge! Click the button below to
             take the quiz and see how well you understand the concepts we've covered.
           </p>
-          <button className="learn__crypto__footer__button" onClick={handleQuizOpen}>Start Quiz</button>
+          <button className="learn__crypto__footer__button" onClick={handleQuizOpen}>
+            Start Quiz
+          </button>
         </div>
         <div className="learn__crypto__quiz">
           {isQuizOpen && (
