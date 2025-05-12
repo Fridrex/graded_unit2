@@ -116,9 +116,7 @@ const Learn = () => {
         {isOpenBlockchain && <Blockchain handleOpen={() => handleOpen('blockchain')} />}
         {isOpenCrypto && <Crypto handleOpen={() => handleOpen('crypto')} />}
         {isOpenCbdc && <Cbdc handleOpen={() => handleOpen('cbdc')} />}
-        {isOpenCertification && (
-          <Certification handleOpen={() => handleOpen('certification')} />
-        )}
+        {isOpenCertification && <Certification handleOpen={() => handleOpen('certification')} />}
         {isPassed && !isOpenBlockchain && !isOpenCrypto && !isOpenCbdc && !isOpenCertification && (
           <div className="learn__footer">
             <div className="learn__footer__certification">

@@ -1,7 +1,29 @@
+import { useState } from 'react';
+import CreateWalletInstructions from '../components/wallet/CreateWalletInstructions';
+
 const Wallet = () => {
+  const [instructionsVisible, setInstructionsVisible] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
+  const [isStart, setIsStart] = useState(false);
+
+  const handleCreate = () => {
+    setInstructionsVisible(!instructionsVisible);
+  };
+
+  const handleStart = () => {
+    if (isChecked) {
+      window.scrollTo(0, 0);
+      setIsStart(!isStart);
+    }
+  };
+
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
+
   return (
     <>
-      <div className="wallet">
+      <div className={isStart ? 'hide' : 'wallet'}>
         <div className="wallet__note">
           <p>Important Note</p>
           <p>
@@ -21,7 +43,9 @@ const Wallet = () => {
                 of a cryptocurrency wallet without any financial risk. Create your wallet to understand seed phrases,
                 public addresses, and basic transactions.
               </p>
-              <button className="create-wallet__button">Create Your First Wallet</button>
+              <button className="create-wallet__button" onClick={handleCreate}>
+                Create Your First Wallet
+              </button>
             </div>
             <div className="wallet__create-wallet__content__image">
               <img src="src/assets/images/bitcoin-key-icon.png" alt="Bitcoin Key" />
@@ -50,6 +74,17 @@ const Wallet = () => {
             </div>
           </div>
         </div>
+        {instructionsVisible && (
+          <div className="wallet__create-instructions">
+            <CreateWalletInstructions
+              handleCreate={handleCreate}
+              handleCheckboxChange={handleCheckboxChange}
+              handleStart={handleStart}
+              isStart={isStart}
+              isChecked={isChecked}
+            />
+          </div>
+        )}
       </div>
     </>
   );

@@ -626,6 +626,11 @@ p {
   margin: 1rem;
 }
 
+.create-wallet__button:hover,
+.access-wallet__button:hover {
+  cursor: pointer;
+}
+
 .wallet__create-wallet__content__image img,
 .wallet__access-wallet__content__image img {
   height: 15.625rem;
