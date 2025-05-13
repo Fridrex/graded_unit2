@@ -7,6 +7,7 @@ const Wallet = () => {
   const [isStart, setIsStart] = useState(false);
 
   const handleCreate = () => {
+    setIsChecked(false);
     setInstructionsVisible(!isInstructionsVisible);
   };
 
@@ -18,11 +19,11 @@ const Wallet = () => {
   };
 
   const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
+    setIsChecked((prev) => !prev);
   };
 
   useEffect(() => {
-    if (isInstructionsVisible && window.innerWidth < 680) {
+    if (isInstructionsVisible) {
       window.scrollTo(0, 0);
       document.body.style.overflow = 'hidden';
     }
