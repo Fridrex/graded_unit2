@@ -15,6 +15,8 @@ const CreateWallet = () => {
 
   const handleAccess = () => {
     if (isChecked) {
+      setIsChecked(false);
+      document.getElementById('seed').checked = false;
       setIsAccessGranted((prev) => !prev);
     }
   };
@@ -101,6 +103,7 @@ const CreateWallet = () => {
           </div>
         </div>
       )}
+      {isAccessGranted && <ActiveWallet />}
     </>
   );
 };
