@@ -1,3 +1,77 @@
-const CreateWallet = () => {};
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router';
+import ActiveWallet from './ActiveWallet';
+
+const CreateWallet = () => {
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [seedPhrase, setSeedPhrase] = useState('');
+  const [isChecked, setIsChecked] = useState(false);
+  const [isAccessGranted, setIsAccessGranted] = useState(false);
+
+  const handleCheckboxChange = () => {
+    setIsChecked((prev) => !prev);
+  };
+
+  const handleAccess = () => {
+    if (isChecked) {
+      setIsAccessGranted((prev) => !prev);
+    }
+  };
+
+  return (
+    <>
+      {isSuccess ? (
+        <div className="wallet__cw">
+          <div className="wallet__cw__header">
+            <h1>Wallet Created Successfully</h1>
+            <p>Your wallet has been created. You can now start using it.</p>
+          </div>
+          <div className="wallet__cw__body">
+            <p>Save your seed phrase in a safe place</p>
+            <div className="wallet__cw__body__seed-phrase">
+              <p>Seed Phrase:</p>
+              <div className="wallet__cw__body__seed-phrase__phrase">
+                {seedPhrase.split(' ').map((word, index) => (
+                  <span key={index} className="wallet__cw__body__seed-phrase__word">
+                    {word}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="wallet__cw__confirmation">
+              <label htmlFor="seed">I confirm that I have saved my seed phrase in a safe place</label>
+              <input type="checkbox" name="seed" id="seed" onClick={handleCheckboxChange} />
+            </div>
+            <div className="wallet__cw__button">
+              <button
+                className="create-wallet__button"
+                disabled={!isChecked}
+                onClick={() => {
+                  handleCheckboxChange();
+                  handleAccess();
+                }}
+              >
+                Access Your Wallet
+              </button>
+            </div>
+          </div>
+          {isAccessGranted && <ActiveWallet />}
+        </div>
+      ) : (
+        <div className="wallet__cw">
+          <div className="wallet__cw__header">
+            <h1>Your wallet could not be created</h1>
+            <p>Please try again</p>
+          </div>
+          <div className="wallet__cw__body">
+            <Link to="/wallet">
+              <button className="create-wallet__button">Go Back</button>
+            </Link>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
 
 export default CreateWallet;
