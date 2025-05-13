@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
+import axios from 'axios';
 import ActiveWallet from './ActiveWallet';
 
 const CreateWallet = () => {
@@ -18,6 +19,29 @@ const CreateWallet = () => {
     }
   };
 
+  const createWallet = async () => {
+    try {
+      const response = await axios.post('http://localhost:3000/api/wallet/create', { withCredentials: true });
+      if (response.status === 201) {
+        setIsSuccess(true);
+
+        const { wallet } = response.data;
+        const { seedPhrase: generatedSeedPhrase } = wallet;
+        setSeedPhrase(generatedSeedPhrase);
+
+        console.log('Wallet created successfully:', wallet);
+        console.log('Seed Phrase:', generatedSeedPhrase);
+      }
+    } catch (error) {
+      console.error('Error creating wallet:', error);
+      setIsSuccess(false);
+    }
+  };
+
+  useEffect(() => {
+    createWallet();
+  }, []);
+
   return (
     <>
       {isSuccess ? (
@@ -27,7 +51,9 @@ const CreateWallet = () => {
             <p>Your wallet has been created. You can now start using it.</p>
           </div>
           <div className="wallet__cw__body">
-            <p>Save your seed phrase in a safe place</p>
+            <h3>
+              Save your seed phrase in a safe place <span>(!!!)</span>
+            </h3>
             <div className="wallet__cw__body__seed-phrase">
               <p>Seed Phrase:</p>
               <div className="wallet__cw__body__seed-phrase__phrase">
@@ -41,6 +67,11 @@ const CreateWallet = () => {
             <div className="wallet__cw__confirmation">
               <label htmlFor="seed">I confirm that I have saved my seed phrase in a safe place</label>
               <input type="checkbox" name="seed" id="seed" onClick={handleCheckboxChange} />
+              <div className={isChecked ? 'wallet__cw__confirmation__alert' : 'hide'}>
+                <p>
+                  <span>⚠️</span> If you lose your seed phrase, you will lose access to your wallet.
+                </p>
+              </div>
             </div>
             <div className="wallet__cw__button">
               <button

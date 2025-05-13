@@ -79,6 +79,7 @@ app.post('/api/wallet/create', async (req, res) => {
   try {
     const seedPhrase = generateSeedPhrase();
     const walletAddress = generateWalletAddress();
+    const randomBalance = Math.floor(Math.random() * 696969);
 
     const existingWallet = await Wallet.findOne({ walletAddress });
     if (existingWallet) {
@@ -95,7 +96,7 @@ app.post('/api/wallet/create', async (req, res) => {
       walletAddress,
       seedPhrase: hashedSeedPhrase,
       expiryDate,
-      balance: 100,
+      balance: randomBalance,
       transactions: [],
     });
 

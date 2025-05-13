@@ -1618,10 +1618,105 @@ p {
   margin-left: 0.5rem;
 }
 
+.wallet__create-instructions__button button {
+  font-weight: 700;
+}
+
 .wallet__create-instructions__button button:disabled {
   background-color: var(--subtle-elements);
   color: var(--text-secondary);
   cursor: not-allowed;
+}
+
+.wallet__cw {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80vh;
+  margin: 0 auto;
+  padding-top: var(--32px);
+  padding-bottom: var(--32px);
+  text-align: center;
+}
+
+.wallet__cw__header h1 {
+  margin: 0;
+}
+
+.wallet__cw__header p {
+  font-family: var(--body-font);
+}
+
+.wallet__cw__body h3 span {
+  font-weight: 700;
+}
+
+.wallet__cw__body__seed-phrase__phrase {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--8px);
+  margin: var(--16px) auto;
+  font-size: var(--16px);
+  font-family: var(--body-font);
+}
+
+.wallet__cw__body__seed-phrase__word {
+  background-color: var(--primary-accent);
+  border-radius: var(--10px);
+  padding: var(--8px) var(--16px);
+  color: var(--text);
+  font-family: var(--body-font);
+}
+
+.wallet__cw__body__seed-phrase p {
+  font-family: var(--body-font);
+}
+
+.wallet__cw__confirmation {
+  font-family: var(--body-font);
+  font-size: var(--16px);
+  color: var(--text);
+}
+
+.wallet__cw__confirmation label {
+  margin: var(--16px) auto;
+  margin-right: var(--8px);
+  font-weight: 700;
+}
+
+.wallet__cw__button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  margin: 0 auto;
+}
+
+.wallet__cw__button button {
+  background-color: var(--success-colour);
+  color: var(--text);
+  font-weight: 700;
+}
+
+.wallet__cw__button button:disabled {
+  background-color: var(--subtle-elements);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+}
+
+.wallet__cw__confirmation__alert p {
+  position: relative;
+  width: 100vw;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  padding: 1rem;
+  background-color: var(--error-colour);
 }
 
 /* Media Queries */
@@ -1989,6 +2084,11 @@ p {
     width: 100%;
     display: flex;
     flex-direction: row;
+  }
+
+  .wallet__cw,
+  .wallet__cw__header {
+    width: 90%;
   }
 }
 

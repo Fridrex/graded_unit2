@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import CreateWalletInstructions from '../components/wallet/CreateWalletInstructions';
+import CreateWallet from '../components/wallet/CreateWallet';
 
 const Wallet = () => {
   const [isInstructionsVisible, setInstructionsVisible] = useState(false);
@@ -98,6 +99,7 @@ const Wallet = () => {
           </div>
         )}
       </div>
+      {isStart && <CreateWallet />}
     </>
   );
 };

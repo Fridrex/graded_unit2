@@ -6,8 +6,6 @@ const calculateRemainingTime = (endDate) => {};
 
 const copyToClipboard = (text) => {};
 
-const checkModulesComplete = (sessionId) => {};
-
 const validateWalletAddress = (address) => {};
 
 const validateTransactionAmount = (amount) => {};
@@ -17,9 +15,6 @@ module.exports = {
   formatCurrency,
   calculateRemainingTime,
   copyToClipboard,
-  checkModulesComplete,
-  getSessionId,
-  getAuthToken,
   validateWalletAddress,
   validateTransactionAmount,
 };

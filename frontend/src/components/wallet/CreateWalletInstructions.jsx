@@ -1,6 +1,6 @@
 import CreateWallet from './CreateWallet';
 
-const CreateWalletInstructions = ({ handleCreate, handleStart, handleCheckboxChange, isStart, isChecked }) => {
+const CreateWalletInstructions = ({ handleCreate, handleStart, handleCheckboxChange, isChecked }) => {
   return (
     <>
       <div className="wallet__create-instructions__container">
@@ -40,7 +40,6 @@ const CreateWalletInstructions = ({ handleCreate, handleStart, handleCheckboxCha
               Start Creating Your Wallet
             </button>
           </div>
-          {isStart && <CreateWallet />}
         </div>
       </div>
     </>
