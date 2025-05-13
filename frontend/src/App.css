@@ -67,6 +67,10 @@ p {
   display: none;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 .back-to-top {
   position: fixed;
   bottom: 2rem;
@@ -1523,6 +1527,103 @@ p {
   cursor: default;
 }
 
+.wallet__create-instructions__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.wallet__create-instructions {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.wallet__create-instructions__close-button {
+  position: absolute;
+  top: var(--10px);
+  right: var(--10px);
+  background: none;
+  border: none;
+  color: var(--text);
+  font-family: var(--interactive-font);
+  font-size: var(--24px);
+  font-weight: 700;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: var(--8px) var(--12px);
+  border-radius: var(--8px);
+}
+
+.wallet__create-instructions__close-button:hover {
+  background-color: var(--text);
+  color: var(--primary-colour);
+}
+
+.wallet__create-instructions__video {
+  display: flex;
+  width: 30%;
+  margin: 1rem auto;
+  background-color: var(--secondary-colour);
+  opacity: 0.9;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: var(--10px);
+}
+
+.wallet__create-instructions__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  background-color: var(--secondary-colour);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: var(--10px);
+  font-family: var(--body-font);
+}
+
+.wallet__create-instructions__content ol {
+  list-style: decimal;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.wallet__create-instructions__content ol li {
+  font-size: var(--16px);
+  font-family: var(--body-font);
+  color: var(--text);
+  margin: var(--16px) auto;
+  text-align: left;
+}
+
+.wallet__create-instructions__confirmation {
+  margin: 1rem auto;
+  font-size: var(--16px);
+  font-family: var(--body-font);
+  color: var(--text);
+  text-align: center;
+  width: 80%;
+  padding: var(--8px);
+}
+
+.wallet__create-instructions__confirmation input {
+  margin-left: 0.5rem;
+}
+
+.wallet__create-instructions__button button:disabled {
+  background-color: var(--subtle-elements);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+}
+
 /* Media Queries */
 
 @media only screen and (max-width: 1333px) {
@@ -1658,6 +1759,29 @@ p {
 
   .quiz__container ul {
     width: 100%;
+  }
+
+  .wallet__create-instructions__video {
+    width: 60%;
+  }
+
+  .wallet__create-instructions__content {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .wallet__create-instructions__content ol {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 2rem;
+  }
+
+  .wallet__create-instructions__content ol li {
+    width: 100%;
+  }
+
+  .wallet__create-instructions__confirmation {
+    width: 90%;
   }
 }
 
@@ -1825,6 +1949,46 @@ p {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .wallet__create-instructions {
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+  }
+
+  .wallet__create-instructions h1 {
+    font-size: var(--18px);
+    margin-top: 2.625rem;
+  }
+
+  .wallet__create-instructions__content {
+    width: 80%;
+    padding: 1rem;
+  }
+
+  .wallet__create-instructions__content ol {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 2rem;
+  }
+
+  .wallet__create-instructions__content ol li {
+    margin: 0.325rem auto;
+  }
+
+  .wallet__create-instructions__close-button {
+    top: var(--5px);
+    right: var(--5px);
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: var(--6px) var(--10px);
+    font-size: var(--18px);
+  }
+
+  .wallet__create-instructions__confirmation {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
   }
 }
 

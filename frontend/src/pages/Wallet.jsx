@@ -1,13 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CreateWalletInstructions from '../components/wallet/CreateWalletInstructions';
 
 const Wallet = () => {
-  const [instructionsVisible, setInstructionsVisible] = useState(false);
+  const [isInstructionsVisible, setInstructionsVisible] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [isStart, setIsStart] = useState(false);
 
   const handleCreate = () => {
-    setInstructionsVisible(!instructionsVisible);
+    setInstructionsVisible(!isInstructionsVisible);
   };
 
   const handleStart = () => {
@@ -20,6 +20,17 @@ const Wallet = () => {
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
   };
+
+  useEffect(() => {
+    if (isInstructionsVisible && window.innerWidth < 680) {
+      window.scrollTo(0, 0);
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isInstructionsVisible]);
 
   return (
     <>
@@ -74,8 +85,8 @@ const Wallet = () => {
             </div>
           </div>
         </div>
-        {instructionsVisible && (
-          <div className="wallet__create-instructions">
+        {isInstructionsVisible && (
+          <div>
             <CreateWalletInstructions
               handleCreate={handleCreate}
               handleCheckboxChange={handleCheckboxChange}
