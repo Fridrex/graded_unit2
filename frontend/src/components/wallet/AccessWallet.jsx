@@ -69,7 +69,7 @@ const AccessWallet = ({ handleAccess }) => {
       </div>
       <div className="wallet__access__body">
         <h4>Enter your seed phrase to access your wallet</h4>
-        <p>Make sure to enter the 12 words phrase you received when you were creating the wallet.</p>
+        <p>Make sure to enter the 12-word phrase you received when you were creating the wallet</p>
         <fieldset>
           <legend>Seed Phrase</legend>
           <input type="text" placeholder="1st word" value={firstWord} onChange={(e) => setFirstWord(e.target.value)} />

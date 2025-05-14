@@ -1719,6 +1719,137 @@ p {
   background-color: var(--error-colour);
 }
 
+.wallet__access {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 80vh;
+  margin: 0 auto;
+  padding-top: var(--32px);
+  padding-bottom: var(--32px);
+}
+
+.wallet__access__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.wallet__access__body fieldset {
+  border: 1px solid var(--text);
+  border-radius: var(--10px);
+  padding: var(--16px);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--16px);
+  flex-wrap: wrap;
+}
+
+.wallet__access__body legend {
+  font-family: var(--body-font);
+  font-size: var(--16px);
+  color: var(--text);
+  font-weight: 700;
+}
+
+.wallet__access__body fieldset input {
+  width: 30%;
+  height: 1.625rem;
+  border-radius: var(--10px);
+  border: 1px solid var(--text);
+  padding: var(--4px) var(--8px);
+  font-size: var(--16px);
+  font-family: var(--interactive-font);
+}
+
+.wallet__access__body fieldset input::placeholder {
+  color: var(--primary-accent);
+}
+
+.wallet__access__body fieldset input:focus {
+  outline: none;
+  border: 1px solid var(--secondary-colour);
+}
+
+.wallet__access__body fieldset input:focus::placeholder {
+  color: var(--text);
+}
+
+.wallet__access__message p {
+  text-align: center;
+}
+
+.wallet__access__footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: var(--16px);
+}
+
+.wallet__access__footer button {
+  background: none;
+  border: 1px solid var(--text);
+  color: var(--text);
+  font-family: var(--interactive-font);
+  font-size: var(--16px);
+  font-weight: 700;
+  border-radius: var(--8px);
+  padding: var(--4px) var(--8px);
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.wallet__access__footer button:hover {
+  background-color: var(--text);
+  color: var(--primary-colour);
+}
+
+.wallet__access__footer button:disabled {
+  background-color: var(--subtle-elements);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+}
+
+.wallet__access__footer__create {
+  display: flex;
+}
+
+.wallet__access__footer__create p {
+  font-family: var(--body-font);
+  font-size: var(--16px);
+  color: var(--text);
+  margin: var(--16px) auto;
+}
+
+.wallet__access__footer__create a {
+  text-decoration: none;
+  color: var(--text);
+  font-family: var(--interactive-font);
+  font-size: var(--14px);
+  font-weight: 400;
+  border: 1px solid var(--text);
+  border-radius: var(--10px);
+  padding: var(--2px) var(--8px);
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.wallet__access__footer__create a:hover {
+  background-color: var(--text);
+  color: var(--primary-colour);
+}
+
 /* Media Queries */
 
 @media only screen and (max-width: 1333px) {
@@ -2089,6 +2220,21 @@ p {
   .wallet__cw,
   .wallet__cw__header {
     width: 90%;
+  }
+
+  .wallet__access {
+    width: 90%;
+    height: 100%;
+  }
+
+  .wallet__access__body fieldset {
+    width: 100%;
+    flex-direction: column;
+    gap: var(--16px);
+  }
+
+  .wallet__access__body fieldset input {
+    width: 100%;
   }
 }
 
