@@ -1,15 +1,21 @@
 import { useState, useEffect } from 'react';
 import CreateWalletInstructions from '../components/wallet/CreateWalletInstructions';
 import CreateWallet from '../components/wallet/CreateWallet';
+import AccessWallet from '../components/wallet/AccessWallet';
 
 const Wallet = () => {
   const [isInstructionsVisible, setInstructionsVisible] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [isStart, setIsStart] = useState(false);
+  const [isAccessing, setIsAccessing] = useState(false);
 
   const handleCreate = () => {
     setIsChecked(false);
     setInstructionsVisible(!isInstructionsVisible);
+  };
+
+  const handleAccess = () => {
+    setIsAccessing(!isAccessing);
   };
 
   const handleStart = () => {
@@ -36,7 +42,7 @@ const Wallet = () => {
 
   return (
     <>
-      <div className={isStart ? 'hide' : 'wallet'}>
+      <div className={isStart || isAccessing ? 'hide' : 'wallet'}>
         <div className="wallet__note">
           <p>Important Note</p>
           <p>
@@ -83,7 +89,9 @@ const Wallet = () => {
                 Already created a wallet? Access your simulated wallet to continue exploring its features and
                 understanding how digital currency management works in practice.
               </p>
-              <button className="access-wallet__button">Access Your Wallet</button>
+              <button className="access-wallet__button" onClick={handleAccess}>
+                Access Your Wallet
+              </button>
             </div>
           </div>
         </div>
@@ -100,6 +108,7 @@ const Wallet = () => {
         )}
       </div>
       {isStart && <CreateWallet />}
+      {isAccessing && <AccessWallet handleAccess={handleAccess} />}
     </>
   );
 };

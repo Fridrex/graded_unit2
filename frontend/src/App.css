@@ -1719,8 +1719,6 @@ p {
   background-color: var(--error-colour);
 }
 
-
-
 /* Media Queries */
 
 @media only screen and (max-width: 1333px) {

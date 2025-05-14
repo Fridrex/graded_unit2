@@ -130,7 +130,7 @@ app.post('/api/wallet/create', async (req, res) => {
   }
 });
 
-app.post('/api/wallet/login', async (req, res) => {
+app.post('/api/wallet/access', async (req, res) => {
   try {
     const { seedPhrase } = req.body;
 
