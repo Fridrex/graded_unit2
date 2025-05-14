@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import axios from 'axios';
+import ActiveWallet from './ActiveWallet';
 
 const AccessWallet = ({ handleAccess }) => {
   const [seedPhrase, setSeedPhrase] = useState('');
@@ -162,6 +163,7 @@ const AccessWallet = ({ handleAccess }) => {
           </p>
         </div>
       </div>
+      {isAccessGranted && <ActiveWallet />}
     </div>
   );
 };

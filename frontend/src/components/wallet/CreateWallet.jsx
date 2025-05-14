@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import axios from 'axios';
 import ActiveWallet from './ActiveWallet';
+import React from 'react';
 
 const CreateWallet = () => {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -47,7 +48,7 @@ const CreateWallet = () => {
   return (
     <>
       {isSuccess ? (
-        <div className="wallet__cw">
+        <div className={isAccessGranted ? 'hide' : 'wallet__cw'}>
           <div className="wallet__cw__header">
             <h1>Wallet Created Successfully</h1>
             <p>Your wallet has been created. You can now start using it.</p>
@@ -88,7 +89,6 @@ const CreateWallet = () => {
               </button>
             </div>
           </div>
-          {isAccessGranted && <ActiveWallet />}
         </div>
       ) : (
         <div className="wallet__cw">
