@@ -1850,6 +1850,55 @@ p {
   color: var(--primary-colour);
 }
 
+.active-wallet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  min-height: 80vh;
+  margin: 0 auto;
+  padding-top: var(--32px);
+  padding-bottom: var(--32px);
+}
+
+.active-wallet p {
+  font-family: var(--body-font);
+  font-size: var(--16px);
+  color: var(--text);
+}
+
+.active-wallet__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.active-wallet__content__info {
+  display: flex;
+  flex-direction: row;
+}
+
+.active-wallet__chart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.active-wallet__hr {
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid var(--text);
+  margin-top: var(--16px);
+  margin-bottom: var(--16px);
+  border-radius: var(--10px);
+}
+
 /* Media Queries */
 
 @media only screen and (max-width: 1333px) {
