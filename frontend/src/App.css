@@ -2075,6 +2075,15 @@ p {
   color: var(--text);
 }
 
+.active-wallet__hr-secondary {
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid var(--text);
+  margin-top: var(--4px);
+  margin-bottom: var(--4px);
+  border-radius: var(--10px);
+}
+
 /* Media Queries */
 
 @media only screen and (max-width: 1333px) {
@@ -2155,6 +2164,11 @@ p {
     width: 90%;
     margin: 0 auto;
     margin-top: 1.625rem;
+  }
+
+  .active-wallet__content__info {
+    flex-wrap: wrap;
+    gap: var(--8px);
   }
 }
 
@@ -2460,6 +2474,59 @@ p {
 
   .wallet__access__body fieldset input {
     width: 100%;
+  }
+
+  .active-wallet__content {
+    width: 100%;
+  }
+
+  .active-wallet__chart__content,
+  .active-wallet__content__wallet,
+  .active-wallet__content__transactions {
+    width: 100%;
+  }
+
+  .active-wallet__content__info {
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .active-wallet__content__wallet__address-container {
+    width: 100%;
+  }
+
+  .active-wallet__content__wallet__address-container p {
+    width: 100%;
+    font-size: var(--14px);
+    word-break: break-all;
+  }
+
+  .active-wallet__content__transactions ul li {
+    width: 100%;
+  }
+
+  .active-wallet__content__transactions ul li span {
+    font-size: var(--14px);
+    word-break: break-all;
+  }
+
+  .active-wallet__hr-secondary {
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid var(--text);
+    margin-bottom: var(--4px);
+    border-radius: var(--10px);
+  }
+
+  .active-wallet__chart {
+    width: 100%;
+    text-align: center;
+  }
+
+  .active-wallet__chart__content {
+    width: 100%;
+    margin: 0 auto;
   }
 }
 

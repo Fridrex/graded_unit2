@@ -43,6 +43,7 @@ const ActiveWallet = () => {
                 <p>
                   Received <span>0.00 BPC</span> from <span>0xabcdef1234567890abcdef1234567890abcdef12</span>
                 </p>
+                <hr className="active-wallet__hr-secondary" />
                 <div className="active-wallet__content__transactions__span-container">
                   <span>15/05/2025</span>
                   <span>Completed</span>
