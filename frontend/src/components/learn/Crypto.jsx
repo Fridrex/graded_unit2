@@ -104,7 +104,7 @@ const Crypto = ({ handleOpen }) => {
           </p>
           <p className="learn__crypto__content__cta">
             You can dive into cryptocurrency experience with out wallet creation simulation.
-            <Link to="/wallet">Create your own crypto wallet right now!</Link>
+            <Link to="/wallet" className='learn__crypto__content__cta__wallet'>Create your own crypto wallet right now!</Link>
           </p>
           <p className="learn__crypto__content__cta">
             Check out our <Link to="/resources#resources-header">Resources page</Link> for more information

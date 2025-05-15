@@ -1159,6 +1159,15 @@ p {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+.learn__crypto__content__cta__wallet {
+  background-color: rgba(220, 20, 60, 0.5) !important;
+}
+
+.learn__crypto__content__cta__wallet:hover {
+  background-color: var(--text) !important;
+  color: var(--primary-colour) !important;
+}
+
 .learn__blockchain__content__cta a:hover,
 .learn__crypto__content__cta a:hover,
 .learn__cbdc__content__cta a:hover {
