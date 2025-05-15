@@ -36,7 +36,7 @@ const Learn = () => {
 
   useEffect(() => {
     getResults();
-  }, []);
+  }, [isOpenBlockchain, isOpenCrypto, isOpenCbdc]);
 
   const handleOpen = (module) => {
     switch (module) {

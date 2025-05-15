@@ -64,19 +64,22 @@ const AccessWallet = ({ handleAccess }) => {
   ]);
 
   useEffect(() => {
-    axios
-      .post('http://localhost:3000/api/wallet/access', {}, { withCredentials: true })
-      .then((response) => {
+    try {
+      const letAccess = async () => {
+        const response = await axios.post('http://localhost:3000/api/wallet/access', {}, { withCredentials: true });
+
         if (response.status === 200) {
           setIsAccessGranted(true);
         }
-      })
-      .catch((error) => {
+      }
+
+      letAccess();
+    } catch (error) {
         if (error.response.statusText === 'Not Found') {
           setMessage('Invalid seed phrase. Please try again.');
         }
         console.error('Error accessing wallet:', error);
-      });
+    }
   }, []);
 
   return (
