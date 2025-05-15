@@ -1879,6 +1879,7 @@ p {
 .active-wallet__content__info {
   display: flex;
   flex-direction: row;
+  gap: var(--32px);
 }
 
 .active-wallet__chart {
@@ -1897,6 +1898,181 @@ p {
   margin-top: var(--16px);
   margin-bottom: var(--16px);
   border-radius: var(--10px);
+}
+
+.active-wallet__content__wallet {
+  background-color: var(--secondary-colour);
+  border-radius: var(--10px);
+  padding: var(--16px);
+  color: var(--text);
+  margin: var(--16px) auto;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.active-wallet__content__wallet h3 {
+  margin: 0;
+}
+
+.active-wallet__content__transactions {
+  background-color: var(--secondary-colour);
+  border-radius: var(--10px);
+  padding: var(--16px);
+  color: var(--text);
+  margin: var(--16px) auto;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.active-wallet__copy:hover {
+  cursor: pointer;
+}
+
+.active-wallet__copy:active {
+  transform: scale(0.95);
+}
+
+.active-wallet__content__wallet__address-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--8px);
+}
+
+.active-wallet__content__wallet__address-container p {
+  margin: 0;
+  border: 1px solid var(--text);
+  border-radius: var(--10px);
+  padding: var(--4px) var(--8px);
+  background-color: var(--primary-accent);
+  font-weight: 700;
+}
+
+#wallet-balance {
+  font-weight: 700;
+  margin: 0;
+  border: 1px solid var(--text);
+  border-radius: var(--10px);
+  padding: var(--4px) var(--8px);
+  background-color: var(--primary-accent);
+}
+
+#wallet-expiry {
+  font-weight: 700;
+  margin: 0;
+  border: 1px solid var(--text);
+  border-radius: var(--10px);
+  padding: var(--4px) var(--8px);
+  background-color: var(--primary-accent);
+}
+
+.active-wallet__chart h2 {
+  margin-bottom: 0;
+}
+
+.actove-wallet__content__transactions {
+  width: 100%;
+}
+
+.active-wallet__content__transactions h3 {
+  margin: 0;
+}
+
+.active-wallet__content__transactions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.active-wallet__content__transactions ul li {
+  padding: var(--8px);
+  background-color: var(--primary-accent);
+  border-radius: var(--10px);
+  color: var(--text);
+  width: 100%;
+  margin: var(--16px) auto;
+  font-family: var(--body-font);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--text);
+}
+
+.active-wallet__content__transactions ul li p {
+  margin: 0;
+  margin-bottom: var(--6px);
+}
+
+.active-wallet__content__transactions ul li span {
+  font-weight: 700;
+}
+
+.active-wallet__content__transactions__span-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.active-wallet__content__transactions button {
+  background: none;
+  border: 1px solid var(--text);
+  color: var(--text);
+  font-family: var(--interactive-font);
+  font-size: var(--16px);
+  font-weight: 700;
+  border-radius: var(--8px);
+  padding: var(--4px) var(--8px);
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.active-wallet__content__transactions button:hover {
+  background-color: var(--text);
+  color: var(--primary-colour);
+}
+
+.active-wallet__content__transactions__form {
+  margin: var(--16px) auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: var(--16px);
+  width: 100%;
+  background-color: var(--primary-accent);
+  border-radius: var(--10px);
+  border: 1px solid var(--text);
+}
+
+.active-wallet__content__transactions__form input {
+  width: 30%;
+  height: 1.625rem;
+  border-radius: var(--10px);
+  margin: var(--10px) 0;
+  border: 1px solid var(--text);
+  padding: var(--4px) var(--8px);
+  font-size: var(--16px);
+  font-family: var(--interactive-font);
+}
+
+.active-wallet__content__transactions__form input:nth-child(1) {
+  width: 50%;
+}
+
+.active-wallet__content__transactions__form input:nth-child(2) {
+  width: 20%;
+}
+
+.active-wallet__content__transactions__form input::placeholder {
+  color: var(--primary-accent);
+}
+
+.active-wallet__content__transactions__form input:focus {
+  outline: none;
+  border: 1px solid var(--secondary-colour);
+}
+
+.active-wallet__content__transactions__form input:focus::placeholder {
+  color: var(--text);
 }
 
 /* Media Queries */

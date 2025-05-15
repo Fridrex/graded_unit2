@@ -21,7 +21,7 @@ export const options = {
     },
     title: {
       display: true,
-      text: 'Chart.js Line Chart',
+      text: 'BPC/BTC Exchange Rate',
     },
   },
 };
@@ -34,8 +34,8 @@ export const data = {
     {
       label: 'BPC/BTC',
       data: labels.map(() => faker.number.int({ min: 0, max: 1000 })),
-      borderColor: 'rgb(255, 99, 132)',
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      borderColor: 'rgb(99, 255, 182)',
+      backgroundColor: 'rgba(99, 255, 143, 0.5)',
     },
   ],
 };
