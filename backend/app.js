@@ -9,7 +9,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const uuid = require('uuid').v4;
-import { generateSeedPhrase, generateWalletAddress } from './utils/utils.js';
+const { generateSeedPhrase, generateWalletAddress } = require('./utils/utils.js');
 
 const app = express();
 const PORT = process.env.PORT || 3000;

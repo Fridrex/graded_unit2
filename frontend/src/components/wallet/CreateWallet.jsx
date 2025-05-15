@@ -23,7 +23,8 @@ const CreateWallet = () => {
 
   const createWallet = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/api/wallet/create', { withCredentials: true });
+      localStorage.clear();
+      const response = await axios.post('http://localhost:3000/api/wallet/create', {}, { withCredentials: true });
       if (response.status === 201) {
         setIsSuccess(true);
 

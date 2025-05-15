@@ -1653,6 +1653,10 @@ p {
   font-weight: 700;
 }
 
+.wallet__cw__body a {
+  text-decoration: none;
+}
+
 .wallet__cw__body__seed-phrase__phrase {
   display: flex;
   flex-direction: row;
