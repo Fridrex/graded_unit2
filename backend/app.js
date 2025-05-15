@@ -32,6 +32,9 @@ const transactionSchema = new mongoose.Schema({
   amount: { type: Number, required: true },
   timestamp: { type: Date, default: Date.now },
   type: { type: String, enum: ['send', 'receive'], required: true },
+  senderAddress: { type: String },
+  recipientAddress: { type: String },
+  status: { type: String, enum: ['pending', 'completed', 'failed'], default: 'pending' },
 });
 
 const walletSchema = new mongoose.Schema({
@@ -290,7 +293,7 @@ app.post('/api/wallet/transaction', authenticateToken, async (req, res) => {
   }
 
   if (recipientAddress === senderAddress) {
-    return res.status(400).json({ message: 'Cannot send funds to yourself' });
+    return res.status(400).json({ message: 'You cannot send funds to yourself' });
   }
 
   if (recipientAddress.length !== 42) {
@@ -322,6 +325,7 @@ app.post('/api/wallet/transaction', authenticateToken, async (req, res) => {
       amount,
       timestamp,
       type: 'send',
+      senderAddress: senderAddress,
       recipientAddress: recipientAddress,
       status: recipientWallet ? 'completed' : 'failed',
     };
@@ -335,6 +339,7 @@ app.post('/api/wallet/transaction', authenticateToken, async (req, res) => {
         timestamp,
         type: 'receive',
         senderAddress: senderAddress,
+        recipientAddress: recipientAddress,
         status: 'completed',
       };
       recipientWallet.transactions.push(recipientTx);
