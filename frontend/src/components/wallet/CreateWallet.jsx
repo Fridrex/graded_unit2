@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import axios from 'axios';
 import ActiveWallet from './ActiveWallet';
-import React from 'react';
 
 const CreateWallet = () => {
   const [isSuccess, setIsSuccess] = useState(false);

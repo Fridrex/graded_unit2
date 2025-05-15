@@ -31,7 +31,6 @@ const transactionSchema = new mongoose.Schema({
   txId: { type: String, required: true },
   amount: { type: Number, required: true },
   timestamp: { type: Date, default: Date.now },
-  description: { type: String },
   type: { type: String, enum: ['send', 'receive'], required: true },
 });
 
@@ -278,7 +277,7 @@ app.get('/api/learning/getProgress', async (req, res) => {
 });
 
 app.post('/api/wallet/transaction', authenticateToken, async (req, res) => {
-  const { recipientAddress, amount, description } = req.body;
+  const { recipientAddress, amount } = req.body;
   const senderId = req.user.walletId;
   const senderAddress = req.user.walletAddress;
 
@@ -322,7 +321,6 @@ app.post('/api/wallet/transaction', authenticateToken, async (req, res) => {
       txId,
       amount,
       timestamp,
-      description: description || '',
       type: 'send',
       recipientAddress: recipientAddress,
       status: recipientWallet ? 'completed' : 'failed',
@@ -335,7 +333,6 @@ app.post('/api/wallet/transaction', authenticateToken, async (req, res) => {
         txId,
         amount,
         timestamp,
-        description: description || '',
         type: 'receive',
         senderAddress: senderAddress,
         status: 'completed',
