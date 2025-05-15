@@ -71,14 +71,14 @@ const AccessWallet = ({ handleAccess }) => {
         if (response.status === 200) {
           setIsAccessGranted(true);
         }
-      }
+      };
 
       letAccess();
     } catch (error) {
-        if (error.response.statusText === 'Not Found') {
-          setMessage('Invalid seed phrase. Please try again.');
-        }
-        console.error('Error accessing wallet:', error);
+      if (error.response.statusText === 'Not Found') {
+        setMessage('Invalid seed phrase. Please try again.');
+      }
+      console.error('Error accessing wallet:', error);
     }
   }, []);
 

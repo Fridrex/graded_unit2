@@ -16,8 +16,24 @@ const Footer = () => {
               <p>Start with blockchain basics or jump straight into creating your first wallet.</p>
             </div>
             <div className="footer__cta__buttons">
-              <Link to="/learn">Learn</Link>
-              <Link to="/wallet">Create a wallet</Link>
+              <Link to="/learn" className="cybr-btn">
+                Learn<span aria-hidden>_</span>
+                <span aria-hidden class="cybr-btn__glitch">
+                  Learn_
+                </span>
+                <span aria-hidden class="cybr-btn__tag">
+                  BE
+                </span>
+              </Link>
+              <Link to="/wallet" className="cybr-btn">
+                Create a wallet<span aria-hidden>_</span>
+                <span aria-hidden class="cybr-btn__glitch">
+                  Create a wallet_
+                </span>
+                <span aria-hidden class="cybr-btn__tag">
+                  BE
+                </span>
+              </Link>
             </div>
           </div>
           <div className="footer__content">
