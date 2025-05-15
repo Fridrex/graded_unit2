@@ -134,51 +134,74 @@ app.post('/api/wallet/create', async (req, res) => {
 
 app.post('/api/wallet/access', async (req, res) => {
   try {
-    const { seedPhrase } = req.body;
+    const loggedToken = req.cookies.auth_token;
 
-    if (!seedPhrase) {
-      return res.status(400).json({ message: 'Seed phrase is required' });
-    }
+    if (!loggedToken) {
+      const { seedPhrase } = req.body;
 
-    const wallets = await Wallet.find({});
-
-    let matchedWallet = null;
-
-    for (const wallet of wallets) {
-      const isMatch = await bcrypt.compare(seedPhrase, wallet.seedPhrase);
-      if (isMatch) {
-        matchedWallet = wallet;
-        break;
+      if (!seedPhrase) {
+        return res.status(400).json({ message: 'Seed phrase is required' });
       }
+
+      const wallets = await Wallet.find({});
+
+      let matchedWallet = null;
+
+      for (const wallet of wallets) {
+        const isMatch = await bcrypt.compare(seedPhrase, wallet.seedPhrase);
+        if (isMatch) {
+          matchedWallet = wallet;
+          break;
+        }
+      }
+
+      if (!matchedWallet) {
+        return res.status(404).json({ message: 'Wallet not found' });
+      }
+
+      const token = jwt.sign(
+        { walletId: matchedWallet._id, walletAddress: matchedWallet.walletAddress },
+        process.env.JWT_SECRET,
+        { expiresIn: '72h' }
+      );
+
+      res.cookie('auth_token', token, {
+        httpOnly: true,
+        secure: false,
+        maxAge: 72 * 60 * 60 * 1000,
+      });
+
+      const walletResponse = {
+        walletAddress: matchedWallet.walletAddress,
+        expiryDate: matchedWallet.expiryDate,
+        balance: matchedWallet.balance,
+        transactions: matchedWallet.transactions,
+      };
+
+      res.status(200).json({
+        message: 'Wallet logged in successfully',
+        wallet: walletResponse,
+      });
+    } else {
+      const decodedToken = jwt.verify(loggedToken, process.env.JWT_SECRET);
+      const wallet = await Wallet.findById(decodedToken.walletId);
+
+      if (!wallet) {
+        return res.status(404).json({ message: 'Wallet not found' });
+      }
+
+      const walletResponse = {
+        walletAddress: wallet.walletAddress,
+        expiryDate: wallet.expiryDate,
+        balance: wallet.balance,
+        transactions: wallet.transactions,
+      };
+
+      res.status(200).json({
+        message: 'Wallet logged in successfully',
+        wallet: walletResponse,
+      });
     }
-
-    if (!matchedWallet) {
-      return res.status(404).json({ message: 'Wallet not found' });
-    }
-
-    const token = jwt.sign(
-      { walletId: matchedWallet._id, walletAddress: matchedWallet.walletAddress },
-      process.env.JWT_SECRET,
-      { expiresIn: '72h' }
-    );
-
-    res.cookie('auth_token', token, {
-      httpOnly: true,
-      secure: false,
-      maxAge: 72 * 60 * 60 * 1000,
-    });
-
-    const walletResponse = {
-      walletAddress: matchedWallet.walletAddress,
-      expiryDate: matchedWallet.expiryDate,
-      balance: matchedWallet.balance,
-      transactions: matchedWallet.transactions,
-    };
-
-    res.status(200).json({
-      message: 'Wallet logged in successfully',
-      wallet: walletResponse,
-    });
   } catch (error) {
     res.status(500).json({
       message: 'Error logging in',

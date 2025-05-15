@@ -63,6 +63,22 @@ const AccessWallet = ({ handleAccess }) => {
     twelfthWord,
   ]);
 
+  useEffect(() => {
+    axios
+      .post('http://localhost:3000/api/wallet/access', {}, { withCredentials: true })
+      .then((response) => {
+        if (response.status === 200) {
+          setIsAccessGranted(true);
+        }
+      })
+      .catch((error) => {
+        if (error.response.statusText === 'Not Found') {
+          setMessage('Invalid seed phrase. Please try again.');
+        }
+        console.error('Error accessing wallet:', error);
+      });
+  }, []);
+
   return (
     <>
       <div className={isAccessGranted ? 'hide' : 'wallet__access'}>
