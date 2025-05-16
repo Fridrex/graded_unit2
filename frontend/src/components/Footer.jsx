@@ -17,21 +17,15 @@ const Footer = () => {
             </div>
             <div className="footer__cta__buttons">
               <Link to="/learn" className="cybr-btn">
-                Learn<span aria-hidden>_</span>
+                Learn
                 <span aria-hidden class="cybr-btn__glitch">
-                  Learn_
-                </span>
-                <span aria-hidden class="cybr-btn__tag">
-                  BE
+                  Learn
                 </span>
               </Link>
               <Link to="/wallet" className="cybr-btn">
-                Create a wallet<span aria-hidden>_</span>
+                Create a wallet
                 <span aria-hidden class="cybr-btn__glitch">
-                  Create a wallet_
-                </span>
-                <span aria-hidden class="cybr-btn__tag">
-                  BE
+                  Create a wallet
                 </span>
               </Link>
             </div>

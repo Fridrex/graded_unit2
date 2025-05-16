@@ -84,6 +84,7 @@ p {
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 .back-to-top:hover {
@@ -144,6 +145,7 @@ p {
   font-family: var(--headers-font);
   font-size: 1.25rem;
   font-weight: 700;
+  transition: all 0.3s ease-in-out;
 }
 
 .navigation__menu__links a:hover,
@@ -268,6 +270,11 @@ p {
   margin: 2rem 0;
 }
 
+.footer__cta__buttons a:hover {
+  background-color: var(--primary-accent);
+  color: var(--text);
+}
+
 .cybr-btn {
   --clip: polygon(0 0, 100% 0, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 70%);
   --border: 4px;
@@ -281,7 +288,7 @@ p {
   --clip-seven: polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
 
   --primary: var(--error-colour);
-  --shadow-primary: var(--primary-accent);
+  --shadow-primary: var(--secondary-accent);
   --color: var(--text);
 
   font-family: var(--interactive-font);
@@ -305,11 +312,11 @@ p {
 }
 
 .cybr-btn:hover {
-  --primary: #7700bb;
+  --primary: var(--warrning-colour);
 }
 
 .cybr-btn:active {
-  --primary: #6600a1;
+  --primary: var(--error-colour);
 }
 
 .cybr-btn:after,
@@ -469,6 +476,7 @@ p {
   font-family: var(--headers-font);
   font-size: var(--16px);
   font-weight: 400;
+  transition: all 0.3s ease-in-out;
 }
 
 .footer__content__logo {
@@ -603,6 +611,12 @@ p {
 
 .home__buttons a {
   background-color: var(--secondary-accent);
+  transition: all 0.3s ease-in-out;
+}
+
+.home__buttons a:hover {
+  background-color: var(--text);
+  color: var(--error-colour);
 }
 
 .home__explanation {
@@ -798,10 +812,10 @@ p {
 .access-wallet__button {
   border: none;
   width: 18.75rem;
-  font-size: var(--16px);
   font-family: var(--interactive-font);
   font-weight: 400;
   margin: 1rem;
+  transition: all 0.3s ease-in-out;
 }
 
 .create-wallet__button:hover,
@@ -890,6 +904,7 @@ p {
   padding: var(--4px) var(--8px);
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-in-out;
 }
 
 .resources__info-blocks__glossary--preview button:hover,
@@ -928,6 +943,7 @@ p {
   padding: var(--4px) var(--8px);
   background-color: rgba(255, 255, 255, 0.1);
   margin: 0.5rem 0;
+  transition: all 0.3s ease-in-out;
 }
 
 .resources__info-blocks__further-reading__main li a:hover {
@@ -1064,6 +1080,7 @@ p {
 .resources__info-blocks__faq__main__navigation li a,
 .resources__info-blocks__further-reading__main__navigation li a {
   background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-in-out;
 }
 
 .resources__info-blocks__glossary__main__navigation li a:hover,
@@ -1168,6 +1185,7 @@ p {
   padding: var(--4px) var(--8px);
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-in-out;
 }
 
 .learn__main button:hover,
@@ -1218,6 +1236,7 @@ p {
   background-color: rgba(255, 255, 255, 0.1);
   padding: var(--4px) var(--8px);
   border-radius: var(--8px);
+  transition: all 0.3s ease-in-out;
 }
 
 .learn__back-button:hover {
@@ -1331,10 +1350,12 @@ p {
   padding: var(--4px) var(--8px);
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-in-out;
 }
 
 .learn__crypto__content__cta__wallet {
   background-color: rgba(220, 20, 60, 0.5) !important;
+  transition: all 0.3s ease-in-out;
 }
 
 .learn__crypto__content__cta__wallet:hover {
@@ -1393,6 +1414,7 @@ p {
   padding: var(--4px) var(--8px);
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-in-out;
 }
 
 .learn__blockchain__footer__button:hover,
@@ -1460,6 +1482,7 @@ p {
   padding: var(--4px) var(--8px);
   cursor: pointer;
   background-color: rgba(0, 211, 127, 0.4);
+  transition: all 0.3s ease-in-out;
 }
 
 .learn__certification__content__form button:hover {
@@ -1610,6 +1633,7 @@ p {
   width: 60%;
   margin: var(--16px) auto;
   font-family: var(--body-font);
+  transition: all 0.3s ease-in-out;
 }
 
 .quiz__container ul li:hover {
@@ -1643,6 +1667,7 @@ p {
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
   width: 100%;
+  transition: all 0.3s ease-in-out;
 }
 
 .quiz__button button:disabled {
@@ -1743,6 +1768,7 @@ p {
   background-color: rgba(255, 255, 255, 0.1);
   padding: var(--8px) var(--12px);
   border-radius: var(--8px);
+  transition: all 0.3s ease-in-out;
 }
 
 .wallet__create-instructions__close-button:hover {
@@ -1995,6 +2021,7 @@ p {
   padding: var(--4px) var(--8px);
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-in-out;
 }
 
 .wallet__access__footer button:hover {
@@ -2030,6 +2057,7 @@ p {
   padding: var(--2px) var(--8px);
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-in-out;
 }
 
 .wallet__access__footer__create a:hover {
@@ -2107,6 +2135,7 @@ p {
   color: var(--text);
   margin: var(--16px) auto;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease-in-out;
 }
 
 .active-wallet__copy:hover {
@@ -2210,6 +2239,7 @@ p {
   padding: var(--4px) var(--8px);
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-in-out;
 }
 
 .active-wallet__content__transactions button:hover {

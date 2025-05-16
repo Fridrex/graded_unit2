@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router';
 import CreateWalletInstructions from '../components/wallet/CreateWalletInstructions';
 import CreateWallet from '../components/wallet/CreateWallet';
 import AccessWallet from '../components/wallet/AccessWallet';
@@ -63,7 +64,12 @@ const Wallet = () => {
                 public addresses, and basic transactions.
               </p>
               <button className="create-wallet__button" onClick={handleCreate}>
-                Create Your First Wallet
+                <Link to="/learn" className="cybr-btn">
+                  Create your first wallet
+                  <span aria-hidden class="cybr-btn__glitch">
+                    Create your first wallet
+                  </span>
+                </Link>
               </button>
             </div>
             <div className="wallet__create-wallet__content__image">
@@ -90,7 +96,12 @@ const Wallet = () => {
                 understanding how digital currency management works in practice.
               </p>
               <button className="access-wallet__button" onClick={handleAccess}>
-                Access Your Wallet
+                <Link to="/learn" className="cybr-btn">
+                  Access your wallet
+                  <span aria-hidden class="cybr-btn__glitch">
+                    Access your wallet
+                  </span>
+                </Link>
               </button>
             </div>
           </div>

@@ -36,8 +36,18 @@ const Home = () => {
           </div>
         </div>
         <div className="home__buttons">
-          <Link to="/learn">Learn</Link>
-          <Link to="/about">About</Link>
+          <Link to="/learn" className="cybr-btn">
+            Learn
+            <span aria-hidden class="cybr-btn__glitch">
+              Learn
+            </span>
+          </Link>
+          <Link to="/wallet" className="cybr-btn">
+            About
+            <span aria-hidden class="cybr-btn__glitch">
+              About
+            </span>
+          </Link>
         </div>
         <div className="home__explanation">
           <h2>How it Works</h2>
