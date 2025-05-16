@@ -1,7 +1,17 @@
+import { motion } from 'motion/react';
+import { pageVariants, pageTransition } from '../utils/utils';
+
 const About = () => {
   return (
     <>
-      <div className="about">
+      <motion.div
+        className="about"
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
+      >
         <div className="about__header">
           <h1>Blockchain Education Initiative: Building Understanding, Fostering Confidence</h1>
         </div>
@@ -57,7 +67,7 @@ const About = () => {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

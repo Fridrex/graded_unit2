@@ -1,9 +1,18 @@
 import { Link } from 'react-router';
+import { motion } from 'motion/react';
+import { pageVariants, pageTransition } from '../utils/utils';
 
 const Home = () => {
   return (
     <>
-      <div className="home">
+      <motion.div
+        className="home"
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
+      >
         <div className="home__header">
           <h1>Demystifying Digital Currency: Your Journey into Blockchain Begins Here</h1>
           <p>From blockchain basics to crypto wallets — learn the future of money through hands-on experience</p>
@@ -76,7 +85,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

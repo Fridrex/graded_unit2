@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
+import { motion } from 'motion/react';
+import { pageVariants, pageTransition } from '../utils/utils';
 import CreateWalletInstructions from '../components/wallet/CreateWalletInstructions';
 import CreateWallet from '../components/wallet/CreateWallet';
 import AccessWallet from '../components/wallet/AccessWallet';
@@ -43,7 +45,14 @@ const Wallet = () => {
 
   return (
     <>
-      <div className={isStart || isAccessing ? 'hide' : 'wallet'}>
+      <motion.div
+        className={isStart || isAccessing ? 'hide' : 'wallet'}
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
+      >
         <div className="wallet__note">
           <p>Important Note</p>
           <p>
@@ -117,7 +126,7 @@ const Wallet = () => {
             />
           </div>
         )}
-      </div>
+      </motion.div>
       {isStart && <CreateWallet />}
       {isAccessing && <AccessWallet handleAccess={handleAccess} />}
     </>

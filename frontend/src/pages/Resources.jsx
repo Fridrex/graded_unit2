@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { motion } from 'motion/react';
+import { pageVariants, pageTransition } from '../utils/utils';
 import Glossary from '../components/resources/Glossary';
 import Faq from '../components/resources/Faq';
 import FurtherReading from '../components/resources/FurtherReading';
@@ -22,7 +24,14 @@ const Resources = () => {
 
   return (
     <>
-      <div className="resources">
+      <motion.div
+        className="resources"
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
+      >
         <div className="resources__header" id="resources-header">
           <h1>
             Quickly find definitions in our glossary, get answers to common questions about the app, wallets, and more,
@@ -49,7 +58,7 @@ const Resources = () => {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

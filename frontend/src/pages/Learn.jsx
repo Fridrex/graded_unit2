@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { motion } from 'motion/react';
+import { pageVariants, pageTransition } from '../utils/utils';
 import Blockchain from '../components/learn/Blockchain';
 import Crypto from '../components/learn/Crypto';
 import Cbdc from '../components/learn/Cbdc';
@@ -63,7 +65,14 @@ const Learn = () => {
 
   return (
     <>
-      <div className="learn">
+      <motion.div
+        className="learn"
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
+      >
         {!isOpenBlockchain && !isOpenCrypto && !isOpenCbdc && !isOpenCertification && (
           <>
             <div className="learn__header">
@@ -129,7 +138,7 @@ const Learn = () => {
             </div>
           </div>
         )}
-      </div>
+      </motion.div>
     </>
   );
 };
