@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Chart from './Chart';
+import { motion } from 'motion/react';
+import { pageVariants, pageTransition } from '../../utils/utils';
 import { FaCopy } from 'react-icons/fa6';
 
 const ActiveWallet = () => {
@@ -90,7 +92,14 @@ const ActiveWallet = () => {
   }, []);
 
   return (
-    <div className="active-wallet">
+    <motion.div
+      className="active-wallet"
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+    >
       <h1>Dashboard</h1>
       <hr className="active-wallet__hr" />
       <div className="active-wallet__content">
@@ -137,24 +146,33 @@ const ActiveWallet = () => {
             )}
             <button onClick={handleFormOpen}>Send</button>
             {isSending && (
-              <form className="active-wallet__content__transactions__form">
-                <input
-                  type="text"
-                  placeholder="Recipient Address"
-                  id="recipient-address"
-                  value={recipientAddress}
-                  onChange={(e) => setRecipientAddress(e.target.value)}
-                />
-                <input
-                  type="number"
-                  placeholder="Amount"
-                  id="transaction-amount"
-                  min={0}
-                  value={amount}
-                  onChange={(e) => setAmount(e.target.value)}
-                />
-                <button onClick={handleTransaction}>Send</button>
-              </form>
+              <motion.div
+                className="active-wallet__content__transactions__form--wrapper"
+                initial="initial"
+                animate="in"
+                exit="out"
+                variants={pageVariants}
+                transition={pageTransition}
+              >
+                <form className="active-wallet__content__transactions__form">
+                  <input
+                    type="text"
+                    placeholder="Recipient Address"
+                    id="recipient-address"
+                    value={recipientAddress}
+                    onChange={(e) => setRecipientAddress(e.target.value)}
+                  />
+                  <input
+                    type="number"
+                    placeholder="Amount"
+                    id="transaction-amount"
+                    min={0}
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
+                  />
+                  <button onClick={handleTransaction}>Send</button>
+                </form>
+              </motion.div>
             )}
             {isSending && message && <p className="active-wallet__content__transactions__message">{message}</p>}
             <p>
@@ -173,7 +191,7 @@ const ActiveWallet = () => {
           <Chart />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

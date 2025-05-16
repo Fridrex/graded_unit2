@@ -64,7 +64,14 @@ const Certification = ({ handleOpen }) => {
 
   return (
     <>
-      <motion.div className="learn__certification" initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
+      <motion.div
+        className="learn__certification"
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
+      >
         <button className="learn__back-button" onClick={() => handleOpen('blockchain')}>
           Back to Learn page
         </button>

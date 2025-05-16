@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import axios from 'axios';
+import { motion } from 'motion/react';
+import { pageVariants, pageTransition } from '../../utils/utils';
 import ActiveWallet from './ActiveWallet';
 
 const CreateWallet = () => {
@@ -48,7 +50,14 @@ const CreateWallet = () => {
   return (
     <>
       {isSuccess ? (
-        <div className={isAccessGranted ? 'hide' : 'wallet__cw'}>
+        <motion.div
+          className={isAccessGranted ? 'hide' : 'wallet__cw'}
+          initial="initial"
+          animate="in"
+          exit="out"
+          variants={pageVariants}
+          transition={pageTransition}
+        >
           <div className="wallet__cw__header">
             <h1>Wallet Created Successfully</h1>
             <p>Your wallet has been created. You can now start using it.</p>
@@ -94,9 +103,16 @@ const CreateWallet = () => {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
       ) : (
-        <div className="wallet__cw">
+        <motion.div
+          className="wallet__cw"
+          initial="initial"
+          animate="in"
+          exit="out"
+          variants={pageVariants}
+          transition={pageTransition}
+        >
           <div className="wallet__cw__header">
             <h1>Your wallet could not be created</h1>
             <p>Please try again</p>
@@ -106,7 +122,7 @@ const CreateWallet = () => {
               <button className="create-wallet__button">Go Back</button>
             </Link>
           </div>
-        </div>
+        </motion.div>
       )}
       {isAccessGranted && <ActiveWallet />}
     </>

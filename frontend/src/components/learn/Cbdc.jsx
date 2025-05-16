@@ -6,7 +6,6 @@ import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 import CbdcQuiz from './CbdcQuiz';
 
-
 const Cdbc = ({ handleOpen }) => {
   const [isQuizOpen, setIsQuizOpen] = useState(false);
 
@@ -16,7 +15,14 @@ const Cdbc = ({ handleOpen }) => {
 
   return (
     <>
-      <motion.div className="learn__cbdc" initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
+      <motion.div
+        className="learn__cbdc"
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
+      >
         <button className="learn__back-button" onClick={() => handleOpen('blockchain')}>
           Back to Learn page
         </button>

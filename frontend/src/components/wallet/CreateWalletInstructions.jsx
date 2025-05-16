@@ -1,9 +1,18 @@
 import { Link } from 'react-router';
+import { motion } from 'motion/react';
+import { pageVariants, pageTransition } from '../../utils/utils';
 
 const CreateWalletInstructions = ({ handleCreate, handleStart, handleCheckboxChange, isChecked }) => {
   return (
     <>
-      <div className="wallet__create-instructions__container">
+      <motion.div
+        className="wallet__create-instructions__container"
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
+      >
         <div className="wallet__create-instructions">
           <button className="wallet__create-instructions__close-button" onClick={handleCreate}>
             X
@@ -46,7 +55,7 @@ const CreateWalletInstructions = ({ handleCreate, handleStart, handleCheckboxCha
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

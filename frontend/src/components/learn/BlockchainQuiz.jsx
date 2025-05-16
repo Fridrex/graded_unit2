@@ -118,7 +118,14 @@ const BlockchainQuiz = ({ handleQuizOpen }) => {
 
   return (
     <>
-      <motion.div className="quiz"  initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
+      <motion.div
+        className="quiz"
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
+      >
         {!isQuizCompleted ? (
           <>
             <div className="quiz__container">

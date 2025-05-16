@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import axios from 'axios';
+import { motion } from 'motion/react';
+import { pageVariants, pageTransition } from '../../utils/utils';
 import ActiveWallet from './ActiveWallet';
 
 const AccessWallet = ({ handleAccess }) => {
@@ -84,7 +86,14 @@ const AccessWallet = ({ handleAccess }) => {
 
   return (
     <>
-      <div className={isAccessGranted ? 'hide' : 'wallet__access'}>
+      <motion.div
+        className={isAccessGranted ? 'hide' : 'wallet__access'}
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
+      >
         <div className="wallet__access__header">
           <h1>Access Your Wallet</h1>
         </div>
@@ -213,7 +222,7 @@ const AccessWallet = ({ handleAccess }) => {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
       {isAccessGranted && <ActiveWallet />}
     </>
   );
