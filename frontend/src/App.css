@@ -1884,6 +1884,14 @@ p {
   padding: var(--8px) var(--16px);
   color: var(--text);
   font-family: var(--body-font);
+  transition: all 0.3s ease-in-out;
+}
+
+.wallet__cw__body__seed-phrase__word:hover {
+  background-color: var(--text);
+  cursor: pointer;
+  color: var(--primary-colour);
+  scale: 1.05;
 }
 
 .wallet__cw__body__seed-phrase p {
@@ -1915,6 +1923,14 @@ p {
   background-color: var(--success-colour);
   color: var(--text);
   font-weight: 700;
+}
+
+.wallet__cw__button button:hover {
+  background-color: var(--text);
+}
+
+.wallet__cw__button button a:hover {
+  color: var(--primary-colour);
 }
 
 .wallet__cw__button button:disabled {
@@ -2138,8 +2154,13 @@ p {
   transition: all 0.3s ease-in-out;
 }
 
+.active-wallet__copy {
+  transition: all 0.3s ease-in-out;
+}
+
 .active-wallet__copy:hover {
   cursor: pointer;
+  scale: 1.1;
 }
 
 .active-wallet__copy:active {
@@ -2163,6 +2184,17 @@ p {
   font-weight: 700;
 }
 
+#wallet-address {
+  transition: all 0.3s ease-in-out;
+}
+
+#wallet-address:hover {
+  background-color: var(--text);
+  color: var(--primary-colour);
+  border: 1px solid var(--primary-colour);
+  cursor: pointer;
+}
+
 #wallet-balance {
   font-weight: 700;
   margin: 0;
@@ -2170,6 +2202,13 @@ p {
   border-radius: var(--10px);
   padding: var(--4px) var(--8px);
   background-color: var(--primary-accent);
+  transition: all 0.3s ease-in-out;
+}
+
+#wallet-balance:hover {
+  background-color: var(--text);
+  color: var(--primary-colour);
+  border: 1px solid var(--primary-colour);
 }
 
 #wallet-expiry {
@@ -2179,6 +2218,13 @@ p {
   border-radius: var(--10px);
   padding: var(--4px) var(--8px);
   background-color: var(--primary-accent);
+  transition: all 0.3s ease-in-out;
+}
+
+#wallet-expiry:hover {
+  background-color: var(--text);
+  color: var(--primary-colour);
+  border: 1px solid var(--primary-colour);
 }
 
 .active-wallet__chart h2 {

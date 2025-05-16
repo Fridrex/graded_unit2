@@ -1,4 +1,5 @@
 import CreateWallet from './CreateWallet';
+import { Link } from 'react-router';
 
 const CreateWalletInstructions = ({ handleCreate, handleStart, handleCheckboxChange, isChecked }) => {
   return (
@@ -37,7 +38,12 @@ const CreateWalletInstructions = ({ handleCreate, handleStart, handleCheckboxCha
                 handleCreate();
               }}
             >
-              Start Creating Your Wallet
+              <Link className="cybr-btn">
+                  Start Creating Wallet
+                  <span aria-hidden class="cybr-btn__glitch">
+                    Start Creating Wallet
+                  </span>
+                </Link>
             </button>
           </div>
         </div>

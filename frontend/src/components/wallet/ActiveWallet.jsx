@@ -101,7 +101,7 @@ const ActiveWallet = () => {
             <h3>Wallet Details</h3>
             <p>Wallet Address:</p>
             <div className="active-wallet__content__wallet__address-container">
-              <p id="wallet-address">{walletAddress}</p>
+              <p id="wallet-address" onClick={copyToClipboard} title='Copy to Clipboard'>{walletAddress}</p>
               <FaCopy onClick={copyToClipboard} className="active-wallet__copy" title="Copy to Clipboard" />
             </div>
             <p>Balance:</p>

@@ -85,7 +85,12 @@ const CreateWallet = () => {
                   handleAccess();
                 }}
               >
-                Access Your Wallet
+                <Link className="cybr-btn">
+                  Access Your Wallet
+                  <span aria-hidden class="cybr-btn__glitch">
+                    Access Your Wallet
+                  </span>
+                </Link>
               </button>
             </div>
           </div>

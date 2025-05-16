@@ -64,7 +64,7 @@ const Wallet = () => {
                 public addresses, and basic transactions.
               </p>
               <button className="create-wallet__button" onClick={handleCreate}>
-                <Link to="/learn" className="cybr-btn">
+                <Link className="cybr-btn">
                   Create your first wallet
                   <span aria-hidden class="cybr-btn__glitch">
                     Create your first wallet
@@ -96,7 +96,7 @@ const Wallet = () => {
                 understanding how digital currency management works in practice.
               </p>
               <button className="access-wallet__button" onClick={handleAccess}>
-                <Link to="/learn" className="cybr-btn">
+                <Link className="cybr-btn">
                   Access your wallet
                   <span aria-hidden class="cybr-btn__glitch">
                     Access your wallet
