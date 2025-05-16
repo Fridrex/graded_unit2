@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
+import { motion } from 'motion/react';
+import { pageVariants, pageTransition } from '../../utils/utils';
 import CryptoQuiz from './CryptoQuiz';
 
 const Crypto = ({ handleOpen }) => {
@@ -11,7 +13,7 @@ const Crypto = ({ handleOpen }) => {
 
   return (
     <>
-      <div className="learn__crypto">
+      <motion.div className="learn__crypto" initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
         <button className="learn__back-button" onClick={() => handleOpen('blockchain')}>
           Back to Learn page
         </button>
@@ -124,7 +126,7 @@ const Crypto = ({ handleOpen }) => {
           </button>
         </div>
         <div className="learn__crypto__quiz">{isQuizOpen && <CryptoQuiz handleQuizOpen={handleQuizOpen} />}</div>
-      </div>
+      </motion.div>
     </>
   );
 };

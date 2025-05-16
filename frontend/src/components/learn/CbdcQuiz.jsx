@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { motion } from 'motion/react';
+import { pageVariants, pageTransition } from '../../utils/utils';
 
 const quiz = {
   title: 'CBDC Quiz',
@@ -142,7 +144,7 @@ const CbdcQuiz = ({ handleQuizOpen }) => {
 
   return (
     <>
-      <div className="quiz">
+      <motion.div className="quiz" initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
         {!isQuizCompleted ? (
           <>
             <div className="quiz__container">
@@ -243,7 +245,7 @@ const CbdcQuiz = ({ handleQuizOpen }) => {
             </div>
           </div>
         )}
-      </div>
+      </motion.div>
     </>
   );
 };

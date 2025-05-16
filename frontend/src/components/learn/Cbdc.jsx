@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
+import { motion } from 'motion/react';
+import { pageVariants, pageTransition } from '../../utils/utils';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 import CbdcQuiz from './CbdcQuiz';
+
 
 const Cdbc = ({ handleOpen }) => {
   const [isQuizOpen, setIsQuizOpen] = useState(false);
@@ -13,7 +16,7 @@ const Cdbc = ({ handleOpen }) => {
 
   return (
     <>
-      <div className="learn__cbdc">
+      <motion.div className="learn__cbdc" initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
         <button className="learn__back-button" onClick={() => handleOpen('blockchain')}>
           Back to Learn page
         </button>
@@ -109,7 +112,7 @@ const Cdbc = ({ handleOpen }) => {
           </button>
         </div>
         <div className="learn__cbdc__quiz">{isQuizOpen && <CbdcQuiz handleQuizOpen={handleQuizOpen} />}</div>
-      </div>
+      </motion.div>
     </>
   );
 };

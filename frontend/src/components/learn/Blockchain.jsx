@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
 import Zoom from 'react-medium-image-zoom';
+import { motion } from 'motion/react';
+import { pageVariants, pageTransition } from '../../utils/utils';
 import BlockchainQuiz from './BlockchainQuiz';
 import 'react-medium-image-zoom/dist/styles.css';
 
@@ -13,7 +15,7 @@ const Blockchain = ({ handleOpen }) => {
 
   return (
     <>
-      <div className="learn__blockchain">
+      <motion.div className="learn__blockchain" initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
         <button className="learn__back-button" onClick={() => handleOpen('blockchain')}>
           Back to Learn page
         </button>
@@ -238,7 +240,7 @@ const Blockchain = ({ handleOpen }) => {
         <div className="learn__blockchain__quiz">
           {isQuizOpen && <BlockchainQuiz handleQuizOpen={handleQuizOpen} />}
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

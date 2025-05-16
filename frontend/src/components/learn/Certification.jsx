@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react';
 import { Link } from 'react-router';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { motion } from 'motion/react';
+import { pageVariants, pageTransition } from '../../utils/utils';
 
 const Certificate = ({ fullName }) => (
   <div className="learn__certificate">
@@ -62,7 +64,7 @@ const Certification = ({ handleOpen }) => {
 
   return (
     <>
-      <div className="learn__certification">
+      <motion.div className="learn__certification" initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
         <button className="learn__back-button" onClick={() => handleOpen('blockchain')}>
           Back to Learn page
         </button>
@@ -96,7 +98,7 @@ const Certification = ({ handleOpen }) => {
             <button type="submit">Generate My Certificate</button>
           </form>
         </div>
-      </div>
+      </motion.div>
       <div className="certificate-container" ref={certificateRef}>
         <Certificate fullName={fullName} />
       </div>
