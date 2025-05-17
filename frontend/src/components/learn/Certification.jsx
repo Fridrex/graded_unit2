@@ -31,7 +31,6 @@ const Certification = ({ handleOpen }) => {
 
     try {
       setIsLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 300));
 
       const canvas = await html2canvas(certificateRef.current, {
         scale: 2,
