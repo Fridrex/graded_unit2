@@ -121,7 +121,6 @@ const Wallet = () => {
               </p>
               {/* Button to open wallet creation instructions */}
               <button className="create-wallet__button" onClick={handleCreate}>
-                {/* The Link component here seems redundant as onClick handles navigation logic */}
                 <Link className="cybr-btn">
                   Create your first wallet
                   <span aria-hidden className="cybr-btn__glitch">
@@ -159,7 +158,6 @@ const Wallet = () => {
               </p>
               {/* Button to start the wallet access process */}
               <button className="access-wallet__button" onClick={handleAccess}>
-                {/* The Link component here seems redundant as onClick handles navigation logic */}
                 <Link className="cybr-btn">
                   Access your wallet
                   <span aria-hidden className="cybr-btn__glitch">

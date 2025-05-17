@@ -820,6 +820,17 @@ p {
 .create-wallet__button:hover,
 .access-wallet__button:hover {
   cursor: pointer;
+  background-color: var(--warrning-colour);
+}
+
+.create-wallet__button a,
+.access-wallet__button a {
+  transition: all 0.3s ease-in-out;
+}
+
+.create-wallet__button:hover a,
+.access-wallet__button:hover a {
+  color: var(--subtle-elements);
 }
 
 .wallet__create-wallet__content__image img,
