@@ -113,7 +113,6 @@ const AccessWallet = ({ handleAccess }) => {
       } catch (error) {
         // If auto-access fails (e.g., no session or session expired), it's not necessarily an error to display.
         // The user will then be prompted to enter their seed phrase.
-        // console.error('Auto-access attempt failed:', error); // Optional: log for debugging
         if (error.response && error.response.statusText === 'Not Found') {
           // This might occur if the initial check expects a wallet but none is associated with the session
           // No message needed here as the user will then proceed to input seed phrase

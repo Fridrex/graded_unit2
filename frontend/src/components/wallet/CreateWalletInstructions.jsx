@@ -74,12 +74,7 @@ const CreateWalletInstructions = ({ handleCreate, handleStart, handleCheckboxCha
                 // First, call handleStart (which might trigger API calls or navigation in parent)
                 handleStart();
                 // Then, call handleCreate to close these instructions
-                // Ensure handleStart completes its primary action before instructions are hidden if it's async.
-                // If handleStart is synchronous and just sets state, this order is fine.
-                // If handleStart navigates or makes the parent hide this component,
-                // calling handleCreate might not be necessary if the parent handles visibility.
-                // However, explicitly calling it ensures this component signals its closure.
-                // handleCreate(); // This was in the original, implies it closes the modal.
+                handleCreate();
               }}
             >
               {/* Link component used for styling the button */}

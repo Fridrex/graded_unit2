@@ -467,7 +467,7 @@ app.post('/api/wallet/transaction', authenticateToken, async (req, res) => {
     await session.abortTransaction(); // Rollback database transaction on error
     console.error('Transaction failed:', error);
     res.status(500).json({
-      message: 'Transaction failed',
+      message: error.message || 'Transaction failed',
       error: error.message,
     });
   } finally {

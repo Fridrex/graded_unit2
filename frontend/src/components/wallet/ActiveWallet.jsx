@@ -50,13 +50,10 @@ const ActiveWallet = () => {
       navigator.clipboard
         .writeText(textToCopy)
         .then(() => {
-          // Optional: Add a visual confirmation that text was copied
-          // e.g., setMessage('Address copied to clipboard!');
-          // setTimeout(() => setMessage(''), 2000);
+          setMessage('Wallet address copied to clipboard!'); // Show success message
         })
         .catch((err) => {
           console.error('Failed to copy text: ', err);
-          // Optional: setMessage('Failed to copy address.');
         });
     }
   };
@@ -78,22 +75,13 @@ const ActiveWallet = () => {
    */
   const handleTransaction = async (e) => {
     e.preventDefault(); // Prevent default form submission behavior
-    setMessage(''); // Clear previous messages
 
     const numericAmount = parseFloat(amount); // Ensure amount is a number
 
-    // Basic validation
-    if (!recipientAddress || numericAmount <= 0) {
-      setMessage('Please enter a valid recipient address and amount.');
-      return;
-    }
-    if (numericAmount > parseFloat(balance)) {
-      setMessage('Insufficient balance.');
-      return;
-    }
-
     try {
       setIsLoading(true); // Show loading indicator during transaction processing
+      setMessage(''); // Clear previous messages
+
       // API call to send a transaction
       const response = await axios.post(
         'http://localhost:3000/api/wallet/transaction',
@@ -108,8 +96,8 @@ const ActiveWallet = () => {
         // Assuming the response contains the updated transaction details
         // and potentially the new balance.
         // For now, we'll just add the transaction and reload the wallet.
-        // const { transaction } = response.data;
-        // setTransactions((prev) => [...prev, transaction]); // Add new transaction to the list
+        const { transaction } = response.data;
+        setTransactions((prev) => [...prev, transaction]); // Add new transaction to the list
 
         setRecipientAddress(''); // Clear recipient address input
         setAmount(0); // Clear amount input
@@ -121,7 +109,8 @@ const ActiveWallet = () => {
       console.error('Error sending transaction:', error);
       if (error.response && error.response.data) {
         // Display error message from the backend if available
-        setMessage(error.response.data.message || error.response.data.error || 'Transaction failed.');
+        const errorMessage = error.response.data.message || error.response.data.error || 'Transaction failed.';
+        setMessage(errorMessage);
       } else {
         setMessage('Transaction failed. Please try again.');
       }
@@ -138,7 +127,7 @@ const ActiveWallet = () => {
   const loadWallet = async () => {
     try {
       setIsLoading(true);
-      // Simulate a small delay for better UX, remove if not needed
+      // Simulate a small delay for better UX
       await new Promise((resolve) => setTimeout(resolve, 200));
 
       // API call to get wallet data

@@ -47,8 +47,8 @@ const CreateWallet = () => {
    */
   const handleAccess = () => {
     if (isChecked) {
-      // setIsChecked(false); // It's good practice to reset, but button is disabled after click anyway.
-      // document.getElementById('seed').checked = false; // Direct DOM manipulation, generally avoid in React if possible
+      setIsChecked(false);
+      document.getElementById('seed').checked = false; // Direct DOM manipulation
       setIsAccessGranted(true); // Grant access to the active wallet view
     }
   };
@@ -64,7 +64,7 @@ const CreateWallet = () => {
       // Simulate a small delay for better UX, remove if not needed
       await new Promise((resolve) => setTimeout(resolve, 200));
 
-      localStorage.clear(); // Clear local storage before creating a new wallet (if applicable to app logic)
+      localStorage.clear(); // Clear local storage before creating a new wallet
 
       // API call to create a wallet
       const response = await axios.post('http://localhost:3000/api/wallet/create', {}, { withCredentials: true });
