@@ -102,7 +102,7 @@ const ActiveWallet = () => {
         setRecipientAddress(''); // Clear recipient address input
         setAmount(0); // Clear amount input
         setIsSending(false); // Close the send form
-        setMessage('Transaction successful!'); // Show success message
+        setMessage(response.data.message); // Show success message
         loadWallet(); // Reload wallet data to reflect changes
       }
     } catch (error) {

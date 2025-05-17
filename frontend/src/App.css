@@ -1008,6 +1008,11 @@ p {
   font-family: var(--body-font);
 }
 
+.resources__info-blocks__further-reading__main {
+  width: 100%;
+  margin: 0 auto;
+}
+
 .resources__info-blocks__glossary__main--preview li p span,
 .resources__info-blocks__glossary__main--preview--expanded li p span {
   font-weight: 700;
@@ -2458,6 +2463,10 @@ p {
   .active-wallet__content__info {
     flex-wrap: wrap;
     gap: var(--8px);
+  }
+
+  .resources__info-blocks__further-reading__main iframe {
+    width: 100%;
   }
 }
 
