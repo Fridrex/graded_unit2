@@ -56,6 +56,7 @@ const BlockchainQuiz = ({ handleQuizOpen }) => {
   });
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const { questions } = quiz;
   const { question, options, answer } = questions[activeQuestion];

@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { motion } from 'motion/react';
 import { pageVariants, pageTransition } from '../../utils/utils';
+import Loading from '../Loading';
 
 const Certificate = ({ fullName }) => (
   <div className="learn__certificate">
@@ -24,12 +24,14 @@ const Certificate = ({ fullName }) => (
 const Certification = ({ handleOpen }) => {
   const [fullName, setFullName] = useState('');
   const certificateRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const generatePDF = async () => {
     if (!certificateRef.current) return;
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 100));
+      setIsLoading(true);
+      await new Promise((resolve) => setTimeout(resolve, 300));
 
       const canvas = await html2canvas(certificateRef.current, {
         scale: 2,
@@ -50,8 +52,10 @@ const Certification = ({ handleOpen }) => {
 
       pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
       pdf.save(`${fullName}_Certificate.pdf`);
+      setIsLoading(false);
     } catch (error) {
       console.error('Error generating PDF:', error);
+      setIsLoading(false);
     }
   };
 
@@ -61,6 +65,10 @@ const Certification = ({ handleOpen }) => {
       generatePDF();
     }
   };
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <>

@@ -6,6 +6,7 @@ import Blockchain from '../components/learn/Blockchain';
 import Crypto from '../components/learn/Crypto';
 import Cbdc from '../components/learn/Cbdc';
 import Certification from '../components/learn/Certification';
+import Loading from '../components/Loading';
 
 const Learn = () => {
   const [isPassed, setIsPassed] = useState(false);
@@ -13,9 +14,13 @@ const Learn = () => {
   const [isOpenCrypto, setIsOpenCrypto] = useState(false);
   const [isOpenCbdc, setIsOpenCbdc] = useState(false);
   const [isOpenCertification, setIsOpenCertification] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getResults = async () => {
     try {
+      setIsLoading(true);
+      await new Promise((resolve) => setTimeout(resolve, 200));
+
       const response = await axios.get('http://localhost:3000/api/learning/getProgress', { withCredentials: true });
 
       if (response.status === 200) {
@@ -30,9 +35,11 @@ const Learn = () => {
           const allModulesCompleted = extractedProgress.every((item) => item.completed);
           setIsPassed(allModulesCompleted);
         }
+        setIsLoading(false);
       }
     } catch (error) {
       console.error('Error fetching results:', error);
+      setIsLoading(false);
     }
   };
 
@@ -62,6 +69,10 @@ const Learn = () => {
         break;
     }
   };
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <>

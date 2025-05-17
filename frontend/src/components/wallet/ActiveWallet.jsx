@@ -4,6 +4,7 @@ import Chart from './Chart';
 import { motion } from 'motion/react';
 import { pageVariants, pageTransition } from '../../utils/utils';
 import { FaCopy } from 'react-icons/fa6';
+import Loading from '../Loading';
 
 const ActiveWallet = () => {
   const [isSending, setIsSending] = useState(false);
@@ -14,6 +15,7 @@ const ActiveWallet = () => {
   const [recipientAddress, setRecipientAddress] = useState('');
   const [amount, setAmount] = useState(0);
   const [message, setMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const copyToClipboard = () => {
     const walletAddress = document.getElementById('wallet-address');
@@ -71,6 +73,9 @@ const ActiveWallet = () => {
 
   const loadWallet = async () => {
     try {
+      setIsLoading(true);
+      await new Promise((resolve) => setTimeout(resolve, 200));
+
       const response = await axios.get('http://localhost:3000/api/wallet', { withCredentials: true });
 
       if (response.status === 200) {
@@ -81,15 +86,21 @@ const ActiveWallet = () => {
         setExpiryDate(new Date(expiryDate).toLocaleDateString());
         setBalance(balance.toFixed(2));
         setTransactions(transactions);
+        setIsLoading(false);
       }
     } catch (error) {
       console.error('Error loading wallet:', error);
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     loadWallet();
   }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <motion.div

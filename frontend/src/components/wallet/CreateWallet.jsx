@@ -4,12 +4,14 @@ import axios from 'axios';
 import { motion } from 'motion/react';
 import { pageVariants, pageTransition } from '../../utils/utils';
 import ActiveWallet from './ActiveWallet';
+import Loading from '../Loading';
 
 const CreateWallet = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [seedPhrase, setSeedPhrase] = useState('');
   const [isChecked, setIsChecked] = useState(false);
   const [isAccessGranted, setIsAccessGranted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleCheckboxChange = () => {
     setIsChecked((prev) => !prev);
@@ -25,6 +27,9 @@ const CreateWallet = () => {
 
   const createWallet = async () => {
     try {
+      setIsLoading(true);
+      await new Promise((resolve) => setTimeout(resolve, 200));
+
       localStorage.clear();
       const response = await axios.post('http://localhost:3000/api/wallet/create', {}, { withCredentials: true });
       if (response.status === 201) {
@@ -36,16 +41,22 @@ const CreateWallet = () => {
 
         console.log('Wallet created successfully:', wallet);
         console.log('Seed Phrase:', generatedSeedPhrase);
+        setIsLoading(false);
       }
     } catch (error) {
       console.error('Error creating wallet:', error);
       setIsSuccess(false);
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     createWallet();
   }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <>

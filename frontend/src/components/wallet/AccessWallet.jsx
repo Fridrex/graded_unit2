@@ -4,6 +4,7 @@ import axios from 'axios';
 import { motion } from 'motion/react';
 import { pageVariants, pageTransition } from '../../utils/utils';
 import ActiveWallet from './ActiveWallet';
+import Loading from '../Loading';
 
 const AccessWallet = ({ handleAccess }) => {
   const [seedPhrase, setSeedPhrase] = useState('');
@@ -23,6 +24,7 @@ const AccessWallet = ({ handleAccess }) => {
   const [twelfthWord, setTwelfthWord] = useState('');
   const [attempt, setAttempt] = useState(0);
   const [message, setMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const seedPhraseArray = [
@@ -68,10 +70,14 @@ const AccessWallet = ({ handleAccess }) => {
   useEffect(() => {
     try {
       const letAccess = async () => {
+        setIsLoading(true);
+        await new Promise((resolve) => setTimeout(resolve, 200));
+
         const response = await axios.post('http://localhost:3000/api/wallet/access', {}, { withCredentials: true });
 
         if (response.status === 200) {
           setIsAccessGranted(true);
+          setIsLoading(false);
         }
       };
 
@@ -81,8 +87,13 @@ const AccessWallet = ({ handleAccess }) => {
         setMessage('Invalid seed phrase. Please try again.');
       }
       console.error('Error accessing wallet:', error);
+      setIsLoading(false);
     }
   }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <>
