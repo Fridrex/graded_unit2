@@ -38,9 +38,6 @@ const CreateWallet = () => {
         const { wallet } = response.data;
         const { seedPhrase: generatedSeedPhrase } = wallet;
         setSeedPhrase(generatedSeedPhrase);
-
-        console.log('Wallet created successfully:', wallet);
-        console.log('Seed Phrase:', generatedSeedPhrase);
         setIsLoading(false);
       }
     } catch (error) {

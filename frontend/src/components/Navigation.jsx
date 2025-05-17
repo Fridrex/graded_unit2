@@ -36,9 +36,6 @@ const Navigation = () => {
               <NavLink
                 to="/"
                 end
-                // className={({ isActive }) => {
-                //     console.log("Home isActive:", isActive);
-                //     isActive ? 'navigation__menu__links__link--active' : ''}}
                 style={({ isActive }) => (isActive ? { color: 'var(--secondary-accent)' } : {})}
                 onClick={() => {
                   isMenuOpen ? toggleMenu() : null;

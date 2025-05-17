@@ -76,7 +76,6 @@ const BlockchainQuiz = ({ handleQuizOpen }) => {
         },
         { withCredentials: true }
       );
-      console.log('Quiz result sent successfully:', response.data);
     } catch (error) {
       console.error('Error sending quiz result:', error);
     }

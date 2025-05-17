@@ -2346,6 +2346,8 @@ p {
   border-radius: var(--10px);
 }
 
+/* Loading component */
+
 .loading-container {
   display: flex;
   flex-direction: column;
