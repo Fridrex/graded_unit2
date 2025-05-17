@@ -1,6 +1,6 @@
 import { HashLink as Link } from 'react-router-hash-link';
 import { motion, AnimatePresence } from 'motion/react';
-import { accordionAnimation } from '../../utils/utils';
+import { pageTransition, pageVariants } from '../../utils/utils';
 
 const FurtherReading = ({ isOpen, handleIsOpen }) => {
   return (
@@ -10,10 +10,11 @@ const FurtherReading = ({ isOpen, handleIsOpen }) => {
           <motion.div
             className="resources__info-blocks__further-reading"
             key="further-reading-content"
-            initial={accordionAnimation.initial}
-            animate={accordionAnimation.animate}
-            exit={accordionAnimation.exit}
-            transition={accordionAnimation.transition}
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={pageVariants}
+            transition={pageTransition}
             style={{ overflow: 'hidden' }}
           >
             <div className="resources__info-blocks__further-reading__header">

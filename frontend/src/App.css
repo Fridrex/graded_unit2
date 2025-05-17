@@ -2346,6 +2346,20 @@ p {
   border-radius: var(--10px);
 }
 
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 80vh;
+  margin: 0 auto;
+}
+
+.loading-spinner {
+  margin-bottom: 2rem;
+}
+
 /* Media Queries */
 
 @media only screen and (max-width: 1333px) {
