@@ -1,44 +1,74 @@
-import { HashLink as Link } from 'react-router-hash-link';
-import { motion, AnimatePresence } from 'motion/react';
-import { pageTransition, pageVariants } from '../../utils/utils';
+/**
+ * @file Glossary.jsx
+ * @description Component that displays a glossary of terms related to blockchain and cryptocurrency.
+ * It shows a preview and can be expanded to show all terms, categorized for easier navigation.
+ * Uses HashLink for in-page navigation to specific term categories.
+ */
 
+import { HashLink as Link } from 'react-router-hash-link'; // For smooth scrolling to sections within the page
+import { motion, AnimatePresence } from 'motion/react'; // For animations on expand/collapse
+import { pageTransition, pageVariants } from '../../utils/utils'; // Animation utility constants
+
+/**
+ * @function Glossary
+ * @description Displays a list of terms and their definitions.
+ * Allows toggling between a preview and a full view of the glossary.
+ * @param {object} props - Component props.
+ * @param {boolean} props.isOpen - Controls whether the full glossary is visible or a preview.
+ * @param {function} props.handleIsOpen - Function to toggle the `isOpen` state.
+ * @returns {JSX.Element} The Glossary section UI.
+ */
 const Glossary = ({ isOpen, handleIsOpen }) => {
   return (
     <>
+      {/* AnimatePresence handles animations for appearing/disappearing content */}
       <AnimatePresence initial={false}>
         {isOpen ? (
+          // Full Glossary view, rendered when `isOpen` is true
           <motion.div
-            className="resources__info-blocks__glossary"
-            key="glossary-content"
+            className="resources__info-blocks__glossary" // Base class for styling
+            key="glossary-content" // Unique key for AnimatePresence
             initial="initial"
             animate="in"
             exit="out"
             variants={pageVariants}
             transition={pageTransition}
-            style={{ overflow: 'hidden' }}
+            style={{ overflow: 'hidden' }} // Prevents content overflow during animation
           >
             <div className="resources__info-blocks__glossary__header">
               <h2>Demystifying the Tech: Your Comprehensive Glossary</h2>
             </div>
             <div className="resources__info-blocks__glossary__main">
               <h3>Find the Definitions You Need</h3>
+              {/* Navigation links to jump to specific glossary categories */}
               <ul className="resources__info-blocks__glossary__main__navigation">
                 <li>
-                  <Link to="#core_jargon_glossary">Core Jargon</Link>
+                  <Link smooth to="#core_jargon_glossary">
+                    Core Jargon
+                  </Link>
                 </li>
                 <li>
-                  <Link to="#blockchain_specific_glossary">Blockchain Specific terms</Link>
+                  <Link smooth to="#blockchain_specific_glossary">
+                    Blockchain Specific terms
+                  </Link>
                 </li>
                 <li>
-                  <Link to="#cryptocurrency_specific_glossary">Cryptocurrency Specific terms</Link>
+                  <Link smooth to="#cryptocurrency_specific_glossary">
+                    Cryptocurrency Specific terms
+                  </Link>
                 </li>
                 <li>
-                  <Link to="#cbdc_specific_glossary">CBDC Specific terms</Link>
+                  <Link smooth to="#cbdc_specific_glossary">
+                    CBDC Specific terms
+                  </Link>
                 </li>
                 <li>
-                  <Link to="#important_terms_glossary">Important terms</Link>
+                  <Link smooth to="#important_terms_glossary">
+                    Important terms
+                  </Link>
                 </li>
               </ul>
+              {/* Preview of Core Jargon (also part of the full view) */}
               <ul className="resources__info-blocks__glossary__main--preview">
                 <h4 id="core_jargon_glossary">Core Jargon from Educational Texts</h4>
                 <li>
@@ -53,6 +83,7 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
                     issued by the central bank
                   </p>
                 </li>
+                {/* ... other core jargon terms ... */}
                 <li>
                   <p>
                     <span>Cryptography</span> — The art of writing or solving codes
@@ -114,8 +145,11 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
                 </li>
               </ul>
               <hr className="resources__info-blocks__glossary__main__hr" />
+              {/* Expanded Glossary with more categories */}
               <ul className="resources__info-blocks__glossary__main--preview--expanded">
                 <h4>Expanded Glossary with Descriptions</h4>
+
+                {/* Blockchain Specific Terms */}
                 <p
                   className="resources__info-blocks__glossary__main--preview--expanded__group"
                   id="blockchain_specific_glossary"
@@ -127,6 +161,7 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
                     <span>Block</span> — A collection of data records grouped together
                   </p>
                 </li>
+                {/* ... other blockchain specific terms ... */}
                 <li>
                   <p>
                     <span>Consensus Mechanism</span> — The method used to validate transactions and secure a blockchain
@@ -162,6 +197,8 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
                     written into code
                   </p>
                 </li>
+
+                {/* Cryptocurrency Specific Terms */}
                 <p
                   className="resources__info-blocks__glossary__main--preview--expanded__group"
                   id="cryptocurrency_specific_glossary"
@@ -173,6 +210,7 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
                     <span>Altcoin</span> — Any cryptocurrency other than Bitcoin
                   </p>
                 </li>
+                {/* ... other cryptocurrency specific terms ... */}
                 <li>
                   <p>
                     <span>Exchange</span> — A platform where cryptocurrencies are bought and sold
@@ -211,6 +249,8 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
                     <span>Token</span> — A digital asset that can represent various things on a blockchain
                   </p>
                 </li>
+
+                {/* CBDC Specific Terms */}
                 <p
                   className="resources__info-blocks__glossary__main--preview--expanded__group"
                   id="cbdc_specific_glossary"
@@ -223,6 +263,7 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
                     (e.g., Bank of England)
                   </p>
                 </li>
+                {/* ... other CBDC specific terms ... */}
                 <li>
                   <p>
                     <span>Digital Pound</span> — The potential UK version of a Central Bank Digital Currency
@@ -240,6 +281,8 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
                     interest rates
                   </p>
                 </li>
+
+                {/* Important General Terms */}
                 <p
                   className="resources__info-blocks__glossary__main--preview--expanded__group"
                   id="important_terms_glossary"
@@ -251,6 +294,7 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
                     <span>Adoption</span> — The rate at which a technology or currency becomes accepted and used
                   </p>
                 </li>
+                {/* ... other important terms ... */}
                 <li>
                   <p>
                     <span>Algorithm</span> — A set of rules to be followed in calculations or other problem-solving
@@ -312,22 +356,27 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
               </ul>
               <hr className="resources__info-blocks__glossary__main__hr" />
             </div>
+            {/* Footer for the expanded Glossary view */}
             <div className="resources__info-blocks__glossary__footer">
               <p>
                 Feel free to pop back to the glossary whenever you encounter unfamiliar terms in your learning journey.
                 We're always here to help clarify things!
               </p>
+              {/* Button to close the full view and return to preview */}
               <button onClick={handleIsOpen}>Close Glossary</button>
             </div>
           </motion.div>
         ) : (
+          // Preview Glossary view, rendered when `isOpen` is false
           <div className="resources__info-blocks__glossary">
+            {/* Shadow effect for the preview card */}
             <div className="resources__info-blocks__glossary--shadowed"></div>
             <div className="resources__info-blocks__glossary__header">
               <h2>Demystifying the Tech: Your Comprehensive Glossary</h2>
             </div>
             <div className="resources__info-blocks__glossary__main">
               <h3>Find the Definitions You Need</h3>
+              {/* Display a small preview of glossary terms */}
               <ul className="resources__info-blocks__glossary__main--preview">
                 <h4>Core Jargon from Educational Texts</h4>
                 <li>
@@ -349,6 +398,7 @@ const Glossary = ({ isOpen, handleIsOpen }) => {
                 </li>
               </ul>
             </div>
+            {/* The "Open Full Glossary" button is rendered by the parent Resources.jsx component */}
           </div>
         )}
       </AnimatePresence>

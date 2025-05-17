@@ -1,31 +1,56 @@
-import { useState } from 'react';
-import { HashLink as Link } from 'react-router-hash-link';
-import { motion } from 'motion/react';
-import { pageVariants, pageTransition } from '../../utils/utils';
-import Zoom from 'react-medium-image-zoom';
-import 'react-medium-image-zoom/dist/styles.css';
-import CbdcQuiz from './CbdcQuiz';
+/**
+ * @file Cbdc.jsx
+ * @description Educational component explaining Central Bank Digital Currencies (CBDCs).
+ * Includes textual explanations, an infographic (with zoom), comparison with cryptocurrencies,
+ * and a quiz to test understanding.
+ */
 
+import { useState } from 'react';
+import { HashLink as Link } from 'react-router-hash-link'; // For in-page navigation and linking
+import { motion } from 'motion/react'; // For page transition animations
+import { pageVariants, pageTransition } from '../../utils/utils'; // Animation utility constants
+import Zoom from 'react-medium-image-zoom'; // For image zoom functionality
+import 'react-medium-image-zoom/dist/styles.css'; // Styles for image zoom
+import CbdcQuiz from './CbdcQuiz'; // Quiz component specific to CBDCs
+
+/**
+ * @function Cbdc (Note: filename is Cdbc.jsx, but component is named Cdbc. Consider renaming for consistency, e.g., to CBDC)
+ * @description Main component for the CBDC learning module.
+ * Displays educational content about Central Bank Digital Currencies and includes an interactive quiz.
+ * @param {object} props - Component props.
+ * @param {function} props.handleOpen - Function passed from the parent (Learn.jsx)
+ * to signal that this module should be closed, returning the user to the main Learn page.
+ * @returns {JSX.Element} The CBDC learning module UI.
+ */
 const Cdbc = ({ handleOpen }) => {
+  // Component name is Cdbc, consider renaming to CBDC for clarity
+  // State to control the visibility of the CBDC quiz
   const [isQuizOpen, setIsQuizOpen] = useState(false);
 
+  /**
+   * @function handleQuizOpen
+   * @description Toggles the visibility of the CbdcQuiz component.
+   */
   const handleQuizOpen = () => {
     setIsQuizOpen(!isQuizOpen);
   };
 
   return (
     <>
+      {/* Animated container for the CBDC learning section */}
       <motion.div
-        className="learn__cbdc"
+        className="learn__cbdc" // CSS class for styling this specific module
         initial="initial"
         animate="in"
         exit="out"
         variants={pageVariants}
         transition={pageTransition}
       >
-        <button className="learn__back-button" onClick={() => handleOpen('blockchain')}>
+        {/* Button to go back to the main Learn page */}
+        <button className="learn__back-button" onClick={() => handleOpen('cbdc')}>
           Back to Learn page
         </button>
+        {/* Article containing educational content about CBDCs */}
         <article className="learn__cbdc__content">
           <h1>CBDC</h1>
           <h3>Central Bank Digital Currencies (CBDCs): The Digital Pound</h3>
@@ -35,15 +60,20 @@ const Cdbc = ({ handleOpen }) => {
             directly by the central bank. In the UK, this would be a digital form of the pound sterling.
           </p>
           <h3>Understanding CBDCs</h3>
+          {/* Infographic with zoom functionality */}
           <div className="learn__cbdc__content__zoom">
             <Zoom>
-              <img src="src/assets/images/digital-money-venn-diagram.svg" alt="CBDC infographics" />
+              <img
+                src="src/assets/images/digital-money-venn-diagram.svg"
+                alt="CBDC infographics comparing digital money types"
+              />
             </Zoom>
           </div>
           <p>
             CBDCs aim to combine the accessibility and convenience of digital money with the safety and security of
             central bank-issued currency. Here's a breakdown:
           </p>
+          {/* ... list explaining key aspects of CBDCs ... */}
           <ul>
             <li>
               <strong>Digital Form of Fiat Currency:</strong> A CBDC is essentially a digital version of a country's
@@ -65,6 +95,7 @@ const Cdbc = ({ handleOpen }) => {
             </li>
           </ul>
           <h3>The UK's Perspective: The Digital Pound</h3>
+          {/* ... content specific to the UK's exploration of a digital pound ... */}
           <p>
             The Bank of England and HM Treasury are exploring the concept of a digital pound to keep pace with an
             increasingly digital world where the use of physical cash is declining.
@@ -84,7 +115,7 @@ const Cdbc = ({ handleOpen }) => {
             money, and better protect our financial system."
           </p>
           <h3>CBDCs vs. Cryptocurrencies</h3>
-          <p>It's important to distinguish between CBDCs and cryptocurrencies:</p>
+          {/* ... comparison between CBDCs and cryptocurrencies ... */}
           <ul>
             <li>
               <strong>Issuer:</strong> CBDCs are issued by a central bank; cryptocurrencies are typically decentralised.
@@ -102,10 +133,16 @@ const Cdbc = ({ handleOpen }) => {
             This section provides a clear understanding of what CBDCs are, how they differ from cryptocurrencies, and
             their potential role in the future of finance.
           </p>
+          {/* Call to action to visit the Resources page */}
           <p className="learn__cbdc__content__cta">
-            Check out our <Link to="/resources#resources-header">Resources page</Link> for more information
+            Check out our{' '}
+            <Link to="/resources#resources-header" smooth>
+              Resources page
+            </Link>{' '}
+            for more information
           </p>
         </article>
+        {/* Footer section for the CBDC module, containing the quiz trigger */}
         <div className="learn__cbdc__footer">
           <h3>CBDC Quiz</h3>
           <video src="src/assets/videos/cbdc_quiz.mp4" autoPlay muted loop className="learn__header__video"></video>
@@ -117,10 +154,11 @@ const Cdbc = ({ handleOpen }) => {
             Start Quiz
           </button>
         </div>
+        {/* Container for the quiz, rendered conditionally */}
         <div className="learn__cbdc__quiz">{isQuizOpen && <CbdcQuiz handleQuizOpen={handleQuizOpen} />}</div>
       </motion.div>
     </>
   );
 };
 
-export default Cdbc;
+export default Cdbc; // Consider renaming export to CBDC if component name changes

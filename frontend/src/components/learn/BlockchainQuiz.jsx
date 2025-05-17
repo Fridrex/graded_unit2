@@ -1,8 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { motion } from 'motion/react';
-import { pageVariants, pageTransition } from '../../utils/utils';
+/**
+ * @file BlockchainQuiz.jsx
+ * @description A quiz component specifically about Blockchain technology.
+ * It presents multiple-choice questions, tracks user answers, calculates scores,
+ * and provides feedback. On successful completion, it can send results to a backend.
+ */
 
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'; // For making HTTP requests
+import { motion } from 'motion/react'; // For animations
+import { pageVariants, pageTransition } from '../../utils/utils'; // Animation utility constants
+
+// Quiz data: title and an array of questions.
+// Each question has an id, the question text, an array of options, and the correct answer.
 const quiz = {
   title: 'Blockchain Quiz',
   questions: [
@@ -44,9 +53,19 @@ const quiz = {
   ],
 };
 
+/**
+ * @function BlockchainQuiz
+ * @description Manages the state and logic for the Blockchain quiz.
+ * @param {object} props - Component props.
+ * @param {function} props.handleQuizOpen - Function to close the quiz modal/view, passed from the parent.
+ * @returns {JSX.Element} The Blockchain quiz UI.
+ */
 const BlockchainQuiz = ({ handleQuizOpen }) => {
+  // State to track the current active question index
   const [activeQuestion, setActiveQuestion] = useState(0);
+  // State to store whether the currently selected answer is correct (true/false) or null if no answer selected yet for the current question
   const [selectedAnswer, setSelectedAnswer] = useState(null);
+  // State to store the quiz results: score, number of correct/wrong answers, and lists of user's correct/wrong answers
   const [result, setResult] = useState({
     score: 0,
     correctAnswers: 0,
@@ -54,70 +73,107 @@ const BlockchainQuiz = ({ handleQuizOpen }) => {
     userCorrectAnswers: [],
     userWrongAnswers: [],
   });
+  // State to track if the quiz has been completed
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
+  // State to store the index of the answer option selected by the user
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  // isLoading state was present in the original file but not used. Removed for this commented version.
+  // If it were used, it would be:
+  // const [isLoading, setIsLoading] = useState(true); // State to manage loading status, e.g., while fetching quiz data
 
-  const { questions } = quiz;
-  const { question, options, answer } = questions[activeQuestion];
+  const { questions } = quiz; // Destructure questions from the quiz object
+  const { question, options, answer } = questions[activeQuestion]; // Destructure current question details
 
+  // useEffect to send quiz results to the backend if the quiz is completed and all answers are correct.
   useEffect(() => {
     if (isQuizCompleted && result.score === questions.length) {
       sendQuizResult();
     }
+    // Dependencies: This effect runs when isQuizCompleted, result.score, or questions.length changes.
   }, [isQuizCompleted, result.score, questions.length]);
 
+  /**
+   * @async
+   * @function sendQuizResult
+   * @description Sends the quiz completion status (specifically for 'Blockchain Quiz') to the backend.
+   */
   const sendQuizResult = async () => {
     try {
+      // API call to record learning progress
       const response = await axios.post(
         'http://localhost:3000/api/learning/progress',
         {
-          module: 'Blockchain Quiz',
+          module: 'Blockchain Quiz', // Identifies the completed module
         },
-        { withCredentials: true }
+        { withCredentials: true } // Sends cookies with the request
       );
+      // console.log('Quiz result sent:', response.data); // Optional: log success
     } catch (error) {
       console.error('Error sending quiz result:', error);
+      // Optionally, handle UI feedback for error in sending results
     }
   };
 
+  /**
+   * @function onClickNext
+   * @description Handles the logic when the "Next" or "Finish" button is clicked.
+   * It updates the score and results based on the selected answer and moves to the next question or finishes the quiz.
+   */
   const onClickNext = () => {
-    setSelectedAnswerIndex(null);
+    setSelectedAnswerIndex(null); // Reset selected answer index for the next question
     setResult((prev) =>
-      selectedAnswer
+      selectedAnswer // If selectedAnswer is true (correct)
         ? {
             ...prev,
             score: prev.score + 1,
             correctAnswers: prev.correctAnswers + 1,
-            userCorrectAnswers: [...prev.userCorrectAnswers, answer],
+            userCorrectAnswers: [...prev.userCorrectAnswers, answer], // Add correct answer to list
           }
         : {
+            // If selectedAnswer is false (wrong)
             ...prev,
             wrongAnswers: prev.wrongAnswers + 1,
-            userWrongAnswers: [...prev.userWrongAnswers, answer],
+            userWrongAnswers: [
+              ...prev.userWrongAnswers,
+              questions[activeQuestion].question + ' (Correct: ' + answer + ')',
+            ], // Add question and correct answer to list
           }
     );
     if (activeQuestion !== questions.length - 1) {
-      setActiveQuestion((prev) => prev + 1);
+      setActiveQuestion((prev) => prev + 1); // Move to the next question
     } else {
-      setActiveQuestion(0);
-      setIsQuizCompleted(true);
+      // setActiveQuestion(0); // Reset active question (though quiz is now completed)
+      setIsQuizCompleted(true); // Mark quiz as completed
     }
   };
 
-  const onAnswerSelect = (select, index) => {
-    setSelectedAnswerIndex(index);
-    if (select === answer) {
-      setSelectedAnswer(true);
+  /**
+   * @function onAnswerSelect
+   * @description Handles the selection of an answer option.
+   * Sets the selected answer index for UI feedback and determines if the selected answer is correct.
+   * @param {string} selectedOption - The text of the answer option selected by the user.
+   * @param {number} index - The index of the selected answer option.
+   */
+  const onAnswerSelect = (selectedOption, index) => {
+    setSelectedAnswerIndex(index); // Highlight the selected option
+    if (selectedOption === answer) {
+      setSelectedAnswer(true); // Mark as correct
     } else {
-      setSelectedAnswer(false);
+      setSelectedAnswer(false); // Mark as incorrect
     }
   };
 
+  /**
+   * @function addLeadingZero
+   * @description Adds a leading zero to a number if it's less than 10.
+   * @param {number} number - The number to format.
+   * @returns {string|number} The formatted number as a string or the original number.
+   */
   const addLeadingZero = (number) => (number > 9 ? number : `0${number}`);
 
   return (
     <>
+      {/* Animated container for the quiz */}
       <motion.div
         className="quiz"
         initial="initial"
@@ -127,25 +183,30 @@ const BlockchainQuiz = ({ handleQuizOpen }) => {
         transition={pageTransition}
       >
         {!isQuizCompleted ? (
+          // If quiz is not completed, display questions
           <>
             <div className="quiz__container">
               <div className="quiz-question__numbers">
+                {/* Display current question number and total questions */}
                 <span className="quiz-question--active">Question: {addLeadingZero(activeQuestion + 1)}</span>
                 <span className="quiz-question__total">/{addLeadingZero(questions.length)}</span>
               </div>
-              <h2>{question}</h2>
+              <h2>{question}</h2> {/* Display the current question text */}
               <ul>
-                {options.map((answer, index) => (
+                {/* Map through answer options and display them as list items */}
+                {options.map((option, index) => (
                   <li
-                    onClick={() => onAnswerSelect(answer, index)}
-                    key={answer}
+                    onClick={() => onAnswerSelect(option, index)}
+                    key={option} // Using option text as key; ensure uniqueness or use id if available
+                    // Apply 'quiz__selected-answer' class if this option is selected
                     className={selectedAnswerIndex === index ? 'quiz__selected-answer' : ''}
                   >
-                    {answer}
+                    {option}
                   </li>
                 ))}
               </ul>
               <div className="quiz__button">
+                {/* Button to move to the next question or finish the quiz */}
                 <button onClick={onClickNext} disabled={selectedAnswerIndex === null}>
                   {activeQuestion === questions.length - 1 ? 'Finish' : 'Next'}
                 </button>
@@ -153,8 +214,10 @@ const BlockchainQuiz = ({ handleQuizOpen }) => {
             </div>
           </>
         ) : (
+          // If quiz is completed, display results
           <div className="quiz__result">
             <h2>Quiz Completed!</h2>
+            {/* Display different messages based on whether the user passed */}
             {result.score === questions.length ? (
               <p>Congratulations! You have successfully completed the quiz. Your result has been stored.</p>
             ) : (
@@ -168,28 +231,33 @@ const BlockchainQuiz = ({ handleQuizOpen }) => {
             <p>
               Correct Answers: <span className="quiz__result__correct">{result.correctAnswers}</span>
             </p>
+            {/* List of correctly answered questions (or just the answers) */}
             <ul>
-              {result.userCorrectAnswers.map((answer, index) => (
-                <li key={index} className="quiz__result__correct">
-                  {answer}
+              {result.userCorrectAnswers.map((correctAnswerText, index) => (
+                <li key={`correct-${index}`} className="quiz__result__correct">
+                  {correctAnswerText}
                 </li>
               ))}
             </ul>
             <p>
               Wrong Answers: <span className="quiz__result__wrong">{result.wrongAnswers}</span>
             </p>
+            {/* List of incorrectly answered questions and their correct answers */}
             <ul>
-              {result.userWrongAnswers.map((answer, index) => (
-                <li key={index} className="quiz__result__wrong">
-                  {answer}
+              {result.userWrongAnswers.map((wrongAnswerText, index) => (
+                <li key={`wrong-${index}`} className="quiz__result__wrong">
+                  {wrongAnswerText}
                 </li>
               ))}
             </ul>
             <div className="quiz__button">
+              {/* Conditional buttons: Retry/Close or just Close */}
               {result.score !== questions.length ? (
+                // If not all answers were correct, show Retry and Close buttons
                 <React.Fragment>
                   <button
                     onClick={() => {
+                      // Reset all quiz states to retry
                       setActiveQuestion(0);
                       setSelectedAnswer(null);
                       setResult({
@@ -205,23 +273,15 @@ const BlockchainQuiz = ({ handleQuizOpen }) => {
                   >
                     Retry Quiz
                   </button>
-
-                  <button
-                    onClick={() => {
-                      handleQuizOpen();
-                    }}
-                  >
+                  <button onClick={handleQuizOpen}>
+                    {' '}
+                    {/* Calls parent's function to close quiz */}
                     Close Quiz
                   </button>
                 </React.Fragment>
               ) : (
-                <button
-                  onClick={() => {
-                    handleQuizOpen();
-                  }}
-                >
-                  Close Quiz
-                </button>
+                // If all answers were correct, only show Close button
+                <button onClick={handleQuizOpen}>Close Quiz</button>
               )}
             </div>
           </div>

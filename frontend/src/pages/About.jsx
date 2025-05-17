@@ -1,21 +1,39 @@
-import { motion } from 'motion/react';
-import { pageVariants, pageTransition } from '../utils/utils';
+/**
+ * @file About.jsx
+ * @description Component for the 'About' page of the Blockchain Education Initiative.
+ * Provides information about the platform's mission, approach, educational standards,
+ * and commitment to accessibility.
+ */
 
+import { motion } from 'motion/react'; // For page transition animations
+import { pageVariants, pageTransition } from '../utils/utils'; // Animation utility constants
+
+/**
+ * @function About
+ * @description The main component for the About page.
+ * Displays static content related to the project's background and goals.
+ * @returns {JSX.Element} The About page UI.
+ */
 const About = () => {
   return (
     <>
+      {/* Animated div for page transitions */}
       <motion.div
         className="about"
-        initial="initial"
-        animate="in"
-        exit="out"
-        variants={pageVariants}
-        transition={pageTransition}
+        initial="initial" // Initial animation state
+        animate="in" // Animation state when component is in view
+        exit="out" // Animation state when component is exiting
+        variants={pageVariants} // Predefined animation variants
+        transition={pageTransition} // Predefined animation transition settings
       >
+        {/* Header section of the About page */}
         <div className="about__header">
           <h1>Blockchain Education Initiative: Building Understanding, Fostering Confidence</h1>
         </div>
+
+        {/* Main content section of the About page */}
         <div className="about__content">
+          {/* Block explaining who "we" are */}
           <div className="about__content__block">
             <h2>About Us</h2>
             <p>
@@ -25,6 +43,8 @@ const About = () => {
               accessible to everyone.
             </p>
           </div>
+
+          {/* Block explaining the motivation behind the platform */}
           <div className="about__content__block">
             <h2>Why We're Here</h2>
             <p>
@@ -34,6 +54,8 @@ const About = () => {
               people feel overwhelmed by the technical jargon and complexity surrounding them.
             </p>
           </div>
+
+          {/* Block explaining the educational approach */}
           <div className="about__content__block">
             <h2>Our Approach</h2>
             <p>
@@ -42,6 +64,8 @@ const About = () => {
               risk-free environment, while our educational content breaks down complex concepts into digestible pieces.
             </p>
           </div>
+
+          {/* Block detailing the educational standards */}
           <div className="about__content__block">
             <h2>Educational Standards</h2>
             <div className="about__content__block__addition">
@@ -55,9 +79,12 @@ const About = () => {
                   <li>Accessible to all skill levels</li>
                 </ul>
               </div>
+              {/* Decorative image */}
               <img src="src/assets/images/checkmark.png" alt="Checkmark" />
             </div>
           </div>
+
+          {/* Block highlighting commitment to accessibility */}
           <div className="about__content__block">
             <h2>Commitment to Accessibility</h2>
             <p>

@@ -1,29 +1,53 @@
-import { useState } from 'react';
-import { HashLink as Link } from 'react-router-hash-link';
-import { motion } from 'motion/react';
-import { pageVariants, pageTransition } from '../../utils/utils';
-import CryptoQuiz from './CryptoQuiz';
+/**
+ * @file Crypto.jsx
+ * @description Educational component explaining Cryptocurrencies.
+ * Covers decentralization, cryptography, digital wallets, private/public keys,
+ * mining, staking, and provides examples like Bitcoin and Ethereum. Includes a quiz.
+ */
 
+import { useState } from 'react';
+import { HashLink as Link } from 'react-router-hash-link'; // For in-page navigation and linking
+import { motion } from 'motion/react'; // For page transition animations
+import { pageVariants, pageTransition } from '../../utils/utils'; // Animation utility constants
+import CryptoQuiz from './CryptoQuiz'; // Quiz component specific to Cryptocurrencies
+
+/**
+ * @function Crypto
+ * @description Main component for the Cryptocurrency learning module.
+ * Displays educational content about various aspects of cryptocurrencies and includes an interactive quiz.
+ * @param {object} props - Component props.
+ * @param {function} props.handleOpen - Function passed from the parent (Learn.jsx)
+ * to signal that this module should be closed, returning the user to the main Learn page.
+ * @returns {JSX.Element} The Cryptocurrency learning module UI.
+ */
 const Crypto = ({ handleOpen }) => {
+  // State to control the visibility of the Crypto quiz
   const [isQuizOpen, setIsQuizOpen] = useState(false);
 
+  /**
+   * @function handleQuizOpen
+   * @description Toggles the visibility of the CryptoQuiz component.
+   */
   const handleQuizOpen = () => {
     setIsQuizOpen(!isQuizOpen);
   };
 
   return (
     <>
+      {/* Animated container for the cryptocurrency learning section */}
       <motion.div
-        className="learn__crypto"
+        className="learn__crypto" // CSS class for styling this specific module
         initial="initial"
         animate="in"
         exit="out"
         variants={pageVariants}
         transition={pageTransition}
       >
-        <button className="learn__back-button" onClick={() => handleOpen('blockchain')}>
+        {/* Button to go back to the main Learn page */}
+        <button className="learn__back-button" onClick={() => handleOpen('crypto')}>
           Back to Learn page
         </button>
+        {/* Article containing educational content about cryptocurrencies */}
         <article className="learn__crypto__content">
           <h1>Cryptocurrency</h1>
           <h3>From Blockchain to Cryptocurrencies: A Closer Look</h3>
@@ -39,6 +63,7 @@ const Crypto = ({ handleOpen }) => {
             controls their issuance or regulation.
           </p>
           <p>Here are some key aspects of cryptocurrencies:</p>
+          {/* ... list explaining key aspects: Decentralisation, Cryptography, etc. ... */}
           <ul>
             <li>
               <strong>Decentralisation:</strong> As mentioned, this is a core feature. Instead of a central bank, the
@@ -57,10 +82,12 @@ const Crypto = ({ handleOpen }) => {
               and demand, market sentiment, and other factors.
             </li>
           </ul>
+
           <h3>Information About Various Digital Currencies</h3>
           <p>
             The world of cryptocurrencies is diverse, with many different types and purposes. Here are a few examples:
           </p>
+          {/* ... examples of cryptocurrencies: Bitcoin, Ethereum, Litecoin ... */}
           <ul>
             <li>
               <strong>Bitcoin (BTC):</strong> The first and most well-known cryptocurrency. It was designed as a
@@ -80,8 +107,10 @@ const Crypto = ({ handleOpen }) => {
             It's important to remember that the cryptocurrency market is constantly evolving, with new currencies
             emerging and others changing over time.
           </p>
+
           <h3>Clear Explanations of Cryptocurrency Concepts</h3>
           <p>To better understand how cryptocurrencies work, let's clarify some essential concepts:</p>
+          {/* ... explanations of Digital Wallet, Private Key, Public Key, Transaction, Mining, Staking ... */}
           <ul>
             <li>
               <strong>Digital Wallet:</strong> This is a software program or hardware device that allows you to store,
@@ -111,16 +140,23 @@ const Crypto = ({ handleOpen }) => {
             This section provides a foundation for understanding the complex world of cryptocurrencies. By grasping
             these core concepts, you'll be better equipped to navigate this rapidly evolving landscape.
           </p>
+          {/* Call to action to try the wallet creation simulation */}
           <p className="learn__crypto__content__cta">
             You can dive into cryptocurrency experience with out wallet creation simulation.
             <Link to="/wallet" className="learn__crypto__content__cta__wallet">
               Create your own crypto wallet right now!
             </Link>
           </p>
+          {/* Call to action to visit the Resources page */}
           <p className="learn__crypto__content__cta">
-            Check out our <Link to="/resources#resources-header">Resources page</Link> for more information
+            Check out our{' '}
+            <Link to="/resources#resources-header" smooth>
+              Resources page
+            </Link>{' '}
+            for more information
           </p>
         </article>
+        {/* Footer section for the Crypto module, containing the quiz trigger */}
         <div className="learn__crypto__footer">
           <h3>Cryptocurrency Quiz</h3>
           <video src="src/assets/videos/crypto_quiz.mp4" autoPlay muted loop className="learn__header__video"></video>
@@ -132,6 +168,7 @@ const Crypto = ({ handleOpen }) => {
             Start Quiz
           </button>
         </div>
+        {/* Container for the quiz, rendered conditionally */}
         <div className="learn__crypto__quiz">{isQuizOpen && <CryptoQuiz handleQuizOpen={handleQuizOpen} />}</div>
       </motion.div>
     </>

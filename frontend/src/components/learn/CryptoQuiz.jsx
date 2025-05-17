@@ -1,8 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { motion } from 'motion/react';
-import { pageVariants, pageTransition } from '../../utils/utils';
+/**
+ * @file CryptoQuiz.jsx
+ * @description A quiz component specifically about Cryptocurrencies.
+ * It presents multiple-choice questions, tracks user answers, calculates scores,
+ * and provides feedback. On successful completion, it can send results to a backend.
+ */
 
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'; // For making HTTP requests
+import { motion } from 'motion/react'; // For animations
+import { pageVariants, pageTransition } from '../../utils/utils'; // Animation utility constants
+
+// Quiz data: title and an array of questions.
+// Each question has an id, the question text, an array of options, and the correct answer.
 const quiz = {
   title: 'Cryptocurrency Quiz',
   questions: [
@@ -70,9 +79,19 @@ const quiz = {
   ],
 };
 
+/**
+ * @function CryptoQuiz
+ * @description Manages the state and logic for the Cryptocurrency quiz.
+ * @param {object} props - Component props.
+ * @param {function} props.handleQuizOpen - Function to close the quiz modal/view, passed from the parent.
+ * @returns {JSX.Element} The Cryptocurrency quiz UI.
+ */
 const CryptoQuiz = ({ handleQuizOpen }) => {
+  // State to track the current active question index
   const [activeQuestion, setActiveQuestion] = useState(0);
+  // State to store whether the currently selected answer is correct (true/false) or null
   const [selectedAnswer, setSelectedAnswer] = useState(null);
+  // State to store the quiz results
   const [result, setResult] = useState({
     score: 0,
     correctAnswers: 0,
@@ -80,34 +99,45 @@ const CryptoQuiz = ({ handleQuizOpen }) => {
     userCorrectAnswers: [],
     userWrongAnswers: [],
   });
+  // State to track if the quiz has been completed
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
+  // State to store the index of the answer option selected by the user
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
 
-  const { questions } = quiz;
-  const { question, options, answer } = questions[activeQuestion];
+  const { questions } = quiz; // Destructure questions from the quiz object
+  const { question, options, answer } = questions[activeQuestion]; // Destructure current question details
 
+  // useEffect to send quiz results to the backend if the quiz is completed and all answers are correct.
   useEffect(() => {
     if (isQuizCompleted && result.score === questions.length) {
       sendQuizResult();
     }
-  }, [isQuizCompleted, result.score, questions.length]);
+  }, [isQuizCompleted, result.score, questions.length]); // Dependencies
 
+  /**
+   * @async
+   * @function sendQuizResult
+   * @description Sends the quiz completion status (specifically for 'Crypto Quiz') to the backend.
+   */
   const sendQuizResult = async () => {
     try {
-      const response = await axios.post(
+      await axios.post(
         'http://localhost:3000/api/learning/progress',
-        {
-          module: 'Crypto Quiz',
-        },
+        { module: 'Crypto Quiz' },
         { withCredentials: true }
       );
+      // console.log('Crypto Quiz result sent successfully'); // Optional
     } catch (error) {
-      console.error('Error sending quiz result:', error);
+      console.error('Error sending crypto quiz result:', error);
     }
   };
 
+  /**
+   * @function onClickNext
+   * @description Handles logic when "Next" or "Finish" is clicked. Updates results and question.
+   */
   const onClickNext = () => {
-    setSelectedAnswerIndex(null);
+    setSelectedAnswerIndex(null); // Reset for next question
     setResult((prev) =>
       selectedAnswer
         ? {
@@ -119,26 +149,37 @@ const CryptoQuiz = ({ handleQuizOpen }) => {
         : {
             ...prev,
             wrongAnswers: prev.wrongAnswers + 1,
-            userWrongAnswers: [...prev.userWrongAnswers, answer],
+            userWrongAnswers: [
+              ...prev.userWrongAnswers,
+              questions[activeQuestion].question + ' (Correct: ' + answer + ')',
+            ],
           }
     );
     if (activeQuestion !== questions.length - 1) {
       setActiveQuestion((prev) => prev + 1);
     } else {
-      setActiveQuestion(0);
+      // setActiveQuestion(0); // No need to reset activeQuestion if quiz is completed
       setIsQuizCompleted(true);
     }
   };
 
-  const onAnswerSelect = (select, index) => {
+  /**
+   * @function onAnswerSelect
+   * @description Handles selection of an answer option.
+   * @param {string} selectedOption - The text of the selected answer.
+   * @param {number} index - The index of the selected answer.
+   */
+  const onAnswerSelect = (selectedOption, index) => {
     setSelectedAnswerIndex(index);
-    if (select === answer) {
-      setSelectedAnswer(true);
-    } else {
-      setSelectedAnswer(false);
-    }
+    setSelectedAnswer(selectedOption === answer); // Sets selectedAnswer to true if correct, false otherwise
   };
 
+  /**
+   * @function addLeadingZero
+   * @description Adds a leading zero to a number if it's less than 10.
+   * @param {number} number - The number to format.
+   * @returns {string|number} Formatted number.
+   */
   const addLeadingZero = (number) => (number > 9 ? number : `0${number}`);
 
   return (
@@ -152,6 +193,7 @@ const CryptoQuiz = ({ handleQuizOpen }) => {
         transition={pageTransition}
       >
         {!isQuizCompleted ? (
+          // Quiz in progress view
           <>
             <div className="quiz__container">
               <div className="quiz-question__numbers">
@@ -160,13 +202,13 @@ const CryptoQuiz = ({ handleQuizOpen }) => {
               </div>
               <h2>{question}</h2>
               <ul>
-                {options.map((answer, index) => (
+                {options.map((option, index) => (
                   <li
-                    onClick={() => onAnswerSelect(answer, index)}
-                    key={answer}
+                    onClick={() => onAnswerSelect(option, index)}
+                    key={option} // Assuming option text is unique for key purposes
                     className={selectedAnswerIndex === index ? 'quiz__selected-answer' : ''}
                   >
-                    {answer}
+                    {option}
                   </li>
                 ))}
               </ul>
@@ -178,6 +220,7 @@ const CryptoQuiz = ({ handleQuizOpen }) => {
             </div>
           </>
         ) : (
+          // Quiz completed view (results)
           <div className="quiz__result">
             <h2>Quiz Completed!</h2>
             {result.score === questions.length ? (
@@ -194,9 +237,9 @@ const CryptoQuiz = ({ handleQuizOpen }) => {
               Correct Answers: <span className="quiz__result__correct">{result.correctAnswers}</span>
             </p>
             <ul>
-              {result.userCorrectAnswers.map((answer, index) => (
-                <li key={index} className="quiz__result__correct">
-                  {answer}
+              {result.userCorrectAnswers.map((correctAnswerText, index) => (
+                <li key={`correct-${index}`} className="quiz__result__correct">
+                  {correctAnswerText}
                 </li>
               ))}
             </ul>
@@ -204,9 +247,9 @@ const CryptoQuiz = ({ handleQuizOpen }) => {
               Wrong Answers: <span className="quiz__result__wrong">{result.wrongAnswers}</span>
             </p>
             <ul>
-              {result.userWrongAnswers.map((answer, index) => (
-                <li key={index} className="quiz__result__wrong">
-                  {answer}
+              {result.userWrongAnswers.map((wrongAnswerText, index) => (
+                <li key={`wrong-${index}`} className="quiz__result__wrong">
+                  {wrongAnswerText}
                 </li>
               ))}
             </ul>
@@ -215,6 +258,7 @@ const CryptoQuiz = ({ handleQuizOpen }) => {
                 <React.Fragment>
                   <button
                     onClick={() => {
+                      // Reset states to retry quiz
                       setActiveQuestion(0);
                       setSelectedAnswer(null);
                       setResult({
@@ -230,23 +274,10 @@ const CryptoQuiz = ({ handleQuizOpen }) => {
                   >
                     Retry Quiz
                   </button>
-
-                  <button
-                    onClick={() => {
-                      handleQuizOpen();
-                    }}
-                  >
-                    Close Quiz
-                  </button>
+                  <button onClick={handleQuizOpen}>Close Quiz</button>
                 </React.Fragment>
               ) : (
-                <button
-                  onClick={() => {
-                    handleQuizOpen();
-                  }}
-                >
-                  Close Quiz
-                </button>
+                <button onClick={handleQuizOpen}>Close Quiz</button>
               )}
             </div>
           </div>

@@ -1,20 +1,42 @@
-import { useState } from 'react';
-import { HashLink as Link } from 'react-router-hash-link';
-import Zoom from 'react-medium-image-zoom';
-import { motion } from 'motion/react';
-import { pageVariants, pageTransition } from '../../utils/utils';
-import BlockchainQuiz from './BlockchainQuiz';
-import 'react-medium-image-zoom/dist/styles.css';
+/**
+ * @file Blockchain.jsx
+ * @description Educational component explaining Blockchain technology.
+ * It includes textual explanations, infographics (with zoom functionality),
+ * and a quiz to test understanding.
+ */
 
+import { useState } from 'react';
+import { HashLink as Link } from 'react-router-hash-link'; // For in-page navigation and linking to other pages
+import Zoom from 'react-medium-image-zoom'; // For image zoom functionality
+import { motion } from 'motion/react'; // For page transition animations
+import { pageVariants, pageTransition } from '../../utils/utils'; // Animation utility constants
+import BlockchainQuiz from './BlockchainQuiz'; // Quiz component specific to Blockchain
+import 'react-medium-image-zoom/dist/styles.css'; // Styles for the image zoom component
+
+/**
+ * @function Blockchain
+ * @description Main component for the Blockchain learning module.
+ * Displays educational content about blockchain and includes an interactive quiz.
+ * @param {object} props - Component props.
+ * @param {function} props.handleOpen - Function passed from the parent (Learn.jsx)
+ * to signal that this module should be closed, returning the user to the main Learn page.
+ * @returns {JSX.Element} The Blockchain learning module UI.
+ */
 const Blockchain = ({ handleOpen }) => {
+  // State to control the visibility of the Blockchain quiz
   const [isQuizOpen, setIsQuizOpen] = useState(false);
 
+  /**
+   * @function handleQuizOpen
+   * @description Toggles the visibility of the BlockchainQuiz component.
+   */
   const handleQuizOpen = () => {
     setIsQuizOpen(!isQuizOpen);
   };
 
   return (
     <>
+      {/* Animated container for the blockchain learning section */}
       <motion.div
         className="learn__blockchain"
         initial="initial"
@@ -23,9 +45,11 @@ const Blockchain = ({ handleOpen }) => {
         variants={pageVariants}
         transition={pageTransition}
       >
+        {/* Button to go back to the main Learn page */}
         <button className="learn__back-button" onClick={() => handleOpen('blockchain')}>
           Back to Learn page
         </button>
+        {/* Article containing educational content about blockchain */}
         <article className="learn__blockchain__content">
           <h1>Blockchain</h1>
           <p>
@@ -33,6 +57,7 @@ const Blockchain = ({ handleOpen }) => {
             blockchain is a revolutionary way of recording and sharing information. Imagine a digital ledger that's
             duplicated across many computers.
           </p>
+          {/* ... more introductory paragraphs ... */}
           <p>
             Instead of a single entity controlling the information, everyone in the network has a copy. This makes it
             incredibly difficult to change or delete data, providing a high level of security and transparency.
@@ -61,15 +86,17 @@ const Blockchain = ({ handleOpen }) => {
             This section will break down these concepts further, using visuals and simple language, so you can
             confidently grasp how blockchain works and its potential.
           </p>
+          {/* Infographic with zoom functionality */}
           <div className="learn__blockchain__content__zoom">
             <Zoom>
-              <img src="src/assets/images/blockchain-info.jpeg" alt="Blockchain infographics" />
+              <img src="src/assets/images/blockchain-info.jpeg" alt="Blockchain infographics - how it works" />
             </Zoom>
           </div>
           <p>
             The world of digital currencies can seem complex, filled with unfamiliar terms. Our goal is to simplify this
             for you. Here, we'll break down the essential vocabulary and fundamental ideas without the confusing jargon.
           </p>
+          {/* ... list of core concepts (Digital Currency, Cryptocurrency, etc.) ... */}
           <ul>
             <li>
               <strong>Digital Currency:</strong> Simply put, it's money that exists only in electronic form. Think of it
@@ -101,20 +128,19 @@ const Blockchain = ({ handleOpen }) => {
             These are some of the basic building blocks. We'll explore these and other concepts in more detail, always
             keeping the explanations clear and straightforward.
           </p>
+          {/* Another infographic with zoom */}
           <div className="learn__blockchain__content__zoom">
             <Zoom>
-              <img src="src/assets/images/crypto-info.jpg" alt="Blockchain infographics" />
+              <img src="src/assets/images/crypto-info.jpg" alt="Blockchain infographics - types and consensus" />
             </Zoom>
           </div>
           <p>
             Our infographic provides a visual guide to the fascinating world of blockchain technology. Let's dive deeper
             into the different aspects highlighted:
           </p>
+          {/* Detailed explanation of blockchain types, differences, consensus methods, and use cases */}
           <h3>Types of Blockchain Architecture:</h3>
-          <p>
-            Just like there are different ways to build a house, there are different structures for blockchains. The
-            infographic shows three main types:
-          </p>
+          {/* ... content on Public, Private, Federated/Consortium blockchains ... */}
           <ul>
             <li>
               <strong>Public Blockchain:</strong> Think of this as a completely open and transparent record book. Anyone
@@ -132,8 +158,9 @@ const Blockchain = ({ handleOpen }) => {
               offers a balance between transparency and control.
             </li>
           </ul>
+
           <h3>Key Differences Between Blockchain Types:</h3>
-          <p>The infographic neatly summarises the distinctions:</p>
+          {/* ... content detailing differences in Access, Consensus, Efficiency, etc. ... */}
           <ul>
             <li>
               <strong>Access:</strong> Public blockchains are open to everyone, while private and consortium blockchains
@@ -163,8 +190,9 @@ const Blockchain = ({ handleOpen }) => {
               setup.
             </li>
           </ul>
+
           <h3>Notable Consensus Methods:</h3>
-          <p>The infographic introduces some common ways blockchains achieve agreement on new data:</p>
+          {/* ... content on PoW, PoS, DPoS, PBFT ... */}
           <ul>
             <li>
               <strong>Proof-of-Work (PoW):</strong> This is the original consensus mechanism used by Bitcoin. It
@@ -186,11 +214,9 @@ const Blockchain = ({ handleOpen }) => {
               blockchains.
             </li>
           </ul>
+
           <h3>Popular Blockchain Use Cases:</h3>
-          <p>
-            Blockchain's potential extends far beyond cryptocurrencies. The infographic highlights a few exciting
-            applications:
-          </p>
+          {/* ... content on Trade Finance, Supply Chain, Healthcare, Retail ... */}
           <ul>
             <li>
               <strong>Trade Finance:</strong> Streamlining international trade by making it more transparent and
@@ -209,8 +235,9 @@ const Blockchain = ({ handleOpen }) => {
               authenticity.
             </li>
           </ul>
+
           <h3>How Blockchain Works (Simplified):</h3>
-          <p>The infographic illustrates the basic steps of a blockchain transaction:</p>
+          {/* ... ordered list explaining the transaction process ... */}
           <ol>
             <li>A user requests a transaction.</li>
             <li>This transaction is sent to a network of computers (nodes).</li>
@@ -223,10 +250,16 @@ const Blockchain = ({ handleOpen }) => {
             This infographic provides a great starting point for understanding the core concepts of blockchain. As you
             continue your learning journey, you'll discover even more about this transformative technology!
           </p>
+          {/* Call to action to visit the Resources page */}
           <p className="learn__blockchain__content__cta">
-            Check out our <Link to="/resources#resources-header">Resources page</Link> for more information
+            Check out our{' '}
+            <Link to="/resources#resources-header" smooth>
+              Resources page
+            </Link>{' '}
+            for more information
           </p>
         </article>
+        {/* Footer section for the Blockchain module, containing the quiz trigger */}
         <div className="learn__blockchain__footer">
           <h3>Blockchain Quiz</h3>
           <video
@@ -234,7 +267,7 @@ const Blockchain = ({ handleOpen }) => {
             autoPlay
             muted
             loop
-            className="learn__header__video"
+            className="learn__header__video" // Reusing class for consistent video styling
           ></video>
           <p>
             Now that you've learned about blockchain technology, it's time to test your knowledge! Click the button
@@ -244,6 +277,7 @@ const Blockchain = ({ handleOpen }) => {
             Start Quiz
           </button>
         </div>
+        {/* Container for the quiz, rendered conditionally */}
         <div className="learn__blockchain__quiz">
           {isQuizOpen && <BlockchainQuiz handleQuizOpen={handleQuizOpen} />}
         </div>
