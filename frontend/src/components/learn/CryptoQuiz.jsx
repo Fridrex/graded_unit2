@@ -206,6 +206,13 @@ const CryptoQuiz = ({ handleQuizOpen }) => {
                   <li
                     onClick={() => onAnswerSelect(option, index)}
                     key={option} // Assuming option text is unique for key purposes
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        e.preventDefault(); // Prevent default action
+                        onAnswerSelect(option, index); // Allow selection with Enter key
+                      }
+                    }}
+                    tabIndex={0}
                     className={selectedAnswerIndex === index ? 'quiz__selected-answer' : ''}
                   >
                     {option}

@@ -205,6 +205,13 @@ const CbdcQuiz = ({ handleQuizOpen }) => {
                   <li
                     onClick={() => onAnswerSelect(option, index)}
                     key={option} // Ensure option is unique or use question.id + index
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        e.preventDefault(); // Prevent default action
+                        onAnswerSelect(option, index); // Allow selection with Enter key
+                      }
+                    }}
+                    tabIndex={0}
                     className={selectedAnswerIndex === index ? 'quiz__selected-answer' : ''}
                   >
                     {option}

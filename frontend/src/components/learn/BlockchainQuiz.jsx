@@ -198,7 +198,13 @@ const BlockchainQuiz = ({ handleQuizOpen }) => {
                   <li
                     onClick={() => onAnswerSelect(option, index)}
                     key={option} // Using option text as key; ensure uniqueness or use id if available
-                    // Apply 'quiz__selected-answer' class if this option is selected
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        e.preventDefault(); // Prevent default action
+                        onAnswerSelect(option, index); // Allow selection with Enter key
+                      }
+                    }}
+                    tabIndex={0}
                     className={selectedAnswerIndex === index ? 'quiz__selected-answer' : ''}
                   >
                     {option}
