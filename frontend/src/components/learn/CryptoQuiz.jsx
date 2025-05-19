@@ -212,6 +212,8 @@ const CryptoQuiz = ({ handleQuizOpen }) => {
                         onAnswerSelect(option, index); // Allow selection with Enter key
                       }
                     }}
+                    role='button'
+                    aria-selected={selectedAnswerIndex === index}
                     tabIndex={0}
                     className={selectedAnswerIndex === index ? 'quiz__selected-answer' : ''}
                   >
@@ -220,7 +222,7 @@ const CryptoQuiz = ({ handleQuizOpen }) => {
                 ))}
               </ul>
               <div className="quiz__button">
-                <button onClick={onClickNext} disabled={selectedAnswerIndex === null}>
+                <button onClick={onClickNext} disabled={selectedAnswerIndex === null} role='button' aria-disabled={selectedAnswerIndex === null}>
                   {activeQuestion === questions.length - 1 ? 'Finish' : 'Next'}
                 </button>
               </div>
