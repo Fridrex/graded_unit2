@@ -8,6 +8,10 @@
 import { Link } from 'react-router'; // For internal navigation
 import { motion } from 'motion/react'; // For page transition animations
 import { pageVariants, pageTransition } from '../utils/utils'; // Animation utility constants
+import brainPng from '../../src/assets/images/Object.png';
+import chainPng from '../../src/assets/images/chain.png';
+import walletPng from '../../src/assets/images/wallet.png';
+import trophyPng from '../../src/assets/images/trophy.png';
 
 /**
  * @function Home
@@ -92,7 +96,8 @@ const Home = () => {
           <div className="home__explanation__blocks">
             {/* Step 1: Start Learning */}
             <div className="home__explanation__blocks__block">
-              <img src="src/assets/images/Object.png" alt="Digital brain" />
+              <img src={brainPng}
+              alt="Digital brain" />
               <h3>Start Learning</h3>
               <p>
                 Begin your journey with clear, jargon-free explanations of blockchain technology and digital currencies.
@@ -100,19 +105,19 @@ const Home = () => {
             </div>
             {/* Step 2: Understand Basics */}
             <div className="home__explanation__blocks__block">
-              <img src="src/assets/images/chain.png" alt="A chain of blocks" />
+              <img src={chainPng} alt="A chain of blocks" />
               <h3>Understand Basics</h3>
               <p>Progress through interactive lessons that break down complex concepts into digestible pieces.</p>
             </div>
             {/* Step 3: Try It Out */}
             <div className="home__explanation__blocks__block">
-              <img src="src/assets/images/wallet.png" alt="Wallet" />
+              <img src={walletPng} alt="Wallet" />
               <h3>Try It Out</h3>
               <p>Put your knowledge into practice with our safe, simulated wallet environment.</p>
             </div>
             {/* Step 4: Test Knowledge */}
             <div className="home__explanation__blocks__block">
-              <img src="src/assets/images/trophy.png" alt="Trophy" />
+              <img src={trophyPng} alt="Trophy" />
               <h3>Test Knowledge</h3>
               <p>Reinforce your learning through quizzes and practical exercises at your own pace.</p>
             </div>

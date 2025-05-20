@@ -6,7 +6,7 @@
  */
 
 import { Link, useLocation } from 'react-router'; // For navigation links and getting current location
-import footerLogo from 'src/assets/images/logo.png'; // Logo image for the footer
+import footerLogo from '../../src/assets/images/logo.png'; // Logo image for the footer
 
 /**
  * @function Footer
