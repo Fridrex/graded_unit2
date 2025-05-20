@@ -51,7 +51,7 @@ const Navigation = () => {
         {/* Logo section with a link to the home page */}
         <div className="logo">
           <Link to="/">
-            <img src="src/assets/images/logo.png" alt="Logo" className="logo__img" />
+            <img src="./src/assets/images/logo.png" alt="Logo" className="logo__img" />
           </Link>
           <p>Blockchain Education</p>
         </div>

@@ -104,7 +104,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="footer__content__logo">
-              <img src="src/assets/images/logo.png" alt="Logo" className="footer__content__logo__image" />
+              <img src="frontend/src/assets/images/logo.png" alt="Logo" className="footer__content__logo__image" />
               <p>Blockchain Education</p>
             </div>
             <div className="footer__content__copyright">
