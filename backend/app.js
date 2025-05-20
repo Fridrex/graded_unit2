@@ -142,8 +142,9 @@ app.post('/api/wallet/create', async (req, res) => {
     // Set the token in an httpOnly cookie
     res.cookie('auth_token', token, {
       httpOnly: true, // Cookie is not accessible via client-side JavaScript
-      secure: process.env.NODE_ENV === 'production', // Use secure cookies in production (requires HTTPS)
+      secure: true, // Cookie is only sent over HTTPS (in production)
       maxAge: 72 * 60 * 60 * 1000, // Cookie lifespan (72 hours)
+      sameSite: 'None', // Cookie is sent with cross-origin requests
     });
 
     // Respond to the client with the created wallet data (including the original seed phrase)
@@ -206,8 +207,9 @@ app.post('/api/wallet/access', async (req, res) => {
 
       res.cookie('auth_token', token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
+        secure: true,
         maxAge: 72 * 60 * 60 * 1000,
+        sameSite: 'None',
       });
 
       // Prepare wallet data for the response
@@ -303,8 +305,9 @@ app.post('/api/learning/progress', async (req, res) => {
       // Set 'sessionId' cookie for 7 days (168 hours)
       res.cookie('sessionId', newSessionId, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
+        secure: true,
         maxAge: 168 * 60 * 60 * 1000,
+        sameSite: 'None',
       });
       sessionId = newSessionId;
     }
