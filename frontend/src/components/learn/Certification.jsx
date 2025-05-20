@@ -10,6 +10,8 @@ import jsPDF from 'jspdf'; // For generating PDF documents
 import { motion } from 'motion/react'; // For page transition animations
 import { pageVariants, pageTransition } from '../../utils/utils'; // Animation utility constants
 import Loading from '../Loading'; // Loading spinner component
+import trophy from '../../../src/assets/images/trophy.png'; // Trophy image for the certificate
+import certificationImage from '../../../src/assets/images/certification.png'; // Certification image for the page
 
 /**
  * @function Certificate
@@ -31,7 +33,7 @@ const Certificate = ({ fullName }) => (
       <div className="learn__certificate__footer">
         For successfully completing the course on blockchain technology and digital assets.
       </div>
-      <img src="src/assets/images/trophy.png" alt="Trophy icon" /> {/* Decorative image */}
+      <img src={trophy} alt="Trophy icon" /> {/* Decorative image */}
     </div>
   </div>
 );
@@ -132,7 +134,7 @@ const Certification = ({ handleOpen }) => {
         <div className="learn__certification__content">
           <h1>Congratulations on Your Achievement!</h1>
           <h3>Your Certificate of Completion: Blockchain & Digital Asset Fundamentals</h3>
-          <img src="src/assets/images/certification.png" alt="Illustration for Certification" />
+          <img src={certificationImage} alt="Illustration for Certification" />
           <p>
             You have successfully demonstrated your understanding of the core concepts of Blockchain technology,
             Cryptocurrencies, and Central Bank Digital Currencies presented in this educational portal. This certificate

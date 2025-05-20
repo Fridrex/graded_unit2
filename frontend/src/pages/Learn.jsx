@@ -49,7 +49,7 @@ const Learn = () => {
       await new Promise((resolve) => setTimeout(resolve, 200)); // Simulate delay
 
       // API call to get learning progress
-      const response = await axios.get('http://localhost:3000/api/learning/getProgress', { withCredentials: true });
+      const response = await axios.get('https://graded-unit2.onrender.com:3000/api/learning/getProgress', { withCredentials: true });
 
       if (response.status === 200) {
         const { progress } = response.data;

@@ -122,7 +122,7 @@ const CryptoQuiz = ({ handleQuizOpen }) => {
   const sendQuizResult = async () => {
     try {
       await axios.post(
-        'http://localhost:3000/api/learning/progress',
+        'https://graded-unit2.onrender.com:3000/api/learning/progress',
         { module: 'Crypto Quiz' },
         { withCredentials: true }
       );
