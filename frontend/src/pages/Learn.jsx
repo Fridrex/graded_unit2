@@ -16,6 +16,7 @@ import Crypto from '../components/learn/Crypto';
 import Cbdc from '../components/learn/Cbdc';
 import Certification from '../components/learn/Certification';
 import Loading from '../components/Loading'; // Loading spinner component
+import learVideo from '../../src/assets/videos/learn_video.mp4'; // Video for the header
 
 /**
  * @function Learn
@@ -126,7 +127,7 @@ const Learn = () => {
               <h1>Welcome to Your Blockchain Learning Hub</h1>
               {/* Autoplaying, muted, looping video for the header */}
               <video
-                src="src/assets/videos/learn_video.mp4"
+                src={learVideo}
                 autoPlay
                 muted
                 loop

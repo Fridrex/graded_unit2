@@ -9,6 +9,8 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router'; // Used for navigation, though direct button actions are more prominent here
 import { motion } from 'motion/react'; // For page transition animations
 import { pageVariants, pageTransition } from '../utils/utils'; // Animation utility constants
+import bitcoinKey from '../../src/assets/images/bitcoin-key-icon.png'; // Image for wallet creation
+import loginWallet from '../../src/assets/images/login-wallet.png'; // Image for wallet access
 
 // Import wallet-related sub-components
 import CreateWalletInstructions from '../components/wallet/CreateWalletInstructions';
@@ -130,7 +132,7 @@ const Wallet = () => {
               </button>
             </div>
             <div className="wallet__create-wallet__content__image">
-              <img src="src/assets/images/bitcoin-key-icon.png" alt="Bitcoin Key" />
+              <img src={bitcoinKey} alt="Bitcoin Key" />
             </div>
           </div>
         </div>
@@ -149,7 +151,7 @@ const Wallet = () => {
           <h2>View Existing Wallet</h2>
           <div className="wallet__access-wallet__content">
             <div className="wallet__access-wallet__content__image">
-              <img src="src/assets/images/login-wallet.png" alt="Login to Wallet" /> {/* Alt text improved */}
+              <img src={loginWallet} alt="Login to Wallet" /> {/* Alt text improved */}
             </div>
             <div className="wallet__access-wallet__content__text-and-button">
               <p>

@@ -529,7 +529,7 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('src/assets/images/home-header.webp') center / cover no-repeat;
+  background: url('../../src/assets/images/home-header.webp') center / cover no-repeat;
   opacity: 0.4;
   z-index: 0;
 }
@@ -671,7 +671,7 @@ p {
 /* About */
 
 .about__header::before {
-  background: url('src/assets/images/about-header.webp') center / cover no-repeat;
+  background: url('../../src/assets/images/about-header.webp') center / cover no-repeat;
 }
 
 .about__content {

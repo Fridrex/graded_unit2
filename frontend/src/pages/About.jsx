@@ -7,6 +7,7 @@
 
 import { motion } from 'motion/react'; // For page transition animations
 import { pageVariants, pageTransition } from '../utils/utils'; // Animation utility constants
+import checkmark from '../../src/assets/images/checkmark.png'; // Checkmark image for visual representation
 
 /**
  * @function About
@@ -80,7 +81,7 @@ const About = () => {
                 </ul>
               </div>
               {/* Decorative image */}
-              <img src="src/assets/images/checkmark.png" alt="Checkmark" />
+              <img src={checkmark} alt="Checkmark" />
             </div>
           </div>
 
