@@ -105,7 +105,7 @@ const AccessWallet = ({ handleAccess }) => {
 
       try {
         // Attempt to access the wallet (e.g., if there's an existing session)
-        const response = await axios.post('https://graded-unit2.onrender.com:3000/api/wallet/access', {}, { withCredentials: true });
+        const response = await axios.post('https://graded-unit2.onrender.com/api/wallet/access', {}, { withCredentials: true });
 
         if (response.status === 200) {
           setIsAccessGranted(true); // Grant access if successful
@@ -145,7 +145,7 @@ const AccessWallet = ({ handleAccess }) => {
       try {
         // API call to access wallet with the provided seed phrase
         const response = await axios.post(
-          'https://graded-unit2.onrender.com:3000/api/wallet/access',
+          'https://graded-unit2.onrender.com/api/wallet/access',
           { seedPhrase },
           { withCredentials: true }
         );

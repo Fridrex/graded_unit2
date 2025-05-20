@@ -67,7 +67,7 @@ const CreateWallet = () => {
       localStorage.clear(); // Clear local storage before creating a new wallet
 
       // API call to create a wallet
-      const response = await axios.post('https://graded-unit2.onrender.com:3000/api/wallet/create', {}, { withCredentials: true });
+      const response = await axios.post('https://graded-unit2.onrender.com/api/wallet/create', {}, { withCredentials: true });
 
       if (response.status === 201) {
         // HTTP 201 Created

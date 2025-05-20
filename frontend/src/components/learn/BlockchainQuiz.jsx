@@ -101,7 +101,7 @@ const BlockchainQuiz = ({ handleQuizOpen }) => {
     try {
       // API call to record learning progress
       const response = await axios.post(
-        'https://graded-unit2.onrender.com:3000/api/learning/progress',
+        'https://graded-unit2.onrender.com/api/learning/progress',
         {
           module: 'Blockchain Quiz', // Identifies the completed module
         },

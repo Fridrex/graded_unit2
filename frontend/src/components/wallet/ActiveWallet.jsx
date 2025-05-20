@@ -84,7 +84,7 @@ const ActiveWallet = () => {
 
       // API call to send a transaction
       const response = await axios.post(
-        'https://graded-unit2.onrender.com:3000/api/wallet/transaction',
+        'https://graded-unit2.onrender.com/api/wallet/transaction',
         {
           recipientAddress,
           amount: numericAmount,
@@ -131,7 +131,7 @@ const ActiveWallet = () => {
       await new Promise((resolve) => setTimeout(resolve, 200));
 
       // API call to get wallet data
-      const response = await axios.get('https://graded-unit2.onrender.com:3000/api/wallet', { withCredentials: true });
+      const response = await axios.get('https://graded-unit2.onrender.com/api/wallet', { withCredentials: true });
 
       if (response.status === 200) {
         const { wallet } = response.data;
