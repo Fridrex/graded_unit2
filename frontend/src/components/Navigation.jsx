@@ -7,6 +7,7 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router'; // Link for simple navigation, NavLink for active styling
 import HamburgerMenu from './HamburgerMenu'; // Hamburger menu icon component
+import headerLogo from './src/assets/images/logo.png';
 
 /**
  * @function Navigation
@@ -51,7 +52,7 @@ const Navigation = () => {
         {/* Logo section with a link to the home page */}
         <div className="logo">
           <Link to="/">
-            <img src="./src/assets/images/logo.png" alt="Logo" className="logo__img" />
+            <img src={headerLogo} alt="Logo" className="logo__img" />
           </Link>
           <p>Blockchain Education</p>
         </div>

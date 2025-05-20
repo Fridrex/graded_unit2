@@ -6,6 +6,7 @@
  */
 
 import { Link, useLocation } from 'react-router'; // For navigation links and getting current location
+import footerLogo from './src/assets/images/logo.png'; // Logo image for the footer
 
 /**
  * @function Footer
@@ -104,7 +105,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="footer__content__logo">
-              <img src="frontend/src/assets/images/logo.png" alt="Logo" className="footer__content__logo__image" />
+              <img src={footerLogo} alt="Logo" className="footer__content__logo__image" />
               <p>Blockchain Education</p>
             </div>
             <div className="footer__content__copyright">
