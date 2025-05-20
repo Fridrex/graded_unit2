@@ -7,7 +7,7 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router'; // Link for simple navigation, NavLink for active styling
 import HamburgerMenu from './HamburgerMenu'; // Hamburger menu icon component
-import headerLogo from './src/assets/images/logo.png';
+import headerLogo from 'src/assets/images/logo.png';
 
 /**
  * @function Navigation
