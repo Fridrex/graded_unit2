@@ -39,7 +39,7 @@ mongoose
 
 // Schema for transactions within a wallet
 const transactionSchema = new mongoose.Schema({
-  txId: { type: String, required: true, unique: true }, // Unique transaction ID
+  txId: { type: String, required: true }, // Unique transaction ID
   amount: { type: Number, required: true }, // Transaction amount
   timestamp: { type: Date, default: Date.now }, // Transaction timestamp
   type: { type: String, enum: ['send', 'receive'], required: true }, // Transaction type: send or receive
@@ -59,7 +59,8 @@ const walletSchema = new mongoose.Schema({
 });
 
 // TTL index for automatic deletion of Wallet documents after expiryDate
-walletSchema.index({ expiryDate: 1 }, { expireAfterSeconds: 0 });
+walletSchema.index({ expiryDate: 1 }, { expireAfterSeconds: 0 }); // Set TTL index on expiryDate
+walletSchema.index({ 'transactions.txId': 1 }, { unique: true, sparse: true }); // Ensure unique transaction IDs within transactions array
 const Wallet = mongoose.model('Wallet', walletSchema); // Create Wallet model
 
 // Schema for tracking user's learning progress
