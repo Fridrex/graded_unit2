@@ -27,7 +27,7 @@ const uri = process.env.MONGODB_URI; // URI for MongoDB connection, from environ
 app.use(express.json()); // Parse JSON request bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded request bodies
 app.use(cookieParser()); // Parse cookies
-app.use(cors({ origin: 'http://localhost:3001', credentials: true })); // Configure CORS to allow requests from the frontend (port 3001) and allow credentials (cookies)
+app.use(cors({ origin: 'https://graded-unit2-1.onrender.com', credentials: true })); // Configure CORS to allow requests from the frontend (port 3001) and allow credentials (cookies)
 app.use(helmet()); // Set security headers
 app.use(morgan('dev')); // Log HTTP requests in development mode
 
