@@ -10,7 +10,7 @@ import { HashLink as Link } from 'react-router-hash-link'; // For in-page naviga
 import { motion } from 'motion/react'; // For page transition animations
 import { pageVariants, pageTransition } from '../../utils/utils'; // Animation utility constants
 import CryptoQuiz from './CryptoQuiz'; // Quiz component specific to Cryptocurrencies
-
+import cryptoQuizVideo from '../../../src/assets/videos/crypto_quiz.mp4'; // Video for the quiz section
 /**
  * @function Crypto
  * @description Main component for the Cryptocurrency learning module.
@@ -159,7 +159,7 @@ const Crypto = ({ handleOpen }) => {
         {/* Footer section for the Crypto module, containing the quiz trigger */}
         <div className="learn__crypto__footer">
           <h3>Cryptocurrency Quiz</h3>
-          <video src="src/assets/videos/crypto_quiz.mp4" autoPlay muted loop className="learn__header__video"></video>
+          <video src={cryptoQuizVideo} autoPlay muted loop className="learn__header__video"></video>
           <p>
             Now that you've learned about cryptocurrencies, it's time to test your knowledge! Click the button below to
             take the quiz and see how well you understand the concepts we've covered.

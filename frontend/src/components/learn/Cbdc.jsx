@@ -12,6 +12,8 @@ import { pageVariants, pageTransition } from '../../utils/utils'; // Animation u
 import Zoom from 'react-medium-image-zoom'; // For image zoom functionality
 import 'react-medium-image-zoom/dist/styles.css'; // Styles for image zoom
 import CbdcQuiz from './CbdcQuiz'; // Quiz component specific to CBDCs
+import cbdcdiagram from '../../../src/assets/images/digital-money-venn-diagram.svg'; // Infographic image for CBDCs
+import cbdcQuizVideo from '../../../src/assets/videos/cbdc_quiz.mp4'; // Video for the quiz section
 
 /**
  * @function Cbdc (Note: filename is Cdbc.jsx, but component is named Cdbc. Consider renaming for consistency, e.g., to CBDC)
@@ -64,7 +66,7 @@ const Cdbc = ({ handleOpen }) => {
           <div className="learn__cbdc__content__zoom">
             <Zoom>
               <img
-                src="src/assets/images/digital-money-venn-diagram.svg"
+                src={cbdcdiagram}
                 alt="CBDC infographics comparing digital money types"
               />
             </Zoom>
@@ -145,7 +147,7 @@ const Cdbc = ({ handleOpen }) => {
         {/* Footer section for the CBDC module, containing the quiz trigger */}
         <div className="learn__cbdc__footer">
           <h3>CBDC Quiz</h3>
-          <video src="src/assets/videos/cbdc_quiz.mp4" autoPlay muted loop className="learn__header__video"></video>
+          <video src={cbdcQuizVideo} autoPlay muted loop className="learn__header__video"></video>
           <p>
             Now that you've learned about Central Bank Digital Currencies (CBDCs), it's time to test your knowledge!
             Click the button below to take the quiz and see how well you understand the concepts we've covered.
@@ -161,4 +163,4 @@ const Cdbc = ({ handleOpen }) => {
   );
 };
 
-export default Cdbc; // Consider renaming export to CBDC if component name changes
+export default Cdbc;

@@ -7,6 +7,7 @@
 import { Link } from 'react-router'; // Used for the styled button, not direct navigation here
 import { motion } from 'motion/react'; // For animations
 import { pageVariants, pageTransition } from '../../utils/utils'; // Animation utility constants
+import instructionsVideo from '../../../src/assets/videos/wallet_instructions.mp4'; // Video for the instructions
 
 /**
  * @function CreateWalletInstructions
@@ -50,7 +51,7 @@ const CreateWalletInstructions = ({ handleCreate, handleStart, handleCheckboxCha
             <p>Once your wallet is created, you can start exploring its features and functionalities.</p>
             {/* Instructional video */}
             <video className="wallet__create-instructions__video" autoPlay loop muted>
-              <source src="src/assets/videos/wallet_instructions.mp4" type="video/mp4" />
+              <source src={instructionsVideo} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             {/* Confirmation checkbox */}

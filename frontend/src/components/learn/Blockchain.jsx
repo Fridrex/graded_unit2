@@ -12,6 +12,9 @@ import { motion } from 'motion/react'; // For page transition animations
 import { pageVariants, pageTransition } from '../../utils/utils'; // Animation utility constants
 import BlockchainQuiz from './BlockchainQuiz'; // Quiz component specific to Blockchain
 import 'react-medium-image-zoom/dist/styles.css'; // Styles for the image zoom component
+import blockchainInfographics from '../../../src/assets/images/blockchain-info.jpeg'; // Infographic image
+import cryptoInfographics from '../../../src/assets/images/crypto-info.jpg'; // Another infographic image
+import blockchainQuizVideo from '../../../src/assets/videos/blockchain_quiz.mp4'; // Video for quiz section
 
 /**
  * @function Blockchain
@@ -89,7 +92,7 @@ const Blockchain = ({ handleOpen }) => {
           {/* Infographic with zoom functionality */}
           <div className="learn__blockchain__content__zoom">
             <Zoom>
-              <img src="src/assets/images/blockchain-info.jpeg" alt="Blockchain infographics - how it works" />
+              <img src={blockchainInfographics} alt="Blockchain infographics - how it works" />
             </Zoom>
           </div>
           <p>
@@ -131,7 +134,8 @@ const Blockchain = ({ handleOpen }) => {
           {/* Another infographic with zoom */}
           <div className="learn__blockchain__content__zoom">
             <Zoom>
-              <img src="src/assets/images/crypto-info.jpg" alt="Blockchain infographics - types and consensus" />
+              <img src={cryptoInfographics}
+              alt="Blockchain infographics - types and consensus" />
             </Zoom>
           </div>
           <p>
@@ -263,7 +267,7 @@ const Blockchain = ({ handleOpen }) => {
         <div className="learn__blockchain__footer">
           <h3>Blockchain Quiz</h3>
           <video
-            src="src/assets/videos/blockchain_quiz.mp4"
+            src={blockchainQuizVideo}
             autoPlay
             muted
             loop

@@ -183,7 +183,7 @@ const CreateWallet = () => {
           </div>
           <div className="wallet__cw__body">
             {/* Link to go back to the main wallet page */}
-            <Link to="/home">
+            <Link to="/">
               <button className="create-wallet__button">Go Back</button>
             </Link>
           </div>
